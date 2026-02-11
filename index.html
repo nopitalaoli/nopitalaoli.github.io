@@ -1,161 +1,174 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nopita Library</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
+<title>Nopita Library</title>
 
-        /* Header */
-        header {
-            background-color: #6a5acd;
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f4f4;
+}
 
-        /* Navigation */
-        nav {
-            background-color: #483d8b;
-            padding: 12px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-        }
+/* Header */
+header{
+    background:#6a5acd;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+/* Navbar */
+nav{
+    background:#483d8b;
+    text-align:center;
+    padding:12px;
+}
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+nav a{
+    color:white;
+    margin:15px;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-        /* Container */
-        .container {
-            padding: 30px;
-            max-width: 1000px;
-            margin: auto;
-        }
+nav a:hover{
+    text-decoration:underline;
+}
 
-        /* Section */
-        section {
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+/* Container */
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:30px;
+}
 
-        section h2 {
-            color: #483d8b;
-            text-align: center;
-        }
+/* Page Box */
+.page{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    display:none; /* SEMUA disembunyikan dulu */
+}
 
-        /* Footer */
-        footer {
-            background-color: #6a5acd;
-            color: white;
-            text-align: center;
-            padding: 12px;
-        }
+/* Aktif */
+.active{
+    display:block;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+/* Footer */
+footer{
+    background:#6a5acd;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+</style>
 </head>
 
 <body>
 
 <!-- Header -->
 <header>
-    <h1>Welcome to Nopita Library</h1>
-    <p>Tempat di mana pengetahuan dimulai</p>
+<h1>Welcome to Nopita Library</h1>
+<p>Tempat di mana pengetahuan dimulai</p>
 </header>
 
-<!-- Navigation -->
+<!-- Menu -->
 <nav>
-    <a href="#beranda">Beranda</a>
-    <a href="#profil">Profil</a>
-    <a href="#layanan">Layanan</a>
-    <a href="#kontak">Kontak</a>
+<a onclick="showPage('home')">Beranda</a>
+<a onclick="showPage('profil')">Profil</a>
+<a onclick="showPage('layanan')">Layanan</a>
+<a onclick="showPage('kontak')">Kontak</a>
 </nav>
 
-<!-- Main Content -->
+<!-- Konten -->
 <div class="container">
 
-    <!-- Beranda -->
-    <section id="beranda">
-        <h2>Selamat Datang</h2>
-        <p>
-            Nopita Library adalah pusat informasi dan pembelajaran 
-            yang menyediakan berbagai koleksi buku, jurnal, dan layanan digital.
-        </p>
+<!-- Beranda -->
+<div id="home" class="page active">
+<h2>Selamat Datang</h2>
 
-        <h3>Visi</h3>
-        <p>
-            Menjadi perpustakaan modern yang mendukung literasi dan inovasi.
-        </p>
+<p>
+Nopita Library adalah pusat pembelajaran dan informasi
+untuk mendukung pendidikan masyarakat.
+</p>
 
-        <h3>Misi</h3>
-        <ul>
-            <li>Menyediakan koleksi berkualitas</li>
-            <li>Memberikan layanan terbaik</li>
-            <li>Mendukung pembelajaran sepanjang hayat</li>
-        </ul>
-    </section>
+<h3>Visi</h3>
+<p>Menjadi perpustakaan modern.</p>
 
-    <!-- Profil -->
-    <section id="profil">
-        <h2>Profil Kami</h2>
-        <p>
-            Nopita Library berdiri sebagai pusat literasi untuk membantu
-            masyarakat dalam mengembangkan ilmu pengetahuan.
-        </p>
+<h3>Misi</h3>
+<ul>
+<li>Koleksi berkualitas</li>
+<li>Layanan terbaik</li>
+<li>Pembelajaran sepanjang hayat</li>
+</ul>
+</div>
 
-        <p>
-            Kami berkomitmen memberikan pelayanan terbaik bagi seluruh pengunjung.
-        </p>
-    </section>
+<!-- Profil -->
+<div id="profil" class="page">
+<h2>Profil Kami</h2>
 
-    <!-- Layanan -->
-    <section id="layanan">
-        <h2>Layanan Kami</h2>
+<p>
+Nopita Library berdiri untuk mendukung literasi dan
+pengembangan ilmu pengetahuan.
+</p>
 
-        <ul>
-            <li>Peminjaman Buku</li>
-            <li>Ruang Baca Nyaman</li>
-            <li>Perpustakaan Digital</li>
-            <li>Akses Jurnal Online</li>
-            <li>Konsultasi Akademik</li>
-        </ul>
-    </section>
+<p>
+Kami berkomitmen memberikan pelayanan terbaik.
+</p>
+</div>
 
-    <!-- Kontak -->
-    <section id="kontak">
-        <h2>Kontak Kami</h2>
+<!-- Layanan -->
+<div id="layanan" class="page">
+<h2>Layanan Kami</h2>
 
-        <p>Email : nopitalibrary@gmail.com</p>
-        <p>Telp : 0812-3456-7890</p>
-        <p>Alamat : Medan, Sumatera Utara</p>
-    </section>
+<ul>
+<li>Peminjaman Buku</li>
+<li>Perpustakaan Digital</li>
+<li>Ruang Baca</li>
+<li>Jurnal Online</li>
+<li>Konsultasi Akademik</li>
+</ul>
+</div>
+
+<!-- Kontak -->
+<div id="kontak" class="page">
+<h2>Kontak Kami</h2>
+
+<p>Email: nopitalibrary@gmail.com</p>
+<p>Telp: 0812-3456-7890</p>
+<p>Alamat: Medan, Sumatera Utara</p>
+</div>
 
 </div>
 
 <!-- Footer -->
 <footer>
-    <p>© 2026 Nopita Library | All Rights Reserved</p>
+© 2026 Nopita Library
 </footer>
+
+<!-- JavaScript -->
+<script>
+function showPage(pageId){
+
+    // Ambil semua halaman
+    let pages = document.querySelectorAll('.page');
+
+    // Sembunyikan semua
+    pages.forEach(function(page){
+        page.classList.remove('active');
+    });
+
+    // Tampilkan yang dipilih
+    document.getElementById(pageId).classList.add('active');
+}
+</script>
 
 </body>
 </html>
