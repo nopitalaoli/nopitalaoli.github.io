@@ -17,21 +17,18 @@
         src="https://www.youtube.com/embed/Dji6ApR56tk?si=ysgLQjN3wPMQyDdO" title="YouTube video player" frameborder="0">
     </iframe>
 
-  div class="container">
-        <h2>Form Kontak</h2>
+    <form action="/submit" method="POST">
+   <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" required>
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" required>
 
-        <form action="#" method="POST">
-
-            <label>First Name</label><br>
-            <input type="text" name="firstname" required><br>
-
-            <label>Last Name</label><br>
-            <input type="text" name="lastname" required><br>
-
-            <label>No HP</label><br>
-            <input type="tel" name="phone" pattern="[0-9]{10,13}" required><br><br>
-            <input type="submit" value="Kirim">
-        </form>
-    </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <label for="phone">No HP:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <input type="submit" value="Kirim">
+    </form>
 </body>
 </html>
