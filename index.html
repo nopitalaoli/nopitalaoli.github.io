@@ -1,20 +1,126 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Halaman web pertama saya</title>
+    <title>Perpustakaan Nopita</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+        }
+
+        .page {
+            display: none;
+            padding: 20px;
+        }
+    </style>
+
+    <script>
+        function loginUser() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username !== "" && password !== "") {
+                document.getElementById("login").style.display = "none";
+                document.getElementById("main").style.display = "block";
+                showPage("home");
+            } else {
+                alert("Silakan isi username dan password!");
+            }
+            return false;
+        }
+
+        function showPage(pageId) {
+            var pages = document.getElementsByClassName("content");
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = "none";
+            }
+            document.getElementById(pageId).style.display = "block";
+        }
+
+        function logout() {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("login").style.display = "block";
+            document.getElementById("loginForm").reset();
+        }
+    </script>
 </head>
+
 <body>
-    <h1>Selamat Datang di Perpustakaan Nopita</h1>
-    <h2>Tentang Saya</h2>
-    <p> Nama: Nopita Laoli</p>
-    <p>Nim: 230709013</p>
-    <p> Jurusan: Perpustakaan dan Sains Informasi</p>
-    <h3> Kenali Lebih Jauh Tentang Saya Melalui Instagram dan CV yang Tersedia di Bawah Ini</h3>
-    <p><a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=h49jwdt">Instagram</a></p>
-    <p> <a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drive_link">Curriculum Vitae</a></p>
-    <h3>Temukan teknik membaca yang membuat anda memahami informasi lebih cepat dan tepat, dengan menonton video berikut</h3>
-    <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/Dji6ApR56tk?si=ysgLQjN3wPMQyDdO" title="YouTube video player" frameborder="0">
-    </iframe>
+
+<!-- ================= LOGIN ================= -->
+<div id="login" class="page" style="display:block;">
+    <h2>Login Perpustakaan Nopita</h2>
+
+    <form id="loginForm" onsubmit="return loginUser()">
+        Username:<br>
+        <input type="text" id="username"><br><br>
+
+        Password:<br>
+        <input type="password" id="password"><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<!-- ================= WEBSITE ================= -->
+<div id="main" style="display:none;">
+
+    <nav>
+        <a href="#" onclick="showPage('home')">Beranda</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </nav>
+
+    <!-- ================= BERANDA ================= -->
+    <div id="home" class="content">
+        <h1>Selamat Datang di Perpustakaan Nopita</h1>
+
+        <h2>Tentang Saya</h2>
+        <p>Nama: Nopita Laoli</p>
+        <p>NIM: 230709013</p>
+        <p>Jurusan: Perpustakaan dan Sains Informasi</p>
+
+        <h3>Kenali Lebih Jauh Tentang Saya Melalui Instagram dan CV yang Tersedia di Bawah Ini</h3>
+
+        <p>
+            <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=h49jwdt">
+                Instagram
+            </a>
+        </p>
+
+        <p>
+            <a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drive_link">
+                Curriculum Vitae
+            </a>
+        </p>
+
+        <h3>
+            Temukan teknik membaca yang membuat Anda memahami informasi lebih cepat dan tepat,
+            dengan menonton video berikut
+        </h3>
+
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/Dji6ApR56tk?si=ysgLQjN3wPMQyDdO"
+            title="YouTube video player"
+            frameborder="0">
+        </iframe>
+    </div>
+
+</div>
+
+</body>
+</html>
 
    
