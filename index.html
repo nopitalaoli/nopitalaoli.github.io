@@ -6,17 +6,37 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             text-align: center;
-            margin-top: 50px;
+            margin: 0;
+        }
+
+        .container {
+            width: 350px;
+            margin: 80px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
         }
 
         input {
+            width: 90%;
             padding: 8px;
-            margin: 5px;
+            margin: 8px 0;
         }
 
         button {
             padding: 8px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+        }
+
+        a {
+            color: blue;
             cursor: pointer;
         }
 
@@ -25,11 +45,13 @@
         }
 
         nav {
-            margin-bottom: 20px;
+            background: #2c3e50;
+            padding: 10px;
         }
 
         nav button {
-            margin: 5px;
+            background: white;
+            color: black;
         }
     </style>
 
@@ -46,7 +68,7 @@
             document.getElementById("home").style.display = "none";
         }
 
-        function register() {
+        function registerUser() {
             var user = document.getElementById("regUser").value;
             var pass = document.getElementById("regPass").value;
 
@@ -55,19 +77,19 @@
                 return;
             }
 
-            localStorage.setItem("user", user);
-            localStorage.setItem("pass", pass);
+            localStorage.setItem("username", user);
+            localStorage.setItem("password", pass);
 
             alert("Pendaftaran berhasil! Silakan login.");
             showLogin();
         }
 
-        function login() {
+        function loginUser() {
             var user = document.getElementById("loginUser").value;
             var pass = document.getElementById("loginPass").value;
 
-            var savedUser = localStorage.getItem("user");
-            var savedPass = localStorage.getItem("pass");
+            var savedUser = localStorage.getItem("username");
+            var savedPass = localStorage.getItem("password");
 
             if(user === savedUser && pass === savedPass) {
                 document.getElementById("login").style.display = "none";
@@ -86,27 +108,29 @@
 <body onload="showLogin()">
 
 <!-- LOGIN -->
-<div id="login">
+<div id="login" class="container">
     <h2>Login Perpustakaan Nopita</h2>
 
-    <input type="text" id="loginUser" placeholder="Username"><br>
-    <input type="password" id="loginPass" placeholder="Password"><br>
-    <button onclick="login()">Login</button>
+    <input type="text" id="loginUser" placeholder="Username">
+    <input type="password" id="loginPass" placeholder="Password">
+    <button type="button" onclick="loginUser()">Login</button>
 
-    <p>Belum punya akun?</p>
-    <button onclick="showRegister()">Daftar di sini</button>
+    <p>Belum punya akun?
+        <a onclick="showRegister()">Daftar di sini</a>
+    </p>
 </div>
 
 <!-- REGISTER -->
-<div id="register" class="hidden">
-    <h2>Daftar Akun Baru</h2>
+<div id="register" class="container hidden">
+    <h2>Daftar Akun</h2>
 
-    <input type="text" id="regUser" placeholder="Username"><br>
-    <input type="password" id="regPass" placeholder="Password"><br>
-    <button onclick="register()">Daftar</button>
+    <input type="text" id="regUser" placeholder="Username">
+    <input type="password" id="regPass" placeholder="Password">
+    <button type="button" onclick="registerUser()">Daftar</button>
 
-    <p>Sudah punya akun?</p>
-    <button onclick="showLogin()">Login di sini</button>
+    <p>Sudah punya akun?
+        <a onclick="showLogin()">Login di sini</a>
+    </p>
 </div>
 
 <!-- HOME -->
@@ -115,33 +139,31 @@
         <button onclick="logout()">Logout</button>
     </nav>
 
-    <h1>Selamat Datang di Perpustakaan Nopita</h1>
+    <div class="container">
+        <h1>Selamat Datang di Perpustakaan Nopita</h1>
 
-    <h2>Tentang Saya</h2>
-    <p>Nama: Nopita Laoli</p>
-    <p>NIM: 230709013</p>
-    <p>Jurusan: Perpustakaan dan Sains Informasi</p>
+        <h3>Tentang Saya</h3>
+        <p>Nama: Nopita Laoli</p>
+        <p>NIM: 230709013</p>
+        <p>Jurusan: Perpustakaan dan Sains Informasi</p>
 
-    <h3>Instagram & CV</h3>
+        <h3>Instagram & CV</h3>
 
-    <p>
-        <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=h49jwdt">
-            Instagram
-        </a>
-    </p>
+        <p>
+            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+        </p>
 
-    <p>
-        <a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drive_link">
-            Curriculum Vitae
-        </a>
-    </p>
+        <p>
+            <a href="https://drive.google.com/" target="_blank">Curriculum Vitae</a>
+        </p>
 
-    <h3>Video Teknik Membaca Cepat</h3>
+        <h3>Video Teknik Membaca Cepat</h3>
 
-    <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/Dji6ApR56tk"
-        frameborder="0">
-    </iframe>
+        <iframe width="300" height="200"
+            src="https://www.youtube.com/embed/Dji6ApR56tk"
+            frameborder="0">
+        </iframe>
+    </div>
 </div>
 
 </body>
