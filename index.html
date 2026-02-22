@@ -75,7 +75,7 @@ button:hover {
 
 <body>
 
-<!-- LOGIN (TAMPIL PERTAMA) -->
+<!-- LOGIN -->
 <section id="login" class="active">
     <h2>Login</h2>
     <input type="email" placeholder="Email">
@@ -97,9 +97,12 @@ button:hover {
     <button type="button" onclick="showLogin()">Daftar</button>
 </section>
 
-<!-- NAVIGASI (MUNCUL SETELAH LOGIN) -->
+<!-- NAVBAR -->
 <nav id="navbar">
     <a onclick="showSection('home')">Beranda</a>
+    <a onclick="showSection('koleksi')">Koleksi</a>
+    <a onclick="showSection('layanan')">Layanan</a>
+    <a onclick="showSection('about')">About</a>
     <a onclick="showSection('contact')">Contact Us</a>
     <a onclick="logout()">Logout</a>
 </nav>
@@ -131,6 +134,38 @@ button:hover {
         src="https://www.youtube.com/embed/Dji6ApR56tk"
         frameborder="0" allowfullscreen>
     </iframe>
+</section>
+
+<!-- KOLEKSI -->
+<section id="koleksi">
+    <h2>Koleksi Perpustakaan</h2>
+    <ul>
+        <li>Buku Manajemen Informasi</li>
+        <li>Buku Katalogisasi dan Klasifikasi</li>
+        <li>Jurnal Perpustakaan Digital</li>
+        <li>E-book Literasi Informasi</li>
+    </ul>
+</section>
+
+<!-- LAYANAN -->
+<section id="layanan">
+    <h2>Layanan Perpustakaan</h2>
+    <ul>
+        <li>Layanan Peminjaman Buku</li>
+        <li>Layanan Referensi</li>
+        <li>Layanan Penelusuran Informasi</li>
+        <li>Layanan Perpustakaan Digital</li>
+    </ul>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About</h2>
+    <p>
+    Website ini dibuat sebagai tugas mata kuliah dan bertujuan untuk 
+    memberikan informasi mengenai koleksi, layanan, serta profil pribadi 
+    mahasiswa Perpustakaan dan Sains Informasi.
+    </p>
 </section>
 
 <!-- CONTACT -->
