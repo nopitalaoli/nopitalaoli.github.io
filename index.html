@@ -6,117 +6,113 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
         }
 
         nav {
-            background-color: #f2f2f2;
-            padding: 10px;
+            margin-bottom: 20px;
         }
 
-        nav a {
-            margin-right: 15px;
-            text-decoration: none;
-            font-weight: bold;
-            color: black;
-        }
-
-        .page {
-            display: none;
-            padding: 20px;
+        nav button {
+            margin: 5px;
         }
     </style>
 
     <script>
-        function showPage(pageId) {
-            var pages = document.getElementsByClassName("page");
-            for (var i = 0; i < pages.length; i++) {
-                pages[i].style.display = "none";
-            }
-            document.getElementById(pageId).style.display = "block";
+        function showLogin() {
+            document.getElementById("login").style.display = "block";
+            document.getElementById("register").style.display = "none";
+            document.getElementById("home").style.display = "none";
         }
 
-        function registerUser() {
-            var username = document.getElementById("regUsername").value;
-            var password = document.getElementById("regPassword").value;
-
-            if (username !== "" && password !== "") {
-                localStorage.setItem("username", username);
-                localStorage.setItem("password", password);
-                alert("Pendaftaran berhasil! Silakan login.");
-                showPage("login");
-            } else {
-                alert("Isi semua data pendaftaran!");
-            }
-            return false;
+        function showRegister() {
+            document.getElementById("login").style.display = "none";
+            document.getElementById("register").style.display = "block";
+            document.getElementById("home").style.display = "none";
         }
 
-        function loginUser() {
-            var username = document.getElementById("loginUsername").value;
-            var password = document.getElementById("loginPassword").value;
+        function register() {
+            var user = document.getElementById("regUser").value;
+            var pass = document.getElementById("regPass").value;
 
-            var savedUser = localStorage.getItem("username");
-            var savedPass = localStorage.getItem("password");
-
-            if (username === savedUser && password === savedPass) {
-                showPage("homePage");
-            } else {
-                alert("Username atau password salah, atau akun belum terdaftar!");
+            if(user === "" || pass === "") {
+                alert("Isi semua data!");
+                return;
             }
-            return false;
+
+            localStorage.setItem("user", user);
+            localStorage.setItem("pass", pass);
+
+            alert("Pendaftaran berhasil! Silakan login.");
+            showLogin();
+        }
+
+        function login() {
+            var user = document.getElementById("loginUser").value;
+            var pass = document.getElementById("loginPass").value;
+
+            var savedUser = localStorage.getItem("user");
+            var savedPass = localStorage.getItem("pass");
+
+            if(user === savedUser && pass === savedPass) {
+                document.getElementById("login").style.display = "none";
+                document.getElementById("home").style.display = "block";
+            } else {
+                alert("Username atau password salah!");
+            }
         }
 
         function logout() {
-            showPage("login");
+            showLogin();
         }
     </script>
 </head>
 
-<body onload="showPage('login')">
+<body onload="showLogin()">
 
-<!-- ================= LOGIN ================= -->
-<div id="login" class="page">
+<!-- LOGIN -->
+<div id="login">
     <h2>Login Perpustakaan Nopita</h2>
 
-    <form onsubmit="return loginUser()">
-        Username:<br>
-        <input type="text" id="loginUsername"><br><br>
+    <input type="text" id="loginUser" placeholder="Username"><br>
+    <input type="password" id="loginPass" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
 
-        Password:<br>
-        <input type="password" id="loginPassword"><br><br>
-
-        <input type="submit" value="Login">
-    </form>
-
-    <p>Belum punya akun?
-        <a href="#" onclick="showPage('register')">Daftar di sini</a>
-    </p>
+    <p>Belum punya akun?</p>
+    <button onclick="showRegister()">Daftar di sini</button>
 </div>
 
-<!-- ================= REGISTER ================= -->
-<div id="register" class="page">
+<!-- REGISTER -->
+<div id="register" class="hidden">
     <h2>Daftar Akun Baru</h2>
 
-    <form onsubmit="return registerUser()">
-        Username:<br>
-        <input type="text" id="regUsername"><br><br>
+    <input type="text" id="regUser" placeholder="Username"><br>
+    <input type="password" id="regPass" placeholder="Password"><br>
+    <button onclick="register()">Daftar</button>
 
-        Password:<br>
-        <input type="password" id="regPassword"><br><br>
-
-        <input type="submit" value="Daftar">
-    </form>
-
-    <p>Sudah punya akun?
-        <a href="#" onclick="showPage('login')">Login di sini</a>
-    </p>
+    <p>Sudah punya akun?</p>
+    <button onclick="showLogin()">Login di sini</button>
 </div>
 
-<!-- ================= HALAMAN BERANDA ================= -->
-<div id="homePage" class="page">
+<!-- HOME -->
+<div id="home" class="hidden">
     <nav>
-        <a href="#" onclick="showPage('homePage')">Beranda</a>
-        <a href="#" onclick="logout()">Logout</a>
+        <button onclick="logout()">Logout</button>
     </nav>
 
     <h1>Selamat Datang di Perpustakaan Nopita</h1>
@@ -126,7 +122,7 @@
     <p>NIM: 230709013</p>
     <p>Jurusan: Perpustakaan dan Sains Informasi</p>
 
-    <h3>Kenali Lebih Jauh Tentang Saya</h3>
+    <h3>Instagram & CV</h3>
 
     <p>
         <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=h49jwdt">
@@ -143,7 +139,7 @@
     <h3>Video Teknik Membaca Cepat</h3>
 
     <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/Dji6ApR56tk?si=ysgLQjN3wPMQyDdO"
+        src="https://www.youtube.com/embed/Dji6ApR56tk"
         frameborder="0">
     </iframe>
 </div>
