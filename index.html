@@ -13,7 +13,7 @@
 
         .container {
             width: 350px;
-            margin: 80px auto;
+            margin: 60px auto;
             background: white;
             padding: 25px;
             border-radius: 10px;
@@ -69,33 +69,43 @@
         }
 
         function registerUser() {
-            var user = document.getElementById("regUser").value;
-            var pass = document.getElementById("regPass").value;
+            var lastName = document.getElementById("lastName").value;
+            var firstName = document.getElementById("firstName").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var password = document.getElementById("regPass").value;
 
-            if(user === "" || pass === "") {
-                alert("Isi semua data!");
+            if(lastName === "" || firstName === "" || email === "" || phone === "" || password === "") {
+                alert("Semua data harus diisi!");
                 return;
             }
 
-            localStorage.setItem("username", user);
-            localStorage.setItem("password", pass);
+            // Simpan data ke localStorage
+            localStorage.setItem("lastName", lastName);
+            localStorage.setItem("firstName", firstName);
+            localStorage.setItem("email", email);
+            localStorage.setItem("phone", phone);
+            localStorage.setItem("password", password);
 
             alert("Pendaftaran berhasil! Silakan login.");
             showLogin();
         }
 
         function loginUser() {
-            var user = document.getElementById("loginUser").value;
-            var pass = document.getElementById("loginPass").value;
+            var email = document.getElementById("loginEmail").value;
+            var password = document.getElementById("loginPass").value;
 
-            var savedUser = localStorage.getItem("username");
-            var savedPass = localStorage.getItem("password");
+            var savedEmail = localStorage.getItem("email");
+            var savedPassword = localStorage.getItem("password");
 
-            if(user === savedUser && pass === savedPass) {
+            if(email === savedEmail && password === savedPassword) {
                 document.getElementById("login").style.display = "none";
                 document.getElementById("home").style.display = "block";
+
+                document.getElementById("welcome").innerHTML =
+                    "Selamat Datang, " + localStorage.getItem("firstName") + "!";
             } else {
-                alert("Username atau password salah!");
+                alert("Email atau password salah!");
             }
         }
 
@@ -111,7 +121,7 @@
 <div id="login" class="container">
     <h2>Login Perpustakaan Nopita</h2>
 
-    <input type="text" id="loginUser" placeholder="Username">
+    <input type="email" id="loginEmail" placeholder="Email">
     <input type="password" id="loginPass" placeholder="Password">
     <button type="button" onclick="loginUser()">Login</button>
 
@@ -124,8 +134,12 @@
 <div id="register" class="container hidden">
     <h2>Daftar Akun</h2>
 
-    <input type="text" id="regUser" placeholder="Username">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="phone" placeholder="No HP">
     <input type="password" id="regPass" placeholder="Password">
+
     <button type="button" onclick="registerUser()">Daftar</button>
 
     <p>Sudah punya akun?
@@ -140,7 +154,7 @@
     </nav>
 
     <div class="container">
-        <h1>Selamat Datang di Perpustakaan Nopita</h1>
+        <h2 id="welcome"></h2>
 
         <h3>Tentang Saya</h3>
         <p>Nama: Nopita Laoli</p>
@@ -148,17 +162,10 @@
         <p>Jurusan: Perpustakaan dan Sains Informasi</p>
 
         <h3>Instagram & CV</h3>
-
-        <p>
-            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-        </p>
-
-        <p>
-            <a href="https://drive.google.com/" target="_blank">Curriculum Vitae</a>
-        </p>
+        <p><a href="https://www.instagram.com/" target="_blank">Instagram</a></p>
+        <p><a href="https://drive.google.com/" target="_blank">Curriculum Vitae</a></p>
 
         <h3>Video Teknik Membaca Cepat</h3>
-
         <iframe width="300" height="200"
             src="https://www.youtube.com/embed/Dji6ApR56tk"
             frameborder="0">
