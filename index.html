@@ -28,99 +28,125 @@
     </style>
 
     <script>
-        function loginUser() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-
-            if (username !== "" && password !== "") {
-                document.getElementById("login").style.display = "none";
-                document.getElementById("main").style.display = "block";
-                showPage("home");
-            } else {
-                alert("Silakan isi username dan password!");
-            }
-            return false;
-        }
-
         function showPage(pageId) {
-            var pages = document.getElementsByClassName("content");
+            var pages = document.getElementsByClassName("page");
             for (var i = 0; i < pages.length; i++) {
                 pages[i].style.display = "none";
             }
             document.getElementById(pageId).style.display = "block";
         }
 
+        function registerUser() {
+            var username = document.getElementById("regUsername").value;
+            var password = document.getElementById("regPassword").value;
+
+            if (username !== "" && password !== "") {
+                localStorage.setItem("username", username);
+                localStorage.setItem("password", password);
+                alert("Pendaftaran berhasil! Silakan login.");
+                showPage("login");
+            } else {
+                alert("Isi semua data pendaftaran!");
+            }
+            return false;
+        }
+
+        function loginUser() {
+            var username = document.getElementById("loginUsername").value;
+            var password = document.getElementById("loginPassword").value;
+
+            var savedUser = localStorage.getItem("username");
+            var savedPass = localStorage.getItem("password");
+
+            if (username === savedUser && password === savedPass) {
+                showPage("homePage");
+            } else {
+                alert("Username atau password salah, atau akun belum terdaftar!");
+            }
+            return false;
+        }
+
         function logout() {
-            document.getElementById("main").style.display = "none";
-            document.getElementById("login").style.display = "block";
-            document.getElementById("loginForm").reset();
+            showPage("login");
         }
     </script>
 </head>
 
-<body>
+<body onload="showPage('login')">
 
 <!-- ================= LOGIN ================= -->
-<div id="login" class="page" style="display:block;">
+<div id="login" class="page">
     <h2>Login Perpustakaan Nopita</h2>
 
-    <form id="loginForm" onsubmit="return loginUser()">
+    <form onsubmit="return loginUser()">
         Username:<br>
-        <input type="text" id="username"><br><br>
+        <input type="text" id="loginUsername"><br><br>
 
         Password:<br>
-        <input type="password" id="password"><br><br>
+        <input type="password" id="loginPassword"><br><br>
 
         <input type="submit" value="Login">
     </form>
+
+    <p>Belum punya akun?
+        <a href="#" onclick="showPage('register')">Daftar di sini</a>
+    </p>
 </div>
 
-<!-- ================= WEBSITE ================= -->
-<div id="main" style="display:none;">
+<!-- ================= REGISTER ================= -->
+<div id="register" class="page">
+    <h2>Daftar Akun Baru</h2>
 
+    <form onsubmit="return registerUser()">
+        Username:<br>
+        <input type="text" id="regUsername"><br><br>
+
+        Password:<br>
+        <input type="password" id="regPassword"><br><br>
+
+        <input type="submit" value="Daftar">
+    </form>
+
+    <p>Sudah punya akun?
+        <a href="#" onclick="showPage('login')">Login di sini</a>
+    </p>
+</div>
+
+<!-- ================= HALAMAN BERANDA ================= -->
+<div id="homePage" class="page">
     <nav>
-        <a href="#" onclick="showPage('home')">Beranda</a>
+        <a href="#" onclick="showPage('homePage')">Beranda</a>
         <a href="#" onclick="logout()">Logout</a>
     </nav>
 
-    <!-- ================= BERANDA ================= -->
-    <div id="home" class="content">
-        <h1>Selamat Datang di Perpustakaan Nopita</h1>
+    <h1>Selamat Datang di Perpustakaan Nopita</h1>
 
-        <h2>Tentang Saya</h2>
-        <p>Nama: Nopita Laoli</p>
-        <p>NIM: 230709013</p>
-        <p>Jurusan: Perpustakaan dan Sains Informasi</p>
+    <h2>Tentang Saya</h2>
+    <p>Nama: Nopita Laoli</p>
+    <p>NIM: 230709013</p>
+    <p>Jurusan: Perpustakaan dan Sains Informasi</p>
 
-        <h3>Kenali Lebih Jauh Tentang Saya Melalui Instagram dan CV yang Tersedia di Bawah Ini</h3>
+    <h3>Kenali Lebih Jauh Tentang Saya</h3>
 
-        <p>
-            <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=h49jwdt">
-                Instagram
-            </a>
-        </p>
+    <p>
+        <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=h49jwdt">
+            Instagram
+        </a>
+    </p>
 
-        <p>
-            <a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drive_link">
-                Curriculum Vitae
-            </a>
-        </p>
+    <p>
+        <a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drive_link">
+            Curriculum Vitae
+        </a>
+    </p>
 
-        <h3>
-            Temukan teknik membaca yang membuat Anda memahami informasi lebih cepat dan tepat,
-            dengan menonton video berikut
-        </h3>
+    <h3>Video Teknik Membaca Cepat</h3>
 
-        <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/Dji6ApR56tk?si=ysgLQjN3wPMQyDdO"
-            title="YouTube video player"
-            frameborder="0">
-        </iframe>
-    </div>
-
+    <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/Dji6ApR56tk?si=ysgLQjN3wPMQyDdO"
+        frameborder="0">
+    </iframe>
 </div>
 
 </body>
 </html>
-
-   
