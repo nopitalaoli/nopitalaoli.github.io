@@ -6,69 +6,68 @@
 <title>Perpustakaan Nopita</title>
 
 <style>
-body {
+body{
     font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f4;
+    margin:0;
+    background:#f4f4f4;
 }
 
 /* Navbar */
-nav {
-    background-color: #6a5acd;
-    padding: 15px;
-    text-align: center;
-    display: none;
+nav{
+    background:#6a5acd;
+    padding:15px;
+    text-align:center;
+    display:none;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    cursor: pointer;
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-nav a:hover {
-    text-decoration: underline;
+nav a:hover{
+    text-decoration:underline;
 }
 
 /* Section */
-section {
-    display: none;
-    padding: 40px;
-    max-width: 900px;
-    margin: auto;
-    background: white;
-    margin-top: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+section{
+    display:none;
+    padding:40px;
+    max-width:900px;
+    margin:40px auto;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
-.active {
-    display: block;
+.active{
+    display:block;
 }
 
 /* Form */
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:15px;
+    border-radius:5px;
+    border:1px solid #ccc;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #6a5acd;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+button{
+    padding:10px 20px;
+    background:#6a5acd;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
 }
 
-button:hover {
-    background-color: #483d8b;
+button:hover{
+    background:#483d8b;
 }
 </style>
 </head>
@@ -81,16 +80,16 @@ button:hover {
     <input type="email" placeholder="Email">
     <input type="password" placeholder="Password">
     <button type="button" onclick="login()">Login</button>
-    <p>Belum punya akun? 
-        <a onclick="showRegister()" style="color:blue; cursor:pointer;">Daftar di sini</a>
+    <p>Belum punya akun?
+        <a onclick="showRegister()" style="color:blue;cursor:pointer;">Daftar di sini</a>
     </p>
 </section>
 
-<!-- DAFTAR -->
+<!-- REGISTER -->
 <section id="register">
     <h2>Daftar Akun</h2>
-    <input type="text" placeholder="Last Name">
     <input type="text" placeholder="First Name">
+    <input type="text" placeholder="Last Name">
     <input type="email" placeholder="Email">
     <input type="text" placeholder="No HP">
     <input type="password" placeholder="Password">
@@ -110,13 +109,12 @@ button:hover {
 <!-- BERANDA -->
 <section id="home">
     <h1>Selamat Datang di Perpustakaan Nopita</h1>
-    <h2>Tentang Saya</h2>
-    <p><strong>Nama:</strong> Nopita Laoli</p>
-    <p><strong>NIM:</strong> 230709013</p>
-    <p><strong>Jurusan:</strong> Perpustakaan dan Sains Informasi</p>
+    <h3>Tentang Saya</h3>
+    <p><b>Nama:</b> Nopita Laoli</p>
+    <p><b>NIM:</b> 230709013</p>
+    <p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
 
     <h3>Kenali Lebih Jauh Tentang Saya</h3>
-
     <p>
         <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=h49jwdt" target="_blank">
         Instagram
@@ -162,47 +160,67 @@ button:hover {
 <section id="about">
     <h2>About</h2>
     <p>
-    Website ini dibuat sebagai tugas mata kuliah dan bertujuan untuk 
-    memberikan informasi mengenai koleksi, layanan, serta profil pribadi 
-    mahasiswa Perpustakaan dan Sains Informasi.
+    Website ini dibuat sebagai tugas mata kuliah dan bertujuan memberikan
+    informasi mengenai koleksi dan layanan perpustakaan.
     </p>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
     <h2>Contact Us</h2>
-    <input type="text" placeholder="Nama">
-    <input type="email" placeholder="Email">
-    <textarea rows="5" placeholder="Pesan"></textarea>
-    <button type="button" onclick="alert('Pesan berhasil dikirim!')">Kirim</button>
+    <input type="text" id="nama" placeholder="Nama">
+    <input type="email" id="email" placeholder="Email">
+    <textarea id="pesan" rows="5" placeholder="Pesan"></textarea>
+    <button type="button" onclick="kirimWA()">Kirim</button>
 </section>
 
 <script>
-function login() {
+function login(){
     document.getElementById("login").classList.remove("active");
-    document.getElementById("navbar").style.display = "block";
+    document.getElementById("navbar").style.display="block";
     document.getElementById("home").classList.add("active");
 }
 
-function logout() {
-    document.getElementById("navbar").style.display = "none";
-    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+function logout(){
+    document.getElementById("navbar").style.display="none";
+    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
     document.getElementById("login").classList.add("active");
 }
 
-function showRegister() {
-    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+function showRegister(){
+    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
     document.getElementById("register").classList.add("active");
 }
 
-function showLogin() {
-    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+function showLogin(){
+    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
     document.getElementById("login").classList.add("active");
 }
 
-function showSection(id) {
-    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+function showSection(id){
+    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
     document.getElementById(id).classList.add("active");
+}
+
+function kirimWA(){
+    var nama=document.getElementById("nama").value;
+    var email=document.getElementById("email").value;
+    var pesan=document.getElementById("pesan").value;
+
+    if(nama===""||email===""||pesan===""){
+        alert("Harap isi semua data terlebih dahulu!");
+        return;
+    }
+
+    var nomorWA="6281375400765";
+
+    var url="https://wa.me/"+nomorWA+
+    "?text=Halo, saya "+nama+
+    "%0AEmail: "+email+
+    "%0APesan: "+pesan;
+
+    alert("Pesan akan diarahkan ke WhatsApp 😊");
+    window.open(url,"_blank");
 }
 </script>
 
