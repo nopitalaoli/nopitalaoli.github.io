@@ -10,6 +10,7 @@
             background-color: #f4f4f4;
         }
 
+        /* LOGIN & REGISTER BOX */
         .auth-box {
             width: 350px;
             margin: 80px auto;
@@ -20,7 +21,7 @@
             text-align: center;
         }
 
-        input {
+        input, textarea {
             width: 90%;
             padding: 8px;
             margin: 8px 0;
@@ -32,11 +33,6 @@
             background-color: #2c3e50;
             color: white;
             border: none;
-        }
-
-        a {
-            color: blue;
-            cursor: pointer;
         }
 
         nav {
@@ -58,29 +54,43 @@
         .content {
             padding: 30px;
         }
+
+        h1, h2 {
+            margin-top: 0;
+        }
     </style>
 
     <script>
         function showLogin() {
+            hideAll();
             document.getElementById("login").style.display = "block";
+        }
+
+        function showRegister() {
+            hideAll();
+            document.getElementById("register").style.display = "block";
+        }
+
+        function showPage(id) {
+            var pages = document.getElementsByClassName("page");
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = "none";
+            }
+            document.getElementById(id).style.display = "block";
+        }
+
+        function hideAll() {
+            document.getElementById("login").style.display = "none";
             document.getElementById("register").style.display = "none";
             document.getElementById("home").style.display = "none";
         }
 
-        function showRegister() {
-            document.getElementById("login").style.display = "none";
-            document.getElementById("register").style.display = "block";
-            document.getElementById("home").style.display = "none";
-        }
-
         function registerUser() {
-            var lastName = document.getElementById("lastName").value;
             var firstName = document.getElementById("firstName").value;
             var email = document.getElementById("email").value;
-            var phone = document.getElementById("phone").value;
             var password = document.getElementById("regPass").value;
 
-            if(lastName === "" || firstName === "" || email === "" || phone === "" || password === "") {
+            if(firstName === "" || email === "" || password === "") {
                 alert("Semua data harus diisi!");
                 return;
             }
@@ -101,8 +111,9 @@
             var savedPassword = localStorage.getItem("password");
 
             if(email === savedEmail && password === savedPassword) {
-                document.getElementById("login").style.display = "none";
+                hideAll();
                 document.getElementById("home").style.display = "block";
+                showPage("beranda");
 
                 document.getElementById("welcome").innerHTML =
                     "Selamat Datang, " + localStorage.getItem("firstName") + "!";
@@ -114,6 +125,22 @@
         function logout() {
             showLogin();
         }
+
+        function kirimPesan() {
+            var nama = document.getElementById("namaPesan").value;
+            var email = document.getElementById("emailPesan").value;
+            var pesan = document.getElementById("isiPesan").value;
+
+            if(nama === "" || email === "" || pesan === "") {
+                alert("Semua kolom harus diisi!");
+                return;
+            }
+
+            alert("Pesan berhasil dikirim! Terima kasih 😊");
+            document.getElementById("namaPesan").value = "";
+            document.getElementById("emailPesan").value = "";
+            document.getElementById("isiPesan").value = "";
+        }
     </script>
 </head>
 
@@ -124,47 +151,77 @@
     <h2>Login Perpustakaan Nopita</h2>
     <input type="email" id="loginEmail" placeholder="Email">
     <input type="password" id="loginPass" placeholder="Password">
-    <button type="button" onclick="loginUser()">Login</button>
-    <p>Belum punya akun? <a onclick="showRegister()">Daftar di sini</a></p>
+    <button onclick="loginUser()">Login</button>
+    <p>Belum punya akun? <a onclick="showRegister()" style="cursor:pointer;color:blue;">Daftar di sini</a></p>
 </div>
 
 <!-- REGISTER -->
 <div id="register" class="auth-box hidden">
     <h2>Daftar Akun</h2>
-    <input type="text" id="lastName" placeholder="Last Name">
     <input type="text" id="firstName" placeholder="First Name">
     <input type="email" id="email" placeholder="Email">
-    <input type="text" id="phone" placeholder="No HP">
     <input type="password" id="regPass" placeholder="Password">
-    <button type="button" onclick="registerUser()">Daftar</button>
-    <p>Sudah punya akun? <a onclick="showLogin()">Login di sini</a></p>
+    <button onclick="registerUser()">Daftar</button>
+    <p>Sudah punya akun? <a onclick="showLogin()" style="cursor:pointer;color:blue;">Login di sini</a></p>
 </div>
 
 <!-- HOME -->
 <div id="home" class="hidden">
+
     <nav>
+        <button onclick="showPage('beranda')">Beranda</button>
+        <button onclick="showPage('koleksi')">Koleksi</button>
+        <button onclick="showPage('layanan')">Layanan</button>
+        <button onclick="showPage('about')">About</button>
+        <button onclick="showPage('contact')">Contact Us</button>
         <button onclick="logout()">Logout</button>
     </nav>
 
-    <div class="content">
-        <h1>Selamat Datang di Perpustakaan Nopita</h1>
+    <!-- BERANDA -->
+    <div id="beranda" class="page content">
+        <h1>Perpustakaan Nopita</h1>
         <h2 id="welcome"></h2>
-
-        <h3>Tentang Saya</h3>
-        <p>Nama: Nopita Laoli</p>
-        <p>NIM: 230709013</p>
-        <p>Jurusan: Perpustakaan dan Sains Informasi</p>
-
-        <h3>Instagram & CV</h3>
-        <p><a href="#">Instagram</a></p>
-        <p><a href="#">Curriculum Vitae</a></p>
-
-        <h3>Video Teknik Membaca Cepat</h3>
-        <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/Dji6ApR56tk"
-            frameborder="0">
-        </iframe>
+        <p>Selamat datang di website perpustakaan pribadi saya.</p>
     </div>
+
+    <!-- KOLEKSI -->
+    <div id="koleksi" class="page content hidden">
+        <h2>Koleksi Buku</h2>
+        <ul>
+            <li>Buku Teknologi Informasi</li>
+            <li>Buku Manajemen</li>
+            <li>Jurnal Internasional</li>
+            <li>E-Book Digital</li>
+        </ul>
+    </div>
+
+    <!-- LAYANAN -->
+    <div id="layanan" class="page content hidden">
+        <h2>Layanan</h2>
+        <ul>
+            <li>Peminjaman Buku</li>
+            <li>Pengembalian Buku</li>
+            <li>Baca di Tempat</li>
+        </ul>
+    </div>
+
+    <!-- ABOUT -->
+    <div id="about" class="page content hidden">
+        <h2>Tentang Perpustakaan</h2>
+        <p>Website ini dibuat untuk memenuhi tugas mata kuliah dan sebagai media informasi perpustakaan.</p>
+    </div>
+
+    <!-- CONTACT -->
+    <div id="contact" class="page content hidden">
+        <h2>Contact Us</h2>
+
+        <input type="text" id="namaPesan" placeholder="Nama">
+        <input type="email" id="emailPesan" placeholder="Email">
+        <textarea id="isiPesan" rows="4" placeholder="Pesan"></textarea>
+        <br>
+        <button onclick="kirimPesan()">Kirim</button>
+    </div>
+
 </div>
 
 </body>
