@@ -12,7 +12,7 @@ body{
     background:#f4f6fb;
 }
 
-/* LOGIN PAGE */
+/* LOGIN */
 #loginPage{
     height:100vh;
     display:flex;
@@ -29,10 +29,6 @@ body{
     box-shadow:0 0 20px rgba(0,0,0,0.2);
 }
 
-.login-box h2{
-    text-align:center;
-}
-
 input, textarea{
     width:100%;
     padding:10px;
@@ -43,25 +39,24 @@ input, textarea{
 }
 
 button{
-    width:100%;
     padding:10px;
     background:#6a5acd;
     color:white;
     border:none;
     border-radius:5px;
     cursor:pointer;
+    margin-top:5px;
 }
 
 button:hover{
     background:#483d8b;
 }
 
-/* MAIN WEBSITE */
+/* WEBSITE */
 #mainWebsite{
     display:none;
 }
 
-/* NAVBAR */
 nav{
     background:#6a5acd;
     padding:15px;
@@ -80,7 +75,6 @@ nav a:hover{
     text-decoration:underline;
 }
 
-/* SECTION */
 section{
     display:none;
     padding:40px;
@@ -95,18 +89,21 @@ section{
     display:block;
 }
 
+.hidden{
+    display:none;
+}
+
 footer{
     text-align:center;
     padding:20px;
     background:#6a5acd;
     color:white;
-    margin-top:40px;
 }
 </style>
 </head>
 <body>
 
-<!-- LOGIN PAGE -->
+<!-- LOGIN -->
 <div id="loginPage">
     <div class="login-box">
         <h2>Login Perpustakaan</h2>
@@ -116,7 +113,7 @@ footer{
     </div>
 </div>
 
-<!-- MAIN WEBSITE -->
+<!-- WEBSITE -->
 <div id="mainWebsite">
 
 <nav>
@@ -128,15 +125,48 @@ footer{
     <a onclick="logout()">Logout</a>
 </nav>
 
+<!-- BERANDA -->
 <section id="home" class="active">
     <h1>Perpustakaan Perguruan Tinggi</h1>
-    <p>
-    Selamat datang di sistem informasi Perpustakaan Perguruan Tinggi.
-    Website ini menyediakan layanan informasi koleksi, referensi akademik,
-    serta layanan digital untuk mendukung kegiatan pembelajaran dan penelitian mahasiswa.
-    </p>
+    <p>Selamat datang di sistem informasi perpustakaan perguruan tinggi.</p>
+
+    <h3>Tentang Saya</h3>
+    <p><b>Nama:</b> Nopita Laoli</p>
+    <p><b>NIM:</b> 230709013</p>
+    <p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
+
+    <!-- Tombol -->
+    <button onclick="toggleCV()">Lihat CV</button>
+    <button onclick="toggleIG()">Instagram</button>
+    <button onclick="toggleYT()">YouTube</button>
+
+    <!-- Link disembunyikan -->
+    <div id="cvLink" class="hidden">
+        <p>
+            <a href="https://drive.google.com/" target="_blank">
+            Buka Curriculum Vitae
+            </a>
+        </p>
+    </div>
+
+    <div id="igLink" class="hidden">
+        <p>
+            <a href="https://www.instagram.com/" target="_blank">
+            Kunjungi Instagram
+            </a>
+        </p>
+    </div>
+
+    <div id="ytLink" class="hidden">
+        <iframe width="100%" height="400"
+        src="https://www.youtube.com/embed/Dji6ApR56tk"
+        frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+
 </section>
 
+<!-- KOLEKSI -->
 <section id="koleksi">
     <h2>Koleksi Perpustakaan</h2>
     <ul>
@@ -147,25 +177,27 @@ footer{
     </ul>
 </section>
 
+<!-- LAYANAN -->
 <section id="layanan">
     <h2>Layanan Perpustakaan</h2>
     <ul>
-        <li>Layanan Peminjaman dan Pengembalian</li>
-        <li>Layanan Referensi dan Sitasi</li>
-        <li>Layanan Penelusuran Informasi</li>
+        <li>Peminjaman dan Pengembalian Buku</li>
+        <li>Layanan Referensi</li>
+        <li>Penelusuran Informasi</li>
         <li>Akses Database Online</li>
     </ul>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
     <h2>Tentang Perpustakaan</h2>
     <p>
-    Perpustakaan Perguruan Tinggi berfungsi sebagai pusat sumber belajar
-    yang menyediakan informasi ilmiah dan akademik guna mendukung
-    Tri Dharma Perguruan Tinggi: pendidikan, penelitian, dan pengabdian masyarakat.
+    Perpustakaan perguruan tinggi berperan sebagai pusat sumber belajar
+    dalam mendukung pendidikan dan penelitian mahasiswa.
     </p>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
     <h2>Kontak Perpustakaan</h2>
     <input type="text" id="nama" placeholder="Nama">
@@ -175,7 +207,7 @@ footer{
 </section>
 
 <footer>
-    © 2026 Perpustakaan Perguruan Tinggi
+© 2026 Perpustakaan Perguruan Tinggi
 </footer>
 
 </div>
@@ -196,6 +228,19 @@ function showSection(id){
         sec.classList.remove("active");
     });
     document.getElementById(id).classList.add("active");
+}
+
+/* Toggle CV, IG, YouTube */
+function toggleCV(){
+    document.getElementById("cvLink").classList.toggle("hidden");
+}
+
+function toggleIG(){
+    document.getElementById("igLink").classList.toggle("hidden");
+}
+
+function toggleYT(){
+    document.getElementById("ytLink").classList.toggle("hidden");
 }
 
 function kirimWA(){
