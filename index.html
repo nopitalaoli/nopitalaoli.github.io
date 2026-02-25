@@ -11,7 +11,7 @@ body{
     font-family: Arial, sans-serif;
 }
 
-/* ================= LOGIN & REGISTER ================= */
+/* LOGIN & REGISTER */
 #loginPage, #registerPage{
     height:100vh;
     display:flex;
@@ -61,14 +61,13 @@ button:hover{
     font-size:14px;
 }
 
-/* ================= WEBSITE ================= */
+/* WEBSITE */
 #mainWebsite{
     display:none;
     min-height:100vh;
     background: linear-gradient(to bottom,#f4f6fb,#e6ecff);
 }
 
-/* NAVBAR */
 nav{
     background:#6a5acd;
     padding:15px;
@@ -87,7 +86,6 @@ nav a:hover{
     text-decoration:underline;
 }
 
-/* SECTION */
 section{
     display:none;
     padding:40px;
@@ -134,9 +132,10 @@ footer{
 <div id="registerPage" style="display:none;">
     <div class="box">
         <h2>Daftar Akun</h2>
-        <input type="text" placeholder="Nama Lengkap">
+        <input type="text" placeholder="First Name">
+        <input type="text" placeholder="Last Name">
+        <input type="text" placeholder="No HP">
         <input type="email" placeholder="Email">
-        <input type="text" placeholder="NIM">
         <input type="password" placeholder="Password">
         <button onclick="showLogin()">Daftar</button>
         <p style="text-align:center;">
@@ -172,11 +171,19 @@ footer{
     <button onclick="toggleYT()">YouTube</button>
 
     <div id="cvLink" class="hidden">
-        <p><a href="#">Link Curriculum Vitae</a></p>
+        <p>
+        <a href="https://drive.google.com/" target="_blank">
+        Buka Curriculum Vitae
+        </a>
+        </p>
     </div>
 
     <div id="igLink" class="hidden">
-        <p><a href="#">Link Instagram</a></p>
+        <p>
+        <a href="https://www.instagram.com/" target="_blank">
+        Kunjungi Instagram
+        </a>
+        </p>
     </div>
 
     <div id="ytLink" class="hidden">
