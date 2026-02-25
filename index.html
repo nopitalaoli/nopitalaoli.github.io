@@ -7,8 +7,8 @@
 
 <style>
 body{
-    font-family: Arial, sans-serif;
     margin:0;
+    font-family: Arial, sans-serif;
 }
 
 /* ================= LOGIN & REGISTER ================= */
@@ -17,13 +17,10 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
-    background-size:cover;
-    background-position:center;
+    background: linear-gradient(135deg,#1e3c72,#2a5298);
 }
 
-.login-box{
+.box{
     background:white;
     padding:40px;
     border-radius:10px;
@@ -31,7 +28,7 @@ body{
     box-shadow:0 0 20px rgba(0,0,0,0.3);
 }
 
-.login-box h2{
+.box h2{
     text-align:center;
 }
 
@@ -46,12 +43,12 @@ input, textarea{
 
 button{
     padding:10px;
+    width:100%;
     background:#6a5acd;
     color:white;
     border:none;
     border-radius:5px;
     cursor:pointer;
-    width:100%;
 }
 
 button:hover{
@@ -67,10 +64,8 @@ button:hover{
 /* ================= WEBSITE ================= */
 #mainWebsite{
     display:none;
-    background:linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)),
-    url('https://images.unsplash.com/photo-1507842217343-583bb7270b66');
-    background-size:cover;
-    background-attachment:fixed;
+    min-height:100vh;
+    background: linear-gradient(to bottom,#f4f6fb,#e6ecff);
 }
 
 /* NAVBAR */
@@ -123,13 +118,13 @@ footer{
 
 <!-- LOGIN -->
 <div id="loginPage">
-    <div class="login-box">
+    <div class="box">
         <h2>Login Perpustakaan</h2>
         <input type="email" placeholder="Email Mahasiswa">
         <input type="password" placeholder="Password">
         <button onclick="login()">Login</button>
         <p style="text-align:center;">
-            Belum punya akun? 
+            Belum punya akun?
             <span class="link" onclick="showRegister()">Daftar di sini</span>
         </p>
     </div>
@@ -137,7 +132,7 @@ footer{
 
 <!-- REGISTER -->
 <div id="registerPage" style="display:none;">
-    <div class="login-box">
+    <div class="box">
         <h2>Daftar Akun</h2>
         <input type="text" placeholder="Nama Lengkap">
         <input type="email" placeholder="Email">
@@ -145,7 +140,7 @@ footer{
         <input type="password" placeholder="Password">
         <button onclick="showLogin()">Daftar</button>
         <p style="text-align:center;">
-            Sudah punya akun? 
+            Sudah punya akun?
             <span class="link" onclick="showLogin()">Login di sini</span>
         </p>
     </div>
@@ -163,13 +158,9 @@ footer{
     <a onclick="logout()">Logout</a>
 </nav>
 
-<!-- BERANDA -->
 <section id="home" class="active">
     <h1>Perpustakaan Perguruan Tinggi</h1>
-    <p>
-    Selamat datang di sistem informasi Perpustakaan Perguruan Tinggi 
-    yang mendukung kegiatan akademik, penelitian, dan literasi informasi.
-    </p>
+    <p>Website ini mendukung kegiatan akademik dan penelitian mahasiswa.</p>
 
     <h3>Profil Mahasiswa</h3>
     <p><b>Nama:</b> Nopita Laoli</p>
@@ -181,34 +172,34 @@ footer{
     <button onclick="toggleYT()">YouTube</button>
 
     <div id="cvLink" class="hidden">
-        <p><a href="https://drive.google.com/" target="_blank">Buka Curriculum Vitae</a></p>
+        <p><a href="#">Link Curriculum Vitae</a></p>
     </div>
 
     <div id="igLink" class="hidden">
-        <p><a href="https://www.instagram.com/" target="_blank">Kunjungi Instagram</a></p>
+        <p><a href="#">Link Instagram</a></p>
     </div>
 
     <div id="ytLink" class="hidden">
-        <iframe width="100%" height="400"
+        <iframe width="100%" height="300"
         src="https://www.youtube.com/embed/Dji6ApR56tk"
         frameborder="0" allowfullscreen></iframe>
     </div>
 </section>
 
 <section id="koleksi">
-    <h2>Koleksi Perpustakaan</h2>
+    <h2>Koleksi</h2>
     <ul>
         <li>Buku Referensi Akademik</li>
         <li>Jurnal Nasional & Internasional</li>
         <li>Skripsi & Tesis</li>
-        <li>E-Book dan Repository Digital</li>
+        <li>E-Book Digital</li>
     </ul>
 </section>
 
 <section id="layanan">
-    <h2>Layanan Perpustakaan</h2>
+    <h2>Layanan</h2>
     <ul>
-        <li>Peminjaman dan Pengembalian Buku</li>
+        <li>Peminjaman Buku</li>
         <li>Layanan Referensi</li>
         <li>Penelusuran Informasi</li>
         <li>Akses Database Online</li>
@@ -217,17 +208,14 @@ footer{
 
 <section id="about">
     <h2>Tentang Perpustakaan</h2>
-    <p>
-    Perpustakaan perguruan tinggi berperan sebagai pusat sumber belajar
-    dalam mendukung Tri Dharma Perguruan Tinggi.
-    </p>
+    <p>Perpustakaan perguruan tinggi mendukung Tri Dharma Perguruan Tinggi.</p>
 </section>
 
 <section id="contact">
-    <h2>Kontak Perpustakaan</h2>
+    <h2>Kontak</h2>
     <input type="text" id="nama" placeholder="Nama">
     <input type="email" id="email" placeholder="Email">
-    <textarea id="pesan" rows="5" placeholder="Pesan"></textarea>
+    <textarea id="pesan" rows="4" placeholder="Pesan"></textarea>
     <button onclick="kirimWA()">Kirim Pesan</button>
 </section>
 
@@ -240,6 +228,7 @@ footer{
 <script>
 function login(){
     document.getElementById("loginPage").style.display="none";
+    document.getElementById("registerPage").style.display="none";
     document.getElementById("mainWebsite").style.display="block";
 }
 
@@ -265,17 +254,9 @@ function showSection(id){
     document.getElementById(id).classList.add("active");
 }
 
-function toggleCV(){
-    document.getElementById("cvLink").classList.toggle("hidden");
-}
-
-function toggleIG(){
-    document.getElementById("igLink").classList.toggle("hidden");
-}
-
-function toggleYT(){
-    document.getElementById("ytLink").classList.toggle("hidden");
-}
+function toggleCV(){ document.getElementById("cvLink").classList.toggle("hidden"); }
+function toggleIG(){ document.getElementById("igLink").classList.toggle("hidden"); }
+function toggleYT(){ document.getElementById("ytLink").classList.toggle("hidden"); }
 
 function kirimWA(){
     var nama=document.getElementById("nama").value;
