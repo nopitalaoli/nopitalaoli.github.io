@@ -8,43 +8,44 @@
 <style>
 body{
     margin:0;
-    font-family: Arial, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-/* LOGIN & REGISTER */
-#loginPage, #registerPage{
+/* BACKGROUND */
+.bg{
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
+    background-size:cover;
+    background-position:center;
     height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background: linear-gradient(135deg,#1e3c72,#2a5298);
+    color:white;
+}
+
+.container{
+    width:350px;
+    margin:auto;
+    padding-top:80px;
 }
 
 .box{
-    background:white;
-    padding:40px;
+    background:rgba(255,255,255,0.1);
+    padding:25px;
     border-radius:10px;
-    width:350px;
-    box-shadow:0 0 20px rgba(0,0,0,0.3);
 }
 
-.box h2{
-    text-align:center;
-}
-
-input, textarea{
+input{
     width:100%;
     padding:10px;
-    margin-top:10px;
-    margin-bottom:15px;
+    margin:5px 0;
+    border:none;
     border-radius:5px;
-    border:1px solid #ccc;
 }
 
 button{
-    padding:10px;
     width:100%;
-    background:#6a5acd;
+    padding:10px;
+    margin-top:10px;
+    background:#0077b6;
     color:white;
     border:none;
     border-radius:5px;
@@ -52,236 +53,173 @@ button{
 }
 
 button:hover{
-    background:#483d8b;
+    background:#023e8a;
 }
 
 .link{
-    color:blue;
+    text-align:center;
+    margin-top:10px;
     cursor:pointer;
-    font-size:14px;
+    color:lightblue;
 }
 
-/* WEBSITE */
-#mainWebsite{
-    display:none;
-    min-height:100vh;
-    background: linear-gradient(to bottom,#f4f6fb,#e6ecff);
-}
-
+/* NAVIGASI */
 nav{
-    background:#6a5acd;
+    background:#023e8a;
     padding:15px;
     text-align:center;
+    display:none;
 }
 
 nav a{
     color:white;
+    margin:0 10px;
     text-decoration:none;
-    margin:0 15px;
     font-weight:bold;
-    cursor:pointer;
 }
 
 nav a:hover{
     text-decoration:underline;
 }
 
-section{
+/* HALAMAN */
+.page{
     display:none;
     padding:40px;
-    max-width:1000px;
-    margin:40px auto;
-    background:white;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
-.active{
-    display:block;
-}
-
-.hidden{
-    display:none;
-}
-
-footer{
-    text-align:center;
-    padding:20px;
-    background:#6a5acd;
-    color:white;
+h2{
+    color:#023e8a;
 }
 </style>
 </head>
 <body>
 
 <!-- LOGIN -->
-<div id="loginPage">
-    <div class="box">
-        <h2>Login Perpustakaan</h2>
-        <input type="email" placeholder="Email Mahasiswa">
-        <input type="password" placeholder="Password">
-        <button onclick="login()">Login</button>
-        <p style="text-align:center;">
-            Belum punya akun?
-            <span class="link" onclick="showRegister()">Daftar di sini</span>
-        </p>
-    </div>
+<div class="bg" id="loginPage">
+<div class="container">
+<div class="box">
+<h2 align="center">Login Perpustakaan</h2>
+<input type="text" placeholder="Email">
+<input type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<div class="link" onclick="showRegister()">Daftar disini jika belum punya akun</div>
+</div>
+</div>
 </div>
 
-<!-- REGISTER -->
-<div id="registerPage" style="display:none;">
-    <div class="box">
-        <h2>Daftar Akun</h2>
-        <input type="text" placeholder="First Name">
-        <input type="text" placeholder="Last Name">
-        <input type="text" placeholder="No HP">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button onclick="showLogin()">Daftar</button>
-        <p style="text-align:center;">
-            Sudah punya akun?
-            <span class="link" onclick="showLogin()">Login di sini</span>
-        </p>
-    </div>
+<!-- DAFTAR -->
+<div class="bg" id="registerPage" style="display:none;">
+<div class="container">
+<div class="box">
+<h2 align="center">Daftar Akun</h2>
+<input type="text" placeholder="First Name">
+<input type="text" placeholder="Last Name">
+<input type="text" placeholder="No HP">
+<input type="email" placeholder="Email">
+<input type="password" placeholder="Password">
+<button onclick="showLogin()">Daftar</button>
+<div class="link" onclick="showLogin()">Kembali ke Login</div>
+</div>
+</div>
 </div>
 
-<!-- WEBSITE -->
-<div id="mainWebsite">
-
-<nav>
-    <a onclick="showSection('home')">Beranda</a>
-    <a onclick="showSection('koleksi')">Koleksi</a>
-    <a onclick="showSection('layanan')">Layanan</a>
-    <a onclick="showSection('about')">Tentang</a>
-    <a onclick="showSection('contact')">Kontak</a>
-    <a onclick="logout()">Logout</a>
+<!-- NAVIGASI -->
+<nav id="navbar">
+<a href="#" onclick="showPage('beranda')">Beranda</a>
+<a href="#" onclick="showPage('koleksi')">Koleksi</a>
+<a href="#" onclick="showPage('layanan')">Layanan</a>
+<a href="#" onclick="showPage('tentang')">Tentang Perpustakaan</a>
+<a href="#" onclick="showPage('admin')">Tentang Admin</a>
+<a href="#" onclick="showPage('aboutme')">About Me</a>
+<a href="#" onclick="showPage('aboutus')">About Us</a>
+<a href="#" onclick="showPage('contact')">Contact Us</a>
+<a href="#" onclick="logout()">Logout</a>
 </nav>
 
-<section id="home" class="active">
-    <h1>Perpustakaan Perguruan Tinggi</h1>
-    <p>Website ini mendukung kegiatan akademik dan penelitian mahasiswa.</p>
+<!-- BERANDA -->
+<div class="page" id="beranda">
+<h2>Beranda</h2>
+<p>Selamat datang di Website Perpustakaan Perguruan Tinggi.</p>
+</div>
 
-    <h3>Profil Mahasiswa</h3>
-    <p><b>Nama:</b> Nopita Laoli</p>
-    <p><b>NIM:</b> 230709013</p>
-    <p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
+<!-- KOLEKSI -->
+<div class="page" id="koleksi">
+<h2>Koleksi</h2>
+<p>Koleksi buku, jurnal, skripsi, dan referensi ilmiah tersedia lengkap.</p>
+</div>
 
-    <button onclick="toggleCV()">Lihat CV</button>
-    <button onclick="toggleIG()">Instagram</button>
-    <button onclick="toggleYT()">YouTube</button>
+<!-- LAYANAN -->
+<div class="page" id="layanan">
+<h2>Layanan</h2>
+<p>Layanan peminjaman, pengembalian, referensi, dan akses jurnal online.</p>
+</div>
 
-    <div id="cvLink" class="hidden">
-        <p>
-        <a href="https://drive.google.com/" target="_blank">
-        Buka Curriculum Vitae
-        </a>
-        </p>
-    </div>
+<!-- TENTANG PERPUSTAKAAN -->
+<div class="page" id="tentang">
+<h2>Tentang Perpustakaan</h2>
+<p>Perpustakaan perguruan tinggi ini mendukung kegiatan akademik mahasiswa dan dosen 
+dengan menyediakan sumber informasi yang lengkap dan berbasis digital.</p>
+</div>
 
-    <div id="igLink" class="hidden">
-        <p>
-        <a href="https://www.instagram.com/" target="_blank">
-        Kunjungi Instagram
-        </a>
-        </p>
-    </div>
+<!-- TENTANG ADMIN -->
+<div class="page" id="admin">
+<h2>Tentang Admin</h2>
+<p>Admin bertugas mengelola sistem perpustakaan, memperbarui koleksi, serta 
+memberikan pelayanan informasi kepada pengguna.</p>
+</div>
 
-    <div id="ytLink" class="hidden">
-        <iframe width="100%" height="300"
-        src="https://www.youtube.com/embed/Dji6ApR56tk"
-        frameborder="0" allowfullscreen></iframe>
-    </div>
-</section>
+<!-- ABOUT ME -->
+<div class="page" id="aboutme">
+<h2>About Me</h2>
+<p>Halo, saya adalah pengembang website ini. Website ini dibuat sebagai 
+media informasi dan sistem layanan Perpustakaan Perguruan Tinggi. 
+Saya memiliki minat dalam bidang teknologi informasi dan pengembangan sistem.</p>
+</div>
 
-<section id="koleksi">
-    <h2>Koleksi</h2>
-    <ul>
-        <li>Buku Referensi Akademik</li>
-        <li>Jurnal Nasional & Internasional</li>
-        <li>Skripsi & Tesis</li>
-        <li>E-Book Digital</li>
-    </ul>
-</section>
+<!-- ABOUT US -->
+<div class="page" id="aboutus">
+<h2>About Us</h2>
+<p>Kami adalah tim pengelola Perpustakaan Perguruan Tinggi yang berkomitmen 
+memberikan layanan informasi yang cepat, akurat, dan terpercaya untuk 
+mendukung kegiatan akademik mahasiswa dan dosen.</p>
+</div>
 
-<section id="layanan">
-    <h2>Layanan</h2>
-    <ul>
-        <li>Peminjaman Buku</li>
-        <li>Layanan Referensi</li>
-        <li>Penelusuran Informasi</li>
-        <li>Akses Database Online</li>
-    </ul>
-</section>
-
-<section id="about">
-    <h2>Tentang Perpustakaan</h2>
-    <p>Perpustakaan perguruan tinggi mendukung Tri Dharma Perguruan Tinggi.</p>
-</section>
-
-<section id="contact">
-    <h2>Kontak</h2>
-    <input type="text" id="nama" placeholder="Nama">
-    <input type="email" id="email" placeholder="Email">
-    <textarea id="pesan" rows="4" placeholder="Pesan"></textarea>
-    <button onclick="kirimWA()">Kirim Pesan</button>
-</section>
-
-<footer>
-© 2026 Perpustakaan Perguruan Tinggi
-</footer>
-
+<!-- CONTACT -->
+<div class="page" id="contact">
+<h2>Contact Us</h2>
+<p>Hubungi kami melalui WhatsApp:</p>
+<a href="https://wa.me/6281375400765" target="_blank">
+<button>Kirim Pesan WhatsApp</button>
+</a>
 </div>
 
 <script>
 function login(){
     document.getElementById("loginPage").style.display="none";
-    document.getElementById("registerPage").style.display="none";
-    document.getElementById("mainWebsite").style.display="block";
+    document.getElementById("navbar").style.display="block";
+    showPage('beranda');
 }
 
 function logout(){
-    document.getElementById("mainWebsite").style.display="none";
-    document.getElementById("loginPage").style.display="flex";
+    document.getElementById("navbar").style.display="none";
+    document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+    document.getElementById("loginPage").style.display="block";
 }
 
 function showRegister(){
     document.getElementById("loginPage").style.display="none";
-    document.getElementById("registerPage").style.display="flex";
+    document.getElementById("registerPage").style.display="block";
 }
 
 function showLogin(){
     document.getElementById("registerPage").style.display="none";
-    document.getElementById("loginPage").style.display="flex";
+    document.getElementById("loginPage").style.display="block";
 }
 
-function showSection(id){
-    document.querySelectorAll("#mainWebsite section").forEach(sec=>{
-        sec.classList.remove("active");
-    });
-    document.getElementById(id).classList.add("active");
-}
-
-function toggleCV(){ document.getElementById("cvLink").classList.toggle("hidden"); }
-function toggleIG(){ document.getElementById("igLink").classList.toggle("hidden"); }
-function toggleYT(){ document.getElementById("ytLink").classList.toggle("hidden"); }
-
-function kirimWA(){
-    var nama=document.getElementById("nama").value;
-    var email=document.getElementById("email").value;
-    var pesan=document.getElementById("pesan").value;
-
-    if(nama===""||email===""||pesan===""){
-        alert("Harap isi semua data terlebih dahulu!");
-        return;
-    }
-
-    var nomorWA="6281375400765";
-    var url="https://wa.me/"+nomorWA+
-    "?text=Halo, saya "+nama+
-    "%0AEmail: "+email+
-    "%0APesan: "+pesan;
-
-    window.open(url,"_blank");
+function showPage(page){
+    document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+    document.getElementById(page).style.display="block";
 }
 </script>
 
