@@ -3,116 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perpustakaan Nopita</title>
+<title>Perpustakaan Perguruan Tinggi</title>
 
-<link rel="stylesheet" href="layout.css">
-<link rel="stylesheet" href="form.css">
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f6fb;
+}
 
+/* LOGIN PAGE */
+#loginPage{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(to right,#6a5acd,#483d8b);
+}
+
+.login-box{
+    background:white;
+    padding:40px;
+    border-radius:10px;
+    width:350px;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+.login-box h2{
+    text-align:center;
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:15px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#6a5acd;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#483d8b;
+}
+
+/* MAIN WEBSITE */
+#mainWebsite{
+    display:none;
+}
+
+/* NAVBAR */
+nav{
+    background:#6a5acd;
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+/* SECTION */
+section{
+    display:none;
+    padding:40px;
+    max-width:1000px;
+    margin:40px auto;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.active{
+    display:block;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#6a5acd;
+    color:white;
+    margin-top:40px;
+}
+</style>
 </head>
 <body>
 
-<!-- LOGIN -->
-<section id="login" class="active">
-    <h2>Login</h2>
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <button onclick="login()">Login</button>
-    <p>Belum punya akun?
-        <a onclick="showRegister()" style="color:blue;cursor:pointer;">Daftar di sini</a>
-    </p>
-</section>
+<!-- LOGIN PAGE -->
+<div id="loginPage">
+    <div class="login-box">
+        <h2>Login Perpustakaan</h2>
+        <input type="email" placeholder="Email Mahasiswa">
+        <input type="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+</div>
 
-<!-- REGISTER -->
-<section id="register">
-    <h2>Daftar Akun</h2>
-    <input type="text" placeholder="First Name">
-    <input type="text" placeholder="Last Name">
-    <input type="email" placeholder="Email">
-    <input type="text" placeholder="No HP">
-    <input type="password" placeholder="Password">
-    <button onclick="showLogin()">Daftar</button>
-</section>
+<!-- MAIN WEBSITE -->
+<div id="mainWebsite">
 
-<!-- NAVBAR -->
-<nav id="navbar">
+<nav>
     <a onclick="showSection('home')">Beranda</a>
     <a onclick="showSection('koleksi')">Koleksi</a>
     <a onclick="showSection('layanan')">Layanan</a>
-    <a onclick="showSection('about')">About</a>
-    <a onclick="showSection('contact')">Contact Us</a>
+    <a onclick="showSection('about')">Tentang</a>
+    <a onclick="showSection('contact')">Kontak</a>
     <a onclick="logout()">Logout</a>
 </nav>
 
-<!-- BERANDA -->
-<section id="home">
-    <h1>Selamat Datang di Perpustakaan Nopita</h1>
-    <p><b>Nama:</b> Nopita Laoli</p>
-    <p><b>NIM:</b> 230709013</p>
-    <p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
+<section id="home" class="active">
+    <h1>Perpustakaan Perguruan Tinggi</h1>
+    <p>
+    Selamat datang di sistem informasi Perpustakaan Perguruan Tinggi.
+    Website ini menyediakan layanan informasi koleksi, referensi akademik,
+    serta layanan digital untuk mendukung kegiatan pembelajaran dan penelitian mahasiswa.
+    </p>
 </section>
 
-<!-- KOLEKSI -->
 <section id="koleksi">
     <h2>Koleksi Perpustakaan</h2>
     <ul>
-        <li>Buku Manajemen Informasi</li>
-        <li>Buku Katalogisasi dan Klasifikasi</li>
-        <li>Jurnal Perpustakaan Digital</li>
-        <li>E-book Literasi Informasi</li>
+        <li>Buku Referensi Akademik</li>
+        <li>Jurnal Nasional & Internasional</li>
+        <li>Skripsi & Tesis</li>
+        <li>E-Book dan Repository Digital</li>
     </ul>
 </section>
 
-<!-- LAYANAN -->
 <section id="layanan">
     <h2>Layanan Perpustakaan</h2>
     <ul>
-        <li>Layanan Peminjaman Buku</li>
-        <li>Layanan Referensi</li>
+        <li>Layanan Peminjaman dan Pengembalian</li>
+        <li>Layanan Referensi dan Sitasi</li>
         <li>Layanan Penelusuran Informasi</li>
-        <li>Layanan Perpustakaan Digital</li>
+        <li>Akses Database Online</li>
     </ul>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-    <h2>About</h2>
-    <p>Website ini dibuat sebagai tugas mata kuliah.</p>
+    <h2>Tentang Perpustakaan</h2>
+    <p>
+    Perpustakaan Perguruan Tinggi berfungsi sebagai pusat sumber belajar
+    yang menyediakan informasi ilmiah dan akademik guna mendukung
+    Tri Dharma Perguruan Tinggi: pendidikan, penelitian, dan pengabdian masyarakat.
+    </p>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-    <h2>Contact Us</h2>
+    <h2>Kontak Perpustakaan</h2>
     <input type="text" id="nama" placeholder="Nama">
     <input type="email" id="email" placeholder="Email">
     <textarea id="pesan" rows="5" placeholder="Pesan"></textarea>
-    <button onclick="kirimWA()">Kirim</button>
+    <button onclick="kirimWA()">Kirim Pesan</button>
 </section>
+
+<footer>
+    © 2026 Perpustakaan Perguruan Tinggi
+</footer>
+
+</div>
 
 <script>
 function login(){
-    document.getElementById("login").classList.remove("active");
-    document.getElementById("navbar").style.display="block";
-    document.getElementById("home").classList.add("active");
+    document.getElementById("loginPage").style.display="none";
+    document.getElementById("mainWebsite").style.display="block";
 }
 
 function logout(){
-    document.getElementById("navbar").style.display="none";
-    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
-    document.getElementById("login").classList.add("active");
-}
-
-function showRegister(){
-    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
-    document.getElementById("register").classList.add("active");
-}
-
-function showLogin(){
-    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
-    document.getElementById("login").classList.add("active");
+    document.getElementById("mainWebsite").style.display="none";
+    document.getElementById("loginPage").style.display="flex";
 }
 
 function showSection(id){
-    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
+    document.querySelectorAll("#mainWebsite section").forEach(sec=>{
+        sec.classList.remove("active");
+    });
     document.getElementById(id).classList.add("active");
 }
 
