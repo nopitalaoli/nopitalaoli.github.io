@@ -6,263 +6,196 @@
 <title>Prime Academic Library</title>
 
 <style>
-body{
+body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    margin:0;
-    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
-    background-size:cover;
-    background-attachment:fixed;
+    color: white;
+    scroll-behavior: smooth;
+    
+    /* 1 Background tema perpustakaan perguruan tinggi */
+    background: linear-gradient(rgba(0,0,50,0.7), rgba(0,0,80,0.7)),
+    url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da');
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-/* NAVBAR */
-nav{
-    background:rgba(75,0,130,0.95);
-    padding:15px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+/* NAVIGATION */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(0,0,0,0.7);
+    position: sticky;
+    top: 0;
 }
 
-.nav-left a, .nav-right a{
-    color:white;
-    text-decoration:none;
-    margin-right:20px;
-    font-weight:bold;
-    cursor:pointer;
+.nav-left a, .nav-right a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
 }
 
-.nav-left a:hover, .nav-right a:hover{
-    text-decoration:underline;
+.nav-left a:hover, .nav-right a:hover {
+    color: gold;
 }
 
 /* SECTION */
-section{
-    display:none;
-    padding:40px;
-    max-width:900px;
-    margin:50px auto;
-    background:rgba(255,255,255,0.95);
-    border-radius:15px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.3);
-}
-.active{
-    display:block;
+section {
+    padding: 80px 40px;
+    background: rgba(0,0,0,0.6);
+    margin: 30px;
+    border-radius: 15px;
 }
 
-/* SLIDER */
-#home{
-    max-width:100%;
-    height:90vh;
-    margin:0;
-    padding:0;
-    border-radius:0;
-    box-shadow:none;
-    position:relative;
-    overflow:hidden;
-    color:white;
+h1, h2 {
+    color: gold;
 }
 
-.slide{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background-size:cover;
-    background-position:center;
-    opacity:0;
-    transition:opacity 1.5s ease-in-out;
+/* FORM */
+input, button {
+    padding: 10px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
 }
 
-.active-slide{
-    opacity:1;
+button {
+    background: gold;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.home-content{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    background:rgba(0,0,0,0.6);
-    padding:40px;
-    border-radius:15px;
-    text-align:center;
-    width:80%;
+button:hover {
+    background: orange;
 }
 
-input, textarea{
-    width:100%;
-    padding:10px;
-    margin:10px 0;
-    border-radius:5px;
-    border:1px solid #ccc;
-}
-
-button{
-    padding:10px 20px;
-    background:#4B0082;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#2e004f;
-}
-
-h1,h2,h3{
-    color:#4B0082;
-}
-#home h1{
-    color:white;
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.8);
+    margin-top: 40px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
 <nav>
-<div class="nav-left">
-<a onclick="showSection('home')">Beranda</a>
-<a onclick="showSection('koleksi')">Koleksi</a>
-<a onclick="showSection('layanan')">Layanan</a>
-<a onclick="showSection('aboutme')">About Me</a>
-<a onclick="showSection('aboutadmin')">About Admin</a>
-<a onclick="showSection('contact')">Contact Us</a>
-</div>
-<div class="nav-right">
-<a onclick="showSection('login')">Login</a>
-</div>
+    <div class="nav-left">
+        <a href="#beranda">Beranda</a>
+        <a href="#koleksi">Koleksi</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#aboutme">About Me</a>
+        <a href="#admin">About Admin</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+    <div class="nav-right">
+        <a href="#login">Login</a>
+    </div>
 </nav>
 
 <!-- BERANDA -->
-<section id="home" class="active">
-
-<div class="slide active-slide" style="background-image:url('https://i.imgur.com/QZ6VxQG.jpg');"></div>
-<div class="slide" style="background-image:url('https://i.imgur.com/vxW4QdR.jpg');"></div>
-<div class="slide" style="background-image:url('https://i.imgur.com/6KQ6xZf.jpg');"></div>
-
-<div class="home-content">
-<h1>Prime Academic Library</h1>
-<p>Perpustakaan akademik modern yang menyediakan koleksi buku, jurnal ilmiah, e-book, serta layanan informasi untuk mendukung pembelajaran dan penelitian mahasiswa.</p>
-</div>
+<section id="beranda">
+    <h1>Prime Academic Library</h1>
+    <p>Perpustakaan perguruan tinggi yang menyediakan berbagai koleksi ilmiah, jurnal, dan layanan informasi akademik untuk mendukung kegiatan pendidikan dan penelitian mahasiswa.</p>
 </section>
 
 <!-- KOLEKSI -->
 <section id="koleksi">
-<h2>Koleksi Perpustakaan</h2>
-<ul>
-<li>Buku Manajemen Informasi</li>
-<li>Buku Katalogisasi dan Klasifikasi</li>
-<li>Jurnal Perpustakaan Digital</li>
-<li>E-book Literasi Informasi</li>
-<li>Skripsi dan Karya Ilmiah</li>
-</ul>
+    <h2>Koleksi</h2>
+    <ul>
+        <li>Buku Referensi Akademik</li>
+        <li>Jurnal Nasional & Internasional</li>
+        <li>E-Book Digital</li>
+        <li>Skripsi & Tesis</li>
+    </ul>
 </section>
 
 <!-- LAYANAN -->
 <section id="layanan">
-<h2>Jam Layanan Perpustakaan</h2>
-<ul>
-<li><b>Senin:</b> 08.30 – 18.00</li>
-<li><b>Selasa – Jumat:</b> 08.00 – 18.00</li>
-<li><b>Sabtu – Minggu:</b> Tutup</li>
-</ul>
+    <h2>Layanan & Jam Operasional</h2>
+    <p><strong>Senin:</strong> 08:30 - 18:00</p>
+    <p><strong>Selasa - Jumat:</strong> 08:00 - 18:00</p>
+    <p><strong>Sabtu - Minggu:</strong> Tutup</p>
+    <br>
+    <ul>
+        <li>Layanan Sirkulasi</li>
+        <li>Layanan Referensi</li>
+        <li>Layanan Bimbingan Penelusuran Informasi</li>
+        <li>Akses WiFi & Ruang Baca</li>
+    </ul>
 </section>
 
 <!-- ABOUT ME -->
 <section id="aboutme">
-<h2>About Me</h2>
-<p><b>Nama:</b> Nopita Laoli</p>
-<p><b>NIM:</b> 230709013</p>
-<p><b>Program Studi:</b> Perpustakaan dan Sains Informasi</p>
+    <h2>About Me</h2>
+    <p><strong>Nama:</strong> Nopita Laoli</p>
+    <p><strong>Status:</strong> Mahasiswa</p>
+    <p><strong>Minat:</strong> Arsiparis & Pengelolaan Informasi</p>
 
-<p style="margin-top:20px;font-weight:bold;">
-Kenali lebih jauh tentang saya melalui CV dan Instagram yang tersedia di bawah ini.
-</p>
+    <p>
+        🔗 Instagram:
+        <a href="https://instagram.com/" target="_blank" style="color: gold;">Klik di sini</a>
+    </p>
 
-<p>📷 <a href="https://www.instagram.com/" target="_blank">Instagram</a></p>
-<p>📄 <a href="https://drive.google.com/" target="_blank">Curriculum Vitae</a></p>
-<p>▶ <a href="https://www.youtube.com/" target="_blank">YouTube</a></p>
+    <p>
+        🔗 CV:
+        <a href="#" style="color: gold;">Lihat CV</a>
+    </p>
+
+    <p>
+        🔗 YouTube:
+        <a href="https://youtube.com/" target="_blank" style="color: gold;">Kunjungi Channel</a>
+    </p>
 </section>
 
 <!-- ABOUT ADMIN -->
-<section id="aboutadmin">
-<h2>About Admin</h2>
-<p>Admin Prime Academic Library bertanggung jawab dalam pengelolaan sistem informasi dan layanan perpustakaan.</p>
+<section id="admin">
+    <h2>About Admin</h2>
+    <p>Admin Prime Academic Library bertanggung jawab dalam pengelolaan sistem informasi perpustakaan, pengembangan layanan digital, serta memastikan akses informasi berjalan dengan baik bagi seluruh pengguna.</p>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-<h2>Contact Us</h2>
-<input type="text" id="nama" placeholder="Nama">
-<input type="email" id="email" placeholder="Email">
-<textarea id="pesan" rows="5" placeholder="Pesan"></textarea>
-<button onclick="kirimWA()">Kirim ke WhatsApp</button>
+    <h2>Contact Us</h2>
+    <p>Jika ingin bertanya atau mengirim pesan, klik tombol di bawah ini:</p>
+    <a href="https://wa.me/6281375400765" target="_blank">
+        <button>Kirim Pesan via WhatsApp</button>
+    </a>
 </section>
 
 <!-- LOGIN -->
 <section id="login">
-<h2>Login</h2>
-<input type="email" id="loginEmail" placeholder="Email">
-<input type="password" id="loginPassword" placeholder="Password">
-<button onclick="prosesLogin()">Login</button>
-<p>Belum punya akun?
-<span style="color:blue;cursor:pointer;" onclick="showSection('register')">
-Daftar di sini
-</span>
-</p>
+    <h2>Login</h2>
+    <form>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
+
+    <p>Belum punya akun? <a href="#daftar" style="color: gold;">Daftar di sini</a></p>
 </section>
 
-<!-- REGISTER -->
-<section id="register">
-<h2>Daftar Akun</h2>
-<input type="text" placeholder="First Name">
-<input type="text" placeholder="Last Name">
-<input type="email" placeholder="Email">
-<input type="text" placeholder="No HP">
-<input type="password" placeholder="Password">
-<button onclick="showSection('login')">Daftar</button>
+<!-- DAFTAR -->
+<section id="daftar">
+    <h2>Daftar Akun</h2>
+    <form>
+        <input type="text" placeholder="First Name">
+        <input type="text" placeholder="Last Name">
+        <input type="email" placeholder="Email">
+        <input type="text" placeholder="No HP">
+        <input type="password" placeholder="Password">
+        <button type="submit">Daftar</button>
+    </form>
 </section>
 
-<script>
-function showSection(id){
-document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
-document.getElementById(id).classList.add("active");
-}
-
-let slides=document.querySelectorAll(".slide");
-let index=0;
-setInterval(()=>{
-slides[index].classList.remove("active-slide");
-index=(index+1)%slides.length;
-slides[index].classList.add("active-slide");
-},4000);
-
-function kirimWA(){
-var nama=document.getElementById("nama").value;
-var email=document.getElementById("email").value;
-var pesan=document.getElementById("pesan").value;
-
-if(nama===""||email===""||pesan===""){
-alert("Harap isi semua data terlebih dahulu!");
-return;
-}
-
-var nomorWA="6281375400765";
-var url="https://wa.me/"+nomorWA+
-"?text=Halo, saya "+encodeURIComponent(nama)+
-"%0AEmail: "+encodeURIComponent(email)+
-"%0APesan: "+encodeURIComponent(pesan);
-
-window.open(url,"_blank");
-}
-
-function prosesLogin(){
-alert("Login berhasil!");
-showSection("home");
-}
-</script>
+<div class="footer">
+    © 2026 Prime Academic Library | Designed by Nopita Laoli
+</div>
 
 </body>
 </html>
