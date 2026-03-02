@@ -6,196 +6,270 @@
 <title>Prime Academic Library</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: white;
-    scroll-behavior: smooth;
-    
-    /* 1 Background tema perpustakaan perguruan tinggi */
-    background: linear-gradient(rgba(0,0,50,0.7), rgba(0,0,80,0.7)),
-    url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da');
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(rgba(0,0,40,0.8), rgba(0,0,40,0.8)),
+    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
     background-size: cover;
     background-attachment: fixed;
+    color:white;
 }
 
-/* NAVIGATION */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background: rgba(0,0,0,0.7);
-    position: sticky;
-    top: 0;
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:rgba(0,0,0,0.7);
+    position:sticky;
+    top:0;
 }
 
-.nav-left a, .nav-right a {
-    color: white;
-    text-decoration: none;
-    margin-right: 20px;
-    font-weight: bold;
+.nav-left a,
+.nav-right a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+    font-weight:600;
+    transition:0.3s;
 }
 
-.nav-left a:hover, .nav-right a:hover {
-    color: gold;
+.nav-left a:hover,
+.nav-right a:hover{
+    color:gold;
 }
 
 /* SECTION */
-section {
-    padding: 80px 40px;
-    background: rgba(0,0,0,0.6);
-    margin: 30px;
-    border-radius: 15px;
+section{
+    display:none;
+    padding:60px 20px;
+    text-align:center;
+    animation:fade 0.5s ease-in-out;
 }
 
-h1, h2 {
-    color: gold;
+.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* CARD */
+.card{
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    padding:30px;
+    margin:20px auto;
+    border-radius:15px;
+    max-width:700px;
+}
+
+/* IMAGE */
+img{
+    width:100%;
+    max-width:600px;
+    border-radius:15px;
+    margin-top:20px;
 }
 
 /* FORM */
-input, button {
-    padding: 10px;
-    margin: 8px 0;
-    width: 100%;
-    border-radius: 8px;
-    border: none;
+input, textarea{
+    width:90%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
 }
 
-button {
-    background: gold;
-    font-weight: bold;
-    cursor: pointer;
+button{
+    padding:12px 25px;
+    background:gold;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-button:hover {
-    background: orange;
+button:hover{
+    background:orange;
 }
 
-.footer {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.8);
-    margin-top: 40px;
+/* RESPONSIVE */
+@media(max-width:768px){
+    nav{
+        flex-direction:column;
+        text-align:center;
+    }
+    .nav-left{
+        margin-bottom:10px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
 <nav>
     <div class="nav-left">
-        <a href="#beranda">Beranda</a>
-        <a href="#koleksi">Koleksi</a>
-        <a href="#layanan">Layanan</a>
-        <a href="#aboutme">About Me</a>
-        <a href="#admin">About Admin</a>
-        <a href="#contact">Contact Us</a>
+        <a href="#" onclick="showSection('beranda')">Beranda</a>
+        <a href="#" onclick="showSection('koleksi')">Koleksi</a>
+        <a href="#" onclick="showSection('layanan')">Layanan</a>
+        <a href="#" onclick="showSection('about')">About Me</a>
+        <a href="#" onclick="showSection('admin')">About Admin</a>
+        <a href="#" onclick="showSection('contact')">Contact Us</a>
     </div>
     <div class="nav-right">
-        <a href="#login">Login</a>
+        <a href="#" onclick="showSection('login')">Login</a>
     </div>
 </nav>
 
 <!-- BERANDA -->
-<section id="beranda">
+<section id="beranda" class="active">
     <h1>Prime Academic Library</h1>
-    <p>Perpustakaan perguruan tinggi yang menyediakan berbagai koleksi ilmiah, jurnal, dan layanan informasi akademik untuk mendukung kegiatan pendidikan dan penelitian mahasiswa.</p>
+    <div class="card">
+        <p>Perpustakaan Perguruan Tinggi Modern, Digital, dan Inovatif.</p>
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66">
+    </div>
 </section>
 
 <!-- KOLEKSI -->
 <section id="koleksi">
-    <h2>Koleksi</h2>
-    <ul>
-        <li>Buku Referensi Akademik</li>
-        <li>Jurnal Nasional & Internasional</li>
-        <li>E-Book Digital</li>
-        <li>Skripsi & Tesis</li>
-    </ul>
+    <h1>Koleksi Buku</h1>
+    <div class="card">
+        <p>Ribuan koleksi buku akademik, jurnal ilmiah, skripsi, dan referensi digital tersedia untuk mahasiswa.</p>
+        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da">
+    </div>
 </section>
 
 <!-- LAYANAN -->
 <section id="layanan">
-    <h2>Layanan & Jam Operasional</h2>
-    <p><strong>Senin:</strong> 08:30 - 18:00</p>
-    <p><strong>Selasa - Jumat:</strong> 08:00 - 18:00</p>
-    <p><strong>Sabtu - Minggu:</strong> Tutup</p>
-    <br>
-    <ul>
-        <li>Layanan Sirkulasi</li>
-        <li>Layanan Referensi</li>
-        <li>Layanan Bimbingan Penelusuran Informasi</li>
-        <li>Akses WiFi & Ruang Baca</li>
-    </ul>
+    <h1>Jam Layanan</h1>
+    <div class="card">
+        <p>Senin : 08:30 - 18:00</p>
+        <p>Selasa - Jumat : 08:00 - 18:00</p>
+        <p>Sabtu - Minggu : Tutup</p>
+    </div>
 </section>
 
-<!-- ABOUT ME -->
-<section id="aboutme">
-    <h2>About Me</h2>
-    <p><strong>Nama:</strong> Nopita Laoli</p>
-    <p><strong>Status:</strong> Mahasiswa</p>
-    <p><strong>Minat:</strong> Arsiparis & Pengelolaan Informasi</p>
+<!-- ABOUT -->
+<section id="about">
+    <h1>About Me</h1>
+    <div class="card">
+        <p><b>Nama:</b> Nopita Laoli</p>
+        <p><b>Status:</b> Mahasiswa</p>
+        <p><b>Minat:</b> Perpustakaan & Teknologi Informasi</p>
 
-    <p>
-        🔗 Instagram:
-        <a href="https://instagram.com/" target="_blank" style="color: gold;">Klik di sini</a>
-    </p>
+        <p>
+        Instagram:
+        <a href="https://instagram.com" target="_blank">Klik Disini</a>
+        </p>
 
-    <p>
-        🔗 CV:
-        <a href="#" style="color: gold;">Lihat CV</a>
-    </p>
+        <p>
+        CV:
+        <a href="#" target="_blank">Lihat CV</a>
+        </p>
 
-    <p>
-        🔗 YouTube:
-        <a href="https://youtube.com/" target="_blank" style="color: gold;">Kunjungi Channel</a>
-    </p>
+        <p>
+        YouTube:
+        <a href="https://youtube.com" target="_blank">Channel Saya</a>
+        </p>
+    </div>
 </section>
 
-<!-- ABOUT ADMIN -->
+<!-- ADMIN -->
 <section id="admin">
-    <h2>About Admin</h2>
-    <p>Admin Prime Academic Library bertanggung jawab dalam pengelolaan sistem informasi perpustakaan, pengembangan layanan digital, serta memastikan akses informasi berjalan dengan baik bagi seluruh pengguna.</p>
+    <h1>About Admin</h1>
+    <div class="card">
+        <p>Admin bertanggung jawab mengelola sistem informasi dan layanan Prime Academic Library.</p>
+        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6">
+    </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Jika ingin bertanya atau mengirim pesan, klik tombol di bawah ini:</p>
-    <a href="https://wa.me/6281375400765" target="_blank">
-        <button>Kirim Pesan via WhatsApp</button>
-    </a>
+    <h1>Contact Us</h1>
+    <div class="card">
+        <textarea id="pesan" placeholder="Tulis pesan anda..."></textarea><br>
+        <button onclick="kirimWA()">Kirim ke WhatsApp</button>
+    </div>
 </section>
 
 <!-- LOGIN -->
 <section id="login">
-    <h2>Login</h2>
-    <form>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button type="submit">Login</button>
-    </form>
+    <h1>Login</h1>
+    <div class="card">
+        <input type="email" id="loginEmail" placeholder="Email"><br>
+        <input type="password" id="loginPassword" placeholder="Password"><br>
+        <button onclick="login()">Login</button>
 
-    <p>Belum punya akun? <a href="#daftar" style="color: gold;">Daftar di sini</a></p>
+        <p>Belum punya akun?
+            <a href="#" onclick="toggleDaftar()">Daftar Disini</a>
+        </p>
+
+        <div id="daftarForm" style="display:none;">
+            <input type="text" id="firstName" placeholder="First Name"><br>
+            <input type="text" id="lastName" placeholder="Last Name"><br>
+            <input type="email" id="email" placeholder="Email"><br>
+            <input type="text" id="phone" placeholder="No HP"><br>
+            <input type="password" id="password" placeholder="Password"><br>
+            <button onclick="daftar()">Daftar</button>
+        </div>
+    </div>
 </section>
 
-<!-- DAFTAR -->
-<section id="daftar">
-    <h2>Daftar Akun</h2>
-    <form>
-        <input type="text" placeholder="First Name">
-        <input type="text" placeholder="Last Name">
-        <input type="email" placeholder="Email">
-        <input type="text" placeholder="No HP">
-        <input type="password" placeholder="Password">
-        <button type="submit">Daftar</button>
-    </form>
-</section>
+<script>
+function showSection(id){
+    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
 
-<div class="footer">
-    © 2026 Prime Academic Library | Designed by Nopita Laoli
-</div>
+function toggleDaftar(){
+    var form=document.getElementById("daftarForm");
+    form.style.display=form.style.display==="none"?"block":"none";
+}
+
+function daftar(){
+    const user={
+        firstName:firstName.value,
+        lastName:lastName.value,
+        email:email.value,
+        phone:phone.value,
+        password:password.value
+    };
+    localStorage.setItem(user.email, JSON.stringify(user));
+    alert("Pendaftaran berhasil!");
+}
+
+function login(){
+    const data=localStorage.getItem(loginEmail.value);
+    if(data){
+        const user=JSON.parse(data);
+        if(user.password===loginPassword.value){
+            alert("Login berhasil, Selamat datang "+user.firstName+"!");
+        }else{
+            alert("Password salah!");
+        }
+    }else{
+        alert("Akun tidak ditemukan!");
+    }
+}
+
+function kirimWA(){
+    var pesan=document.getElementById("pesan").value;
+    var url="https://wa.me/6281375400765?text="+encodeURIComponent(pesan);
+    window.open(url,"_blank");
+}
+</script>
 
 </body>
 </html>
