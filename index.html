@@ -13,9 +13,12 @@
 }
 
 body{
-    font-family:'Segoe UI', sans-serif;
-    background: linear-gradient(135deg,#4facfe,#00f2fe);
-    background-attachment: fixed;
+    font-family:'Segoe UI',sans-serif;
+    background:
+    linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+    url('https://images.unsplash.com/photo-1507842217343-583bb7270b66');
+    background-size:cover;
+    background-attachment:fixed;
     color:#002147;
 }
 
@@ -23,21 +26,21 @@ body{
 nav{
     display:flex;
     justify-content:space-between;
-    align-items:center;
     padding:15px 40px;
     background:white;
-    box-shadow:0 2px 15px rgba(0,0,0,0.1);
+    box-shadow:0 3px 15px rgba(0,0,0,0.1);
     position:sticky;
     top:0;
+    z-index:1000;
 }
 
 .nav-left a,
 .nav-right a{
     text-decoration:none;
-    margin:0 10px;
+    margin:0 12px;
     font-weight:600;
     color:#002147;
-    transition:0.3s;
+    cursor:pointer;
 }
 
 .nav-left a:hover,
@@ -51,42 +54,43 @@ section{
     padding:80px 20px;
     max-width:1000px;
     margin:auto;
+    animation:fade 0.4s ease-in-out;
 }
 
 .active{
     display:block;
 }
 
+@keyframes fade{
+    from{opacity:0; transform:translateY(15px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
 /* HERO */
 .hero{
     text-align:center;
-    margin-bottom:50px;
+    margin-bottom:40px;
 }
 
 .hero h1{
     font-size:50px;
+    margin-bottom:15px;
     font-weight:bold;
-    color:white;
-    text-shadow:2px 2px 10px rgba(0,0,0,0.3);
 }
 
 /* CARD */
 .card{
     background:white;
     padding:35px;
-    border-radius:15px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
     line-height:1.8;
-    font-size:17px;
 }
 
-/* LIST KOLEKSI */
+/* LIST */
 ul{
-    padding-left:20px;
-}
-
-ul li{
-    margin-bottom:10px;
+    margin-left:20px;
+    line-height:1.9;
 }
 
 /* FORM */
@@ -110,6 +114,7 @@ button{
 
 button:hover{
     background:#d4af37;
+    color:black;
 }
 
 /* RESPONSIVE */
@@ -129,15 +134,15 @@ button:hover{
 
 <nav>
     <div class="nav-left">
-        <a href="#" onclick="showSection('beranda')">Beranda</a>
-        <a href="#" onclick="showSection('koleksi')">Koleksi</a>
-        <a href="#" onclick="showSection('layanan')">Layanan</a>
-        <a href="#" onclick="showSection('about')">About Me</a>
-        <a href="#" onclick="showSection('admin')">About Admin</a>
-        <a href="#" onclick="showSection('contact')">Contact Us</a>
+        <a onclick="showSection('beranda')">Beranda</a>
+        <a onclick="showSection('koleksi')">Koleksi</a>
+        <a onclick="showSection('layanan')">Layanan</a>
+        <a onclick="showSection('about')">About Me</a>
+        <a onclick="showSection('admin')">About Admin</a>
+        <a onclick="showSection('contact')">Contact Us</a>
     </div>
     <div class="nav-right">
-        <a href="#" onclick="showSection('login')">Login</a>
+        <a onclick="showSection('login')">Login</a>
     </div>
 </nav>
 
@@ -145,23 +150,23 @@ button:hover{
 <section id="beranda" class="active">
     <div class="hero">
         <h1>Selamat Datang di Prime Academic Library</h1>
+        <p>Pusat Informasi Akademik Modern dan Profesional</p>
     </div>
 
     <div class="card">
         <h2>Tentang Prime Academic Library</h2>
         <br>
         <p>
-        Prime Academic Library adalah perpustakaan perguruan tinggi modern 
-        yang berfungsi sebagai pusat sumber informasi ilmiah, akademik, 
-        dan digital untuk mendukung kegiatan pendidikan dan penelitian.
+        Prime Academic Library adalah perpustakaan perguruan tinggi yang berkomitmen 
+        menjadi pusat sumber informasi ilmiah yang unggul dan terpercaya.
         </p>
 
         <p>
-        Kata <b>Prime</b> berarti utama dan unggul, menunjukkan komitmen 
-        memberikan layanan terbaik. <b>Academic</b> menegaskan fokus pada 
-        dunia pendidikan tinggi dan penelitian ilmiah. Sedangkan <b>Library</b> 
-        merupakan pusat koleksi pengetahuan yang menyediakan buku, jurnal, 
-        karya ilmiah, dan layanan informasi digital secara profesional.
+        Kata <b>Prime</b> menunjukkan kualitas utama dan terbaik. 
+        <b>Academic</b> menegaskan fokus pada pendidikan tinggi dan penelitian ilmiah. 
+        Sedangkan <b>Library</b> berarti pusat pengelolaan informasi yang menyediakan 
+        buku, jurnal, karya ilmiah, serta layanan digital untuk mendukung 
+        kegiatan belajar dan penelitian mahasiswa.
         </p>
     </div>
 </section>
@@ -169,15 +174,14 @@ button:hover{
 <!-- KOLEKSI -->
 <section id="koleksi">
     <div class="card">
-        <h2>Koleksi Buku</h2>
+        <h2>Koleksi</h2>
         <br>
         <ul>
-            <li>Buku Referensi Akademik</li>
-            <li>Jurnal Ilmiah Nasional</li>
-            <li>Jurnal Ilmiah Internasional</li>
-            <li>Skripsi dan Tesis Mahasiswa</li>
-            <li>Disertasi</li>
-            <li>E-book dan Koleksi Digital</li>
+            <li>Buku Akademik Berbagai Program Studi</li>
+            <li>Jurnal Ilmiah Nasional dan Internasional</li>
+            <li>Skripsi, Tesis, dan Disertasi</li>
+            <li>E-Book dan Referensi Digital</li>
+            <li>Majalah Ilmiah dan Prosiding Seminar</li>
         </ul>
     </div>
 </section>
@@ -193,23 +197,28 @@ button:hover{
     </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT ME -->
 <section id="about">
     <div class="card">
         <h2>About Me</h2>
         <br>
         <p><b>Nama:</b> Nopita Laoli</p>
         <p><b>Status:</b> Mahasiswa</p>
-        <p><b>Minat:</b> Perpustakaan & Teknologi Informasi</p>
+        <p><b>Minat:</b> Perpustakaan dan Teknologi Informasi</p>
 
-        <p>Instagram:
-        <a href="https://instagram.com" target="_blank">Klik Disini</a></p>
+        <p>
+        Untuk mengetahui lebih lanjut tentang profil lengkap, pengalaman, 
+        dan karya yang telah saya buat, silakan kunjungi tautan berikut:
+        </p>
 
-        <p>CV:
-        <a href="#" target="_blank">Lihat CV</a></p>
+        <p>Instagram: 
+        <a href="https://instagram.com" target="_blank">Klik di sini</a></p>
 
-        <p>YouTube:
-        <a href="https://youtube.com" target="_blank">Channel Saya</a></p>
+        <p>CV: 
+        <a href="#" target="_blank">Lihat CV Saya</a></p>
+
+        <p>YouTube: 
+        <a href="https://youtube.com" target="_blank">Channel YouTube</a></p>
     </div>
 </section>
 
@@ -219,8 +228,8 @@ button:hover{
         <h2>About Admin</h2>
         <br>
         <p>
-        Admin Prime Academic Library bertanggung jawab dalam pengelolaan 
-        sistem informasi, layanan perpustakaan, dan pengembangan layanan digital.
+        Admin Prime Academic Library bertanggung jawab dalam pengelolaan sistem 
+        informasi, layanan perpustakaan, serta pengembangan perpustakaan digital.
         </p>
     </div>
 </section>
@@ -230,8 +239,8 @@ button:hover{
     <div class="card">
         <h2>Contact Us</h2>
         <br>
-        <input type="text" id="namaPengirim" placeholder="Nama">
-        <input type="email" id="emailPengirim" placeholder="Email">
+        <input type="text" id="nama" placeholder="Nama Anda">
+        <input type="email" id="emailContact" placeholder="Email Anda">
         <textarea id="pesan" placeholder="Tulis pesan anda..."></textarea>
         <button onclick="kirimWA()">Kirim ke WhatsApp</button>
     </div>
@@ -245,62 +254,31 @@ button:hover{
         <input type="email" id="loginEmail" placeholder="Email">
         <input type="password" id="loginPassword" placeholder="Password">
         <button onclick="login()">Login</button>
-
-        <p>Belum punya akun?
-            <a href="#" onclick="toggleDaftar()">Daftar Disini</a>
-        </p>
-
-        <div id="daftarForm" style="display:none;">
-            <input type="text" id="firstName" placeholder="First Name">
-            <input type="text" id="lastName" placeholder="Last Name">
-            <input type="email" id="email" placeholder="Email">
-            <input type="text" id="phone" placeholder="No HP">
-            <input type="password" id="password" placeholder="Password">
-            <button onclick="daftar()">Daftar</button>
-        </div>
     </div>
 </section>
 
 <script>
 function showSection(id){
-    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-}
-
-function toggleDaftar(){
-    var form=document.getElementById("daftarForm");
-    form.style.display=form.style.display==="none"?"block":"none";
-}
-
-function daftar(){
-    const user={
-        firstName:firstName.value,
-        lastName:lastName.value,
-        email:email.value,
-        phone:phone.value,
-        password:password.value
-    };
-    localStorage.setItem(user.email, JSON.stringify(user));
-    alert("Pendaftaran berhasil!");
-}
-
-function login(){
-    const data=localStorage.getItem(loginEmail.value);
-    if(data){
-        const user=JSON.parse(data);
-        if(user.password===loginPassword.value){
-            alert("Login berhasil, Selamat datang "+user.firstName+"!");
-        }else{
-            alert("Password salah!");
-        }
-    }else{
-        alert("Akun tidak ditemukan!");
-    }
+    document.querySelectorAll("section").forEach(sec=>{
+        sec.style.display="none";
+    });
+    document.getElementById(id).style.display="block";
 }
 
 function kirimWA(){
-    var nama=document.getElementById("namaPengirim").value;
-    var email=document.getElementById("emailPengirim").value;
+    var nama=document.getElementById("nama").value;
+    var email=document.getElementById("emailContact").value;
     var pesan=document.getElementById("pesan").value;
 
-    var text="Nama: "+nama+"%0AEmail: "+
+    var teks="Nama: "+nama+"%0AEmail: "+email+"%0APesan: "+pesan;
+    var url="https://wa.me/6281375400765?text="+teks;
+    window.open(url,"_blank");
+}
+
+function login(){
+    alert("Fitur login aktif.");
+}
+</script>
+
+</body>
+</html>
