@@ -6,127 +6,77 @@
 <title>Prime Academic Library</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
 body{
-    font-family:'Segoe UI',sans-serif;
-    background:
-    linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
-    url('https://images.unsplash.com/photo-1507842217343-583bb7270b66');
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(rgba(90,60,150,0.85), rgba(40,20,90,0.85)),
+    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
     background-size:cover;
     background-attachment:fixed;
-    color:#002147;
+    color:white;
 }
 
-/* NAVBAR */
+/* NAVIGASI */
 nav{
     display:flex;
     justify-content:space-between;
     padding:15px 40px;
-    background:white;
-    box-shadow:0 3px 15px rgba(0,0,0,0.1);
+    background:rgba(0,0,0,0.6);
     position:sticky;
     top:0;
 }
 
-.nav-left a,
-.nav-right a{
+nav .left a, nav .right a{
+    color:white;
     text-decoration:none;
-    margin:0 12px;
-    font-weight:600;
-    color:#002147;
-    cursor:pointer;
+    margin:0 15px;
+    font-weight:bold;
 }
 
-.nav-left a:hover,
-.nav-right a:hover{
-    color:#d4af37;
+nav a:hover{
+    color:#ffd700;
 }
 
 /* SECTION */
 section{
-    display:none;
-    padding:80px 20px;
-    max-width:1000px;
-    margin:auto;
+    padding:80px 40px;
+    min-height:100vh;
 }
 
-.active{
-    display:block;
-}
-
-/* HERO */
-.hero{
+h1{
     text-align:center;
-    margin-bottom:40px;
-}
-
-.hero h1{
     font-size:50px;
-    margin-bottom:15px;
-    font-weight:bold;
 }
 
-/* CARD */
-.card{
-    background:white;
-    padding:35px;
-    border-radius:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
-    line-height:1.8;
-}
-
-/* LIST */
-ul{
-    margin-left:20px;
-    line-height:1.9;
+h2{
+    margin-bottom:20px;
 }
 
 /* FORM */
+form{
+    max-width:400px;
+    margin:auto;
+}
+
 input, textarea{
     width:100%;
-    padding:12px;
+    padding:10px;
     margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:8px;
+    border:none;
+    border-radius:5px;
 }
 
 button{
-    padding:12px 25px;
-    background:#002147;
-    color:white;
+    padding:10px 20px;
     border:none;
-    border-radius:8px;
+    border-radius:5px;
+    background:#ffd700;
     font-weight:bold;
     cursor:pointer;
 }
 
 button:hover{
-    background:#d4af37;
-    color:black;
-}
-
-a{
-    color:#002147;
-    font-weight:bold;
-}
-
-a:hover{
-    color:#d4af37;
-}
-
-@media(max-width:768px){
-    .hero h1{
-        font-size:32px;
-    }
-    nav{
-        flex-direction:column;
-        text-align:center;
-    }
+    background:white;
 }
 </style>
 </head>
@@ -134,153 +84,102 @@ a:hover{
 <body>
 
 <nav>
-    <div class="nav-left">
-        <a onclick="showSection('beranda')">Beranda</a>
-        <a onclick="showSection('koleksi')">Koleksi</a>
-        <a onclick="showSection('layanan')">Layanan</a>
-        <a onclick="showSection('about')">About Me</a>
-        <a onclick="showSection('contact')">Contact Us</a>
-    </div>
-    <div class="nav-right">
-        <a onclick="showSection('login')">Login</a>
-    </div>
+<div class="left">
+<a href="#beranda">Beranda</a>
+<a href="#koleksi">Koleksi</a>
+<a href="#layanan">Layanan</a>
+<a href="#about">About Me</a>
+<a href="#contact">Contact Us</a>
+</div>
+<div class="right">
+<a href="#login">Login</a>
+</div>
 </nav>
 
 <!-- BERANDA -->
-<section id="beranda" class="active">
-    <div class="hero">
-        <h1>Selamat Datang di Prime Academic Library</h1>
-        <p>Pusat Informasi Akademik Modern dan Profesional</p>
-    </div>
-
-    <div class="card">
-        <h2>Tentang Prime Academic Library</h2>
-        <p>
-        Prime Academic Library adalah perpustakaan perguruan tinggi yang berkomitmen 
-        menjadi pusat sumber informasi ilmiah yang unggul, terpercaya, dan modern.
-        </p>
-        <p>
-        Prime berarti utama dan berkualitas tinggi. Academic menegaskan fokus pada 
-        pendidikan dan penelitian. Library adalah pusat informasi yang menyediakan 
-        buku, jurnal, dan layanan digital untuk mendukung pembelajaran mahasiswa.
-        </p>
-    </div>
+<section id="beranda">
+<h1>Selamat Datang di Prime Academic Library</h1>
+<p style="text-align:center; font-size:18px; max-width:800px; margin:auto;">
+Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. 
+Nama "Prime" melambangkan keunggulan dan kualitas terbaik, sedangkan "Academic" menunjukkan fokus pada dunia pendidikan dan penelitian. 
+Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.
+</p>
 </section>
 
 <!-- KOLEKSI -->
 <section id="koleksi">
-    <div class="card">
-        <h2>Koleksi</h2>
-        <ul>
-            <li>Buku Akademik</li>
-            <li>Jurnal Ilmiah</li>
-            <li>Skripsi dan Tesis</li>
-            <li>E-Book Digital</li>
-            <li>Referensi Penelitian</li>
-        </ul>
-    </div>
+<h2>Koleksi</h2>
+<ul>
+<li>Buku Referensi Akademik</li>
+<li>Jurnal Nasional & Internasional</li>
+<li>Skripsi dan Tesis</li>
+<li>E-Book Digital</li>
+<li>Majalah Ilmiah</li>
+</ul>
 </section>
 
 <!-- LAYANAN -->
 <section id="layanan">
-    <div class="card">
-        <h2>Jam Layanan</h2>
-        <p>Senin : 08:30 - 18:00</p>
-        <p>Selasa - Jumat : 08:00 - 18:00</p>
-        <p>Sabtu - Minggu : Tutup</p>
-    </div>
+<h2>Jam Layanan</h2>
+<ul>
+<li>Senin : 08:30 - 18:00 wib</li>
+<li>Selasa - Jumat : 08:00 - 18:00 wib</li>
+<li>Sabtu - Minggu : Tutup</li>
+</ul>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT ME -->
 <section id="about">
-    <div class="card">
-        <h2>About Me</h2>
-        <p><b>Nama:</b> Nopita Laoli</p>
-        <p><b>Status:</b> Mahasiswa</p>
-        <p><b>Minat:</b> Perpustakaan dan Teknologi Informasi</p>
-    </div>
+<h2>About Me</h2>
+<p>
+Halo, saya Nopita Laoli.  
+Kenali lebih jauh tentang saya melalui CV dan Instagram yang tersedia di bawah ini.
+</p>
+
+<p><strong>Nama :</strong> Nopita Laoli</p>
+<p><strong>NIM :</strong> 123456789</p>
+<p><strong>Jurusan :</strong> Ilmu Perpustakaan</p>
+
+<p>
+<a href="https://instagram.com" target="_blank" style="color:#ffd700;">Instagram Saya</a> |
+<a href="#" target="_blank" style="color:#ffd700;">Lihat CV</a>
+</p>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-    <div class="card">
-        <h2>Contact Us</h2>
-
-        <p><b>Nama:</b> Nopita Laoli</p>
-        <p><b>NIM:</b> 123456789</p>
-        <p><b>Jurusan:</b> Ilmu Perpustakaan</p>
-
-        <br>
-
-        <p>
-        Kenali lebih jauh tentang saya melalui CV dan Instagram 
-        yang tersedia di bawah ini:
-        </p>
-
-        <p>
-        <a href="#" target="_blank">Lihat CV</a> |
-        <a href="https://instagram.com" target="_blank">Instagram</a>
-        </p>
-
-        <hr><br>
-
-        <input type="text" id="nama" placeholder="Nama Anda">
-        <input type="email" id="emailContact" placeholder="Email Anda">
-        <textarea id="pesan" placeholder="Tulis pesan anda..."></textarea>
-        <button onclick="kirimWA()">Kirim ke WhatsApp</button>
-    </div>
+<h2>Contact Us</h2>
+<form>
+<input type="text" placeholder="Nama" required>
+<input type="email" placeholder="Email" required>
+<textarea rows="4" placeholder="Kirim Pesan Anda" required></textarea>
+<button type="submit">Kirim</button>
+</form>
 </section>
 
 <!-- LOGIN -->
 <section id="login">
-    <div class="card">
-        <h2>Login</h2>
-        <input type="email" id="loginEmail" placeholder="Email">
-        <input type="password" id="loginPassword" placeholder="Password">
-        <button onclick="login()">Login</button>
+<h2>Login</h2>
+<form>
+<input type="email" placeholder="Email" required>
+<input type="password" placeholder="Password" required>
+<button type="submit">Login</button>
+</form>
 
-        <p>Belum punya akun?
-            <a onclick="toggleDaftar()" style="cursor:pointer;">Daftar di sini</a>
-        </p>
+<p style="text-align:center;">
+Belum punya akun? <a href="#daftar" style="color:#ffd700;">Daftar di sini</a>
+</p>
 
-        <div id="daftarForm" style="display:none;">
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Last Name">
-            <input type="email" placeholder="Email">
-            <input type="text" placeholder="No HP">
-            <input type="password" placeholder="Password">
-            <button>Daftar</button>
-        </div>
-    </div>
+<h2 id="daftar">Daftar Akun</h2>
+<form>
+<input type="text" placeholder="First Name" required>
+<input type="text" placeholder="Last Name" required>
+<input type="email" placeholder="Email" required>
+<input type="text" placeholder="No HP" required>
+<input type="password" placeholder="Password" required>
+<button type="submit">Daftar</button>
+</form>
 </section>
-
-<script>
-function showSection(id){
-    document.querySelectorAll("section").forEach(sec=>{
-        sec.style.display="none";
-    });
-    document.getElementById(id).style.display="block";
-}
-
-function toggleDaftar(){
-    var form=document.getElementById("daftarForm");
-    form.style.display=form.style.display==="none"?"block":"block";
-}
-
-function kirimWA(){
-    var nama=document.getElementById("nama").value;
-    var email=document.getElementById("emailContact").value;
-    var pesan=document.getElementById("pesan").value;
-
-    var teks="Nama: "+nama+"%0AEmail: "+email+"%0APesan: "+pesan;
-    var url="https://wa.me/6281375400765?text="+teks;
-    window.open(url,"_blank");
-}
-
-function login(){
-    alert("Login berhasil (demo).");
-}
-</script>
 
 </body>
 </html>
