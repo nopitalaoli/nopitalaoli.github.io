@@ -6,77 +6,106 @@
 <title>Prime Academic Library</title>
 
 <style>
-body{
+*{
     margin:0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(rgba(72,0,130,0.85), rgba(25,0,70,0.85)),
-    url('https://images.unsplash.com/photo-1507842217343-583bb7270b66');
-    background-size:cover;
-    background-attachment:fixed;
-    color:white;
+    padding:0;
+    box-sizing:border-box;
 }
 
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') no-repeat center center/cover;
+    background-attachment: fixed;
+    color:#333;
+}
+
+/* overlay agar teks tetap jelas */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,0.85);
+    z-index:-1;
+}
+
+/* NAVIGASI */
 nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 40px;
-    background:rgba(0,0,0,0.6);
-    position:sticky;
-    top:0;
+    padding:15px 30px;
+    background:rgba(0,0,0,0.8);
+    flex-wrap:wrap;
 }
 
-nav .left a, nav .right a{
+nav .left, nav .right{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+nav a{
     color:white;
     text-decoration:none;
-    margin:0 12px;
+    margin:5px 10px;
     font-weight:600;
+    font-size:14px;
 }
 
 nav a:hover{
     color:#ffd700;
 }
 
+/* SECTION */
 section{
-    padding:80px 20px;
-    min-height:100vh;
+    padding:60px 15px;
+    display:flex;
+    justify-content:center;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    max-width:800px;
+    width:100%;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
     text-align:center;
 }
 
 h1{
-    font-size:55px;
+    font-size:32px;
     margin-bottom:20px;
 }
 
 h2{
-    margin-bottom:20px;
+    margin-bottom:15px;
 }
 
 p{
-    max-width:800px;
-    margin:auto;
     line-height:1.6;
+    margin-bottom:10px;
 }
 
 ul{
     list-style:none;
-    padding:0;
 }
 
 ul li{
-    margin:10px 0;
+    margin:8px 0;
 }
 
 form{
-    max-width:400px;
-    margin:20px auto;
+    margin-top:15px;
 }
 
 input, textarea{
     width:100%;
     padding:10px;
     margin:8px 0;
-    border:none;
+    border:1px solid #ccc;
     border-radius:6px;
 }
 
@@ -84,19 +113,22 @@ button{
     padding:10px 20px;
     border:none;
     border-radius:6px;
-    background:#ffd700;
+    background:#2c3e50;
+    color:white;
     font-weight:bold;
     cursor:pointer;
 }
 
 button:hover{
-    background:white;
+    background:#34495e;
 }
 
 .link{
-    color:#ffd700;
-    text-decoration:none;
+    display:block;
+    margin:8px 0;
+    color:#2c3e50;
     font-weight:bold;
+    text-decoration:none;
 }
 
 .link:hover{
@@ -105,6 +137,16 @@ button:hover{
 
 #formDaftar{
     display:none;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+    h1{
+        font-size:24px;
+    }
+    .card{
+        padding:20px;
+    }
 }
 </style>
 
@@ -132,18 +174,21 @@ function tampilDaftar(){
 </div>
 </nav>
 
-<!-- BERANDA (TIDAK DIUBAH) -->
+<!-- BERANDA -->
 <section id="beranda">
+<div class="card">
 <h1>Selamat Datang di Prime Academic Library</h1>
 <p>
 Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. 
 Nama "Prime" melambangkan keunggulan dan kualitas terbaik, sedangkan "Academic" menunjukkan fokus pada dunia pendidikan dan penelitian. 
 Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.
 </p>
+</div>
 </section>
 
 <!-- KOLEKSI -->
 <section id="koleksi">
+<div class="card">
 <h2>Koleksi</h2>
 <ul>
 <li>Buku Referensi Akademik</li>
@@ -152,20 +197,24 @@ Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu
 <li>E-Book Digital</li>
 <li>Majalah Ilmiah</li>
 </ul>
+</div>
 </section>
 
 <!-- LAYANAN -->
 <section id="layanan">
+<div class="card">
 <h2>Jam Layanan</h2>
 <ul>
 <li>Senin : 08:30 - 18:00</li>
 <li>Selasa - Jumat : 08:00 - 18:00</li>
 <li>Sabtu - Minggu : Tutup</li>
 </ul>
+</div>
 </section>
 
 <!-- ABOUT ME -->
 <section id="about">
+<div class="card">
 <h2>About Me</h2>
 
 <p><strong>Nama :</strong> Nopita Laoli</p>
@@ -175,34 +224,28 @@ Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu
 Kenali saya lebih jauh melalui media sosial dan dokumen resmi yang tersedia di bawah ini.
 </p>
 
-<p><strong>Jurusan :</strong> Ilmu Perpustakaan</p>
+<p><strong>Jurusan :</strong> Perpustakaan dan Sains Informasi</p>
 
-<p>
-<a href="https://instagram.com/usernamekamu" target="_blank" class="link">Instagram Saya</a>
-</p>
+<a href="LINK_INSTAGRAM_ASLI_KAMU" target="_blank" class="link">Instagram Saya</a>
+<a href="LINK_CV_ASLI_KAMU" target="_blank" class="link">Lihat CV Saya</a>
+<a href="LINK_YOUTUBE_ASLI_KAMU" target="_blank" class="link">YouTube Saya</a>
 
-<p>
-<a href="https://drive.google.com/file/d/fileidkamu/view?usp=sharing" target="_blank" class="link">
-Lihat CV Saya
-</a>
-</p>
-
-<p>
-<a href="https://youtube.com/@channelkamu" target="_blank" class="link">YouTube Saya</a>
-</p>
-
+</div>
 </section>
 
 <!-- ABOUT ADMIN -->
 <section id="admin">
+<div class="card">
 <h2>About Admin</h2>
 <p>
 Admin Prime Academic Library bertanggung jawab dalam pengelolaan koleksi, pelayanan informasi, serta pengembangan sistem perpustakaan guna mendukung kebutuhan akademik mahasiswa dan civitas akademika.
 </p>
+</div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
+<div class="card">
 <h2>Contact Us</h2>
 <form>
 <input type="text" placeholder="Nama" required>
@@ -210,10 +253,12 @@ Admin Prime Academic Library bertanggung jawab dalam pengelolaan koleksi, pelaya
 <textarea rows="4" placeholder="Kirim Pesan Anda" required></textarea>
 <button type="submit">Kirim</button>
 </form>
+</div>
 </section>
 
 <!-- LOGIN -->
 <section id="login">
+<div class="card">
 <h2>Login</h2>
 <form>
 <input type="email" placeholder="Email" required>
@@ -240,6 +285,7 @@ Daftar di sini
 </form>
 </div>
 
+</div>
 </section>
 
 </body>
