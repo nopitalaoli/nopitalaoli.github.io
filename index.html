@@ -13,10 +13,8 @@
 }
 
 body{
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-    url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6');
-    background-size: cover;
+    font-family:'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
     background-attachment: fixed;
     color:#002147;
 }
@@ -28,17 +26,17 @@ nav{
     align-items:center;
     padding:15px 40px;
     background:white;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    box-shadow:0 2px 15px rgba(0,0,0,0.1);
     position:sticky;
     top:0;
 }
 
 .nav-left a,
 .nav-right a{
-    color:#002147;
     text-decoration:none;
     margin:0 10px;
     font-weight:600;
+    color:#002147;
     transition:0.3s;
 }
 
@@ -59,16 +57,17 @@ section{
     display:block;
 }
 
-/* HERO TEXT */
+/* HERO */
 .hero{
     text-align:center;
     margin-bottom:50px;
 }
 
 .hero h1{
-    font-size:48px;
-    margin-bottom:20px;
+    font-size:50px;
     font-weight:bold;
+    color:white;
+    text-shadow:2px 2px 10px rgba(0,0,0,0.3);
 }
 
 /* CARD */
@@ -76,10 +75,18 @@ section{
     background:white;
     padding:35px;
     border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
     line-height:1.8;
     font-size:17px;
-    text-align:justify;
+}
+
+/* LIST KOLEKSI */
+ul{
+    padding-left:20px;
+}
+
+ul li{
+    margin-bottom:10px;
 }
 
 /* FORM */
@@ -138,34 +145,23 @@ button:hover{
 <section id="beranda" class="active">
     <div class="hero">
         <h1>Selamat Datang di Prime Academic Library</h1>
-        <p>Pusat Sumber Informasi Akademik Modern dan Profesional</p>
     </div>
 
     <div class="card">
         <h2>Tentang Prime Academic Library</h2>
         <br>
         <p>
-        Prime Academic Library merupakan perpustakaan perguruan tinggi yang dirancang 
-        sebagai pusat pengelolaan dan penyebaran informasi ilmiah secara modern dan terintegrasi. 
-        Perpustakaan ini berfungsi sebagai pendukung utama kegiatan pendidikan, penelitian, 
-        dan pengabdian kepada masyarakat.
+        Prime Academic Library adalah perpustakaan perguruan tinggi modern 
+        yang berfungsi sebagai pusat sumber informasi ilmiah, akademik, 
+        dan digital untuk mendukung kegiatan pendidikan dan penelitian.
         </p>
 
         <p>
-        Nama <b>Prime Academic Library</b> memiliki makna mendalam. 
-        Kata <b>Prime</b> berarti utama, unggul, dan berkualitas tinggi, 
-        yang mencerminkan komitmen untuk memberikan layanan terbaik. 
-        Kata <b>Academic</b> menegaskan fokus pada dunia pendidikan tinggi, 
-        penelitian ilmiah, serta pengembangan pengetahuan berbasis akademik. 
-        Sedangkan <b>Library</b> merupakan pusat sumber informasi yang menyediakan 
-        koleksi buku, jurnal, karya ilmiah, serta layanan digital yang mendukung 
-        kebutuhan mahasiswa dan dosen.
-        </p>
-
-        <p>
-        Dengan konsep modern, Prime Academic Library tidak hanya menyediakan 
-        koleksi fisik, tetapi juga sistem informasi digital, layanan referensi, 
-        serta lingkungan belajar yang nyaman dan profesional.
+        Kata <b>Prime</b> berarti utama dan unggul, menunjukkan komitmen 
+        memberikan layanan terbaik. <b>Academic</b> menegaskan fokus pada 
+        dunia pendidikan tinggi dan penelitian ilmiah. Sedangkan <b>Library</b> 
+        merupakan pusat koleksi pengetahuan yang menyediakan buku, jurnal, 
+        karya ilmiah, dan layanan informasi digital secara profesional.
         </p>
     </div>
 </section>
@@ -175,11 +171,14 @@ button:hover{
     <div class="card">
         <h2>Koleksi Buku</h2>
         <br>
-        <p>
-        Tersedia koleksi buku akademik, jurnal ilmiah, skripsi, tesis, disertasi, 
-        dan referensi digital yang diperbarui secara berkala untuk mendukung 
-        kebutuhan pembelajaran dan penelitian mahasiswa.
-        </p>
+        <ul>
+            <li>Buku Referensi Akademik</li>
+            <li>Jurnal Ilmiah Nasional</li>
+            <li>Jurnal Ilmiah Internasional</li>
+            <li>Skripsi dan Tesis Mahasiswa</li>
+            <li>Disertasi</li>
+            <li>E-book dan Koleksi Digital</li>
+        </ul>
     </div>
 </section>
 
@@ -194,7 +193,7 @@ button:hover{
     </div>
 </section>
 
-<!-- ABOUT ME -->
+<!-- ABOUT -->
 <section id="about">
     <div class="card">
         <h2>About Me</h2>
@@ -203,13 +202,13 @@ button:hover{
         <p><b>Status:</b> Mahasiswa</p>
         <p><b>Minat:</b> Perpustakaan & Teknologi Informasi</p>
 
-        <p>Instagram: 
+        <p>Instagram:
         <a href="https://instagram.com" target="_blank">Klik Disini</a></p>
 
-        <p>CV: 
+        <p>CV:
         <a href="#" target="_blank">Lihat CV</a></p>
 
-        <p>YouTube: 
+        <p>YouTube:
         <a href="https://youtube.com" target="_blank">Channel Saya</a></p>
     </div>
 </section>
@@ -220,9 +219,8 @@ button:hover{
         <h2>About Admin</h2>
         <br>
         <p>
-        Admin Prime Academic Library bertanggung jawab dalam pengelolaan sistem, 
-        layanan informasi, serta pengembangan perpustakaan berbasis digital 
-        agar tetap relevan dengan perkembangan teknologi dan kebutuhan akademik.
+        Admin Prime Academic Library bertanggung jawab dalam pengelolaan 
+        sistem informasi, layanan perpustakaan, dan pengembangan layanan digital.
         </p>
     </div>
 </section>
@@ -232,6 +230,8 @@ button:hover{
     <div class="card">
         <h2>Contact Us</h2>
         <br>
+        <input type="text" id="namaPengirim" placeholder="Nama">
+        <input type="email" id="emailPengirim" placeholder="Email">
         <textarea id="pesan" placeholder="Tulis pesan anda..."></textarea>
         <button onclick="kirimWA()">Kirim ke WhatsApp</button>
     </div>
@@ -299,11 +299,8 @@ function login(){
 }
 
 function kirimWA(){
+    var nama=document.getElementById("namaPengirim").value;
+    var email=document.getElementById("emailPengirim").value;
     var pesan=document.getElementById("pesan").value;
-    var url="https://wa.me/6281375400765?text="+encodeURIComponent(pesan);
-    window.open(url,"_blank");
-}
-</script>
 
-</body>
-</html>
+    var text="Nama: "+nama+"%0AEmail: "+
