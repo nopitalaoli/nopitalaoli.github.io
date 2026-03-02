@@ -9,8 +9,8 @@
 body{
     margin:0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(rgba(90,60,150,0.85), rgba(40,20,90,0.85)),
-    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
+    background: linear-gradient(rgba(75,0,130,0.85), rgba(25,0,80,0.85)),
+    url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da');
     background-size:cover;
     background-attachment:fixed;
     color:white;
@@ -45,7 +45,7 @@ section{
 
 h1{
     text-align:center;
-    font-size:50px;
+    font-size:55px;
 }
 
 h2{
@@ -78,7 +78,19 @@ button{
 button:hover{
     background:white;
 }
+
+/* daftar disembunyikan */
+#formDaftar{
+    display:none;
+}
 </style>
+
+<script>
+function tampilDaftar(){
+    document.getElementById("formDaftar").style.display="block";
+}
+</script>
+
 </head>
 
 <body>
@@ -89,6 +101,7 @@ button:hover{
 <a href="#koleksi">Koleksi</a>
 <a href="#layanan">Layanan</a>
 <a href="#about">About Me</a>
+<a href="#admin">About Admin</a>
 <a href="#contact">Contact Us</a>
 </div>
 <div class="right">
@@ -122,8 +135,8 @@ Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu
 <section id="layanan">
 <h2>Jam Layanan</h2>
 <ul>
-<li>Senin : 08:30 - 18:00 wib</li>
-<li>Selasa - Jumat : 08:00 - 18:00 wib</li>
+<li>Senin : 08:30 - 18:00</li>
+<li>Selasa - Jumat : 08:00 - 18:00</li>
 <li>Sabtu - Minggu : Tutup</li>
 </ul>
 </section>
@@ -133,7 +146,7 @@ Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu
 <h2>About Me</h2>
 <p>
 Halo, saya Nopita Laoli.  
-Kenali lebih jauh tentang saya melalui CV dan Instagram yang tersedia di bawah ini.
+Kenali lebih jauh tentang saya melalui CV, Instagram, dan YouTube yang tersedia di bawah ini.
 </p>
 
 <p><strong>Nama :</strong> Nopita Laoli</p>
@@ -142,7 +155,17 @@ Kenali lebih jauh tentang saya melalui CV dan Instagram yang tersedia di bawah i
 
 <p>
 <a href="https://instagram.com" target="_blank" style="color:#ffd700;">Instagram Saya</a> |
-<a href="#" target="_blank" style="color:#ffd700;">Lihat CV</a>
+<a href="https://youtube.com" target="_blank" style="color:#ffd700;">YouTube Saya</a> |
+<a href="https://drive.google.com" target="_blank" style="color:#ffd700;">Lihat CV</a>
+</p>
+</section>
+
+<!-- ABOUT ADMIN -->
+<section id="admin">
+<h2>About Admin</h2>
+<p>
+Admin Prime Academic Library bertanggung jawab dalam pengelolaan koleksi, pelayanan informasi, serta pengembangan sistem perpustakaan. 
+Admin memastikan seluruh layanan berjalan dengan baik demi mendukung kebutuhan akademik mahasiswa.
 </p>
 </section>
 
@@ -167,10 +190,14 @@ Kenali lebih jauh tentang saya melalui CV dan Instagram yang tersedia di bawah i
 </form>
 
 <p style="text-align:center;">
-Belum punya akun? <a href="#daftar" style="color:#ffd700;">Daftar di sini</a>
+Belum punya akun? 
+<a href="javascript:void(0)" onclick="tampilDaftar()" style="color:#ffd700;">
+Daftar di sini
+</a>
 </p>
 
-<h2 id="daftar">Daftar Akun</h2>
+<div id="formDaftar">
+<h2>Daftar Akun</h2>
 <form>
 <input type="text" placeholder="First Name" required>
 <input type="text" placeholder="Last Name" required>
@@ -179,6 +206,8 @@ Belum punya akun? <a href="#daftar" style="color:#ffd700;">Daftar di sini</a>
 <input type="password" placeholder="Password" required>
 <button type="submit">Daftar</button>
 </form>
+</div>
+
 </section>
 
 </body>
