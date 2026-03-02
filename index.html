@@ -9,19 +9,19 @@
 body{
     font-family: Arial, sans-serif;
     margin:0;
-    background:#f4f6f9;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
+    background-size:cover;
+    background-attachment:fixed;
 }
 
-/* Navbar */
+/* NAVBAR */
 nav{
-    background:rgba(106,90,205,0.95);
+    background:rgba(75,0,130,0.95);
     padding:15px 40px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
 }
 
 .nav-left a, .nav-right a{
@@ -36,21 +36,21 @@ nav{
     text-decoration:underline;
 }
 
-/* Section */
+/* SECTION */
 section{
     display:none;
     padding:40px;
     max-width:900px;
-    margin:40px auto;
+    margin:50px auto;
     background:rgba(255,255,255,0.95);
-    border-radius:12px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    border-radius:15px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.3);
 }
 .active{
     display:block;
 }
 
-/* SLIDER BERANDA */
+/* SLIDER */
 #home{
     max-width:100%;
     height:90vh;
@@ -82,26 +82,24 @@ section{
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    text-align:center;
     background:rgba(0,0,0,0.6);
-    padding:30px;
-    border-radius:12px;
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
     width:80%;
 }
 
-/* Form */
 input, textarea{
     width:100%;
     padding:10px;
-    margin-top:10px;
-    margin-bottom:15px;
+    margin:10px 0;
     border-radius:5px;
     border:1px solid #ccc;
 }
 
 button{
     padding:10px 20px;
-    background:#6a5acd;
+    background:#4B0082;
     color:white;
     border:none;
     border-radius:5px;
@@ -109,13 +107,12 @@ button{
 }
 
 button:hover{
-    background:#483d8b;
+    background:#2e004f;
 }
 
 h1,h2,h3{
-    color:#6a5acd;
+    color:#4B0082;
 }
-
 #home h1{
     color:white;
 }
@@ -125,131 +122,145 @@ h1,h2,h3{
 <body>
 
 <nav>
-    <div class="nav-left">
-        <a onclick="showSection('home')">Beranda</a>
-        <a onclick="showSection('koleksi')">Koleksi</a>
-        <a onclick="showSection('layanan')">Layanan</a>
-        <a onclick="showSection('aboutme')">About Me</a>
-        <a onclick="showSection('aboutadmin')">About Admin</a>
-        <a onclick="showSection('contact')">Contact Us</a>
-    </div>
-    <div class="nav-right">
-        <a onclick="showSection('login')">Login</a>
-    </div>
+<div class="nav-left">
+<a onclick="showSection('home')">Beranda</a>
+<a onclick="showSection('koleksi')">Koleksi</a>
+<a onclick="showSection('layanan')">Layanan</a>
+<a onclick="showSection('aboutme')">About Me</a>
+<a onclick="showSection('aboutadmin')">About Admin</a>
+<a onclick="showSection('contact')">Contact Us</a>
+</div>
+<div class="nav-right">
+<a onclick="showSection('login')">Login</a>
+</div>
 </nav>
 
 <!-- BERANDA -->
 <section id="home" class="active">
 
-    <!-- FOTO 1 GEDUNG -->
-    <div class="slide active-slide" 
-    style="background-image:url('https://i.imgur.com/QZ6VxQG.jpg');"></div>
+<div class="slide active-slide" style="background-image:url('https://i.imgur.com/QZ6VxQG.jpg');"></div>
+<div class="slide" style="background-image:url('https://i.imgur.com/vxW4QdR.jpg');"></div>
+<div class="slide" style="background-image:url('https://i.imgur.com/6KQ6xZf.jpg');"></div>
 
-    <!-- FOTO 2 RAK BUKU -->
-    <div class="slide" 
-    style="background-image:url('https://i.imgur.com/vxW4QdR.jpg');"></div>
+<div class="home-content">
+<h1>Prime Academic Library</h1>
+<p>Perpustakaan akademik modern yang menyediakan koleksi buku, jurnal ilmiah, e-book, serta layanan informasi untuk mendukung pembelajaran dan penelitian mahasiswa.</p>
+</div>
+</section>
 
-    <!-- FOTO 3 KOMPUTER -->
-    <div class="slide" 
-    style="background-image:url('https://i.imgur.com/6KQ6xZf.jpg');"></div>
+<!-- KOLEKSI -->
+<section id="koleksi">
+<h2>Koleksi Perpustakaan</h2>
+<ul>
+<li>Buku Manajemen Informasi</li>
+<li>Buku Katalogisasi dan Klasifikasi</li>
+<li>Jurnal Perpustakaan Digital</li>
+<li>E-book Literasi Informasi</li>
+<li>Skripsi dan Karya Ilmiah</li>
+</ul>
+</section>
 
-    <div class="home-content">
-        <h1>Prime Academic Library</h1>
-        <p>
-        Perpustakaan akademik modern yang menyediakan koleksi buku,
-        jurnal ilmiah, e-book, serta layanan informasi untuk mendukung
-        pembelajaran dan penelitian mahasiswa.
-        </p>
-    </div>
+<!-- LAYANAN -->
+<section id="layanan">
+<h2>Jam Layanan Perpustakaan</h2>
+<ul>
+<li><b>Senin:</b> 08.30 – 18.00</li>
+<li><b>Selasa – Jumat:</b> 08.00 – 18.00</li>
+<li><b>Sabtu – Minggu:</b> Tutup</li>
+</ul>
 </section>
 
 <!-- ABOUT ME -->
 <section id="aboutme">
-    <h2>About Me</h2>
-    <p><b>Nama:</b> Nopita Laoli</p>
-    <p><b>NIM:</b> 230709013</p>
-    <p><b>Program Studi:</b> Perpustakaan dan Sains Informasi</p>
+<h2>About Me</h2>
+<p><b>Nama:</b> Nopita Laoli</p>
+<p><b>NIM:</b> 230709013</p>
+<p><b>Program Studi:</b> Perpustakaan dan Sains Informasi</p>
 
-    <p style="margin-top:20px; font-weight:bold;">
-    Kenali lebih jauh tentang saya melalui CV dan Instagram yang tersedia di bawah ini.
-    </p>
+<p style="margin-top:20px;font-weight:bold;">
+Kenali lebih jauh tentang saya melalui CV dan Instagram yang tersedia di bawah ini.
+</p>
 
-    <p>📷 <a href="https://www.instagram.com/" target="_blank">Instagram</a></p>
-    <p>📄 <a href="https://drive.google.com/" target="_blank">Curriculum Vitae</a></p>
+<p>📷 <a href="https://www.instagram.com/" target="_blank">Instagram</a></p>
+<p>📄 <a href="https://drive.google.com/" target="_blank">Curriculum Vitae</a></p>
+<p>▶ <a href="https://www.youtube.com/" target="_blank">YouTube</a></p>
 </section>
 
-<!-- SECTION LAIN TETAP -->
-<section id="koleksi">
-    <h2>Koleksi Perpustakaan</h2>
-    <ul>
-        <li>Buku Manajemen Informasi</li>
-        <li>Katalogisasi dan Klasifikasi</li>
-        <li>Jurnal Digital</li>
-        <li>E-book Akademik</li>
-    </ul>
-</section>
-
-<section id="layanan">
-    <h2>Jam Layanan</h2>
-    <ul>
-        <li>Senin: 08.30 – 18.00</li>
-        <li>Selasa – Jumat: 08.00 – 18.00</li>
-        <li>Sabtu – Minggu: Tutup</li>
-    </ul>
-</section>
-
+<!-- ABOUT ADMIN -->
 <section id="aboutadmin">
-    <h2>About Admin</h2>
-    <p>Admin mengelola sistem dan layanan perpustakaan.</p>
+<h2>About Admin</h2>
+<p>Admin Prime Academic Library bertanggung jawab dalam pengelolaan sistem informasi dan layanan perpustakaan.</p>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
-    <h2>Contact Us</h2>
-    <input type="text" id="nama" placeholder="Nama">
-    <input type="email" id="email" placeholder="Email">
-    <textarea id="pesan" rows="4" placeholder="Pesan"></textarea>
-    <button onclick="kirimWA()">Kirim ke WhatsApp</button>
+<h2>Contact Us</h2>
+<input type="text" id="nama" placeholder="Nama">
+<input type="email" id="email" placeholder="Email">
+<textarea id="pesan" rows="5" placeholder="Pesan"></textarea>
+<button onclick="kirimWA()">Kirim ke WhatsApp</button>
 </section>
 
+<!-- LOGIN -->
 <section id="login">
-    <h2>Login</h2>
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <button>Login</button>
+<h2>Login</h2>
+<input type="email" id="loginEmail" placeholder="Email">
+<input type="password" id="loginPassword" placeholder="Password">
+<button onclick="prosesLogin()">Login</button>
+<p>Belum punya akun?
+<span style="color:blue;cursor:pointer;" onclick="showSection('register')">
+Daftar di sini
+</span>
+</p>
+</section>
+
+<!-- REGISTER -->
+<section id="register">
+<h2>Daftar Akun</h2>
+<input type="text" placeholder="First Name">
+<input type="text" placeholder="Last Name">
+<input type="email" placeholder="Email">
+<input type="text" placeholder="No HP">
+<input type="password" placeholder="Password">
+<button onclick="showSection('login')">Daftar</button>
 </section>
 
 <script>
 function showSection(id){
-    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
+document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
+document.getElementById(id).classList.add("active");
 }
 
-let slides = document.querySelectorAll(".slide");
-let index = 0;
-
+let slides=document.querySelectorAll(".slide");
+let index=0;
 setInterval(()=>{
-    slides[index].classList.remove("active-slide");
-    index = (index + 1) % slides.length;
-    slides[index].classList.add("active-slide");
+slides[index].classList.remove("active-slide");
+index=(index+1)%slides.length;
+slides[index].classList.add("active-slide");
 },4000);
 
 function kirimWA(){
-    var nama=document.getElementById("nama").value;
-    var email=document.getElementById("email").value;
-    var pesan=document.getElementById("pesan").value;
+var nama=document.getElementById("nama").value;
+var email=document.getElementById("email").value;
+var pesan=document.getElementById("pesan").value;
 
-    if(nama===""||email===""||pesan===""){
-        alert("Harap isi semua data!");
-        return;
-    }
+if(nama===""||email===""||pesan===""){
+alert("Harap isi semua data terlebih dahulu!");
+return;
+}
 
-    var nomorWA="6281375400765";
-    var url="https://wa.me/"+nomorWA+
-    "?text=Halo, saya "+encodeURIComponent(nama)+
-    "%0AEmail: "+encodeURIComponent(email)+
-    "%0APesan: "+encodeURIComponent(pesan);
+var nomorWA="6281375400765";
+var url="https://wa.me/"+nomorWA+
+"?text=Halo, saya "+encodeURIComponent(nama)+
+"%0AEmail: "+encodeURIComponent(email)+
+"%0APesan: "+encodeURIComponent(pesan);
 
-    window.open(url,"_blank");
+window.open(url,"_blank");
+}
+
+function prosesLogin(){
+alert("Login berhasil!");
+showSection("home");
 }
 </script>
 
