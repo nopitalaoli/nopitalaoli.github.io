@@ -14,7 +14,7 @@
 
 body{
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(rgba(0,0,40,0.8), rgba(0,0,40,0.8)),
+    background: linear-gradient(rgba(0,0,40,0.85), rgba(0,0,40,0.85)),
     url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
     background-size: cover;
     background-attachment: fixed;
@@ -27,7 +27,7 @@ nav{
     justify-content:space-between;
     align-items:center;
     padding:15px 40px;
-    background:rgba(0,0,0,0.7);
+    background:rgba(0,0,0,0.8);
     position:sticky;
     top:0;
 }
@@ -49,8 +49,9 @@ nav{
 /* SECTION */
 section{
     display:none;
-    padding:60px 20px;
-    text-align:center;
+    padding:80px 20px;
+    max-width:900px;
+    margin:auto;
     animation:fade 0.5s ease-in-out;
 }
 
@@ -63,27 +64,29 @@ section{
     to{opacity:1; transform:translateY(0);}
 }
 
-/* CARD */
-.card{
-    background:rgba(255,255,255,0.1);
-    backdrop-filter:blur(10px);
-    padding:30px;
-    margin:20px auto;
-    border-radius:15px;
-    max-width:700px;
+h1{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:32px;
 }
 
-/* IMAGE */
-img{
-    width:100%;
-    max-width:600px;
+p{
+    line-height:1.8;
+    font-size:17px;
+    text-align:justify;
+}
+
+/* CARD */
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(8px);
+    padding:30px;
     border-radius:15px;
-    margin-top:20px;
 }
 
 /* FORM */
 input, textarea{
-    width:90%;
+    width:100%;
     padding:12px;
     margin:10px 0;
     border:none;
@@ -97,7 +100,6 @@ button{
     border-radius:8px;
     font-weight:bold;
     cursor:pointer;
-    transition:0.3s;
 }
 
 button:hover{
@@ -137,8 +139,22 @@ button:hover{
 <section id="beranda" class="active">
     <h1>Prime Academic Library</h1>
     <div class="card">
-        <p>Perpustakaan Perguruan Tinggi Modern, Digital, dan Inovatif.</p>
-        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66">
+        <p>
+        Nama <b>Prime Academic Library</b> memiliki makna sebagai pusat sumber informasi akademik 
+        yang unggul, terpercaya, dan berkualitas tinggi. Kata <b>"Prime"</b> melambangkan yang terbaik, 
+        utama, dan terdepan dalam menyediakan layanan informasi. Kata <b>"Academic"</b> menunjukkan 
+        bahwa perpustakaan ini berfokus pada dunia pendidikan, penelitian, dan pengembangan ilmu 
+        pengetahuan di lingkungan perguruan tinggi. Sedangkan <b>"Library"</b> berarti tempat yang 
+        menyediakan berbagai sumber informasi seperti buku, jurnal ilmiah, karya tulis, dan media 
+        digital yang mendukung proses pembelajaran.
+        </p>
+
+        <p>
+        Dengan demikian, Prime Academic Library dirancang sebagai perpustakaan perguruan tinggi 
+        modern yang tidak hanya menyediakan koleksi fisik, tetapi juga layanan digital, 
+        sistem informasi yang terintegrasi, serta lingkungan belajar yang nyaman dan profesional 
+        bagi mahasiswa dan dosen.
+        </p>
     </div>
 </section>
 
@@ -146,8 +162,12 @@ button:hover{
 <section id="koleksi">
     <h1>Koleksi Buku</h1>
     <div class="card">
-        <p>Ribuan koleksi buku akademik, jurnal ilmiah, skripsi, dan referensi digital tersedia untuk mahasiswa.</p>
-        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da">
+        <p>
+        Prime Academic Library menyediakan berbagai koleksi buku akademik, jurnal ilmiah, 
+        skripsi, tesis, disertasi, serta referensi digital yang dapat diakses oleh mahasiswa 
+        dan dosen. Koleksi diperbarui secara berkala untuk mendukung kebutuhan pembelajaran 
+        dan penelitian.
+        </p>
     </div>
 </section>
 
@@ -169,20 +189,14 @@ button:hover{
         <p><b>Status:</b> Mahasiswa</p>
         <p><b>Minat:</b> Perpustakaan & Teknologi Informasi</p>
 
-        <p>
-        Instagram:
-        <a href="https://instagram.com" target="_blank">Klik Disini</a>
-        </p>
+        <p>Instagram: 
+        <a href="https://instagram.com" target="_blank">Klik Disini</a></p>
 
-        <p>
-        CV:
-        <a href="#" target="_blank">Lihat CV</a>
-        </p>
+        <p>CV: 
+        <a href="#" target="_blank">Lihat CV</a></p>
 
-        <p>
-        YouTube:
-        <a href="https://youtube.com" target="_blank">Channel Saya</a>
-        </p>
+        <p>YouTube: 
+        <a href="https://youtube.com" target="_blank">Channel Saya</a></p>
     </div>
 </section>
 
@@ -190,8 +204,11 @@ button:hover{
 <section id="admin">
     <h1>About Admin</h1>
     <div class="card">
-        <p>Admin bertanggung jawab mengelola sistem informasi dan layanan Prime Academic Library.</p>
-        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6">
+        <p>
+        Admin Prime Academic Library bertanggung jawab dalam pengelolaan sistem informasi, 
+        pengembangan layanan digital, serta memastikan seluruh layanan perpustakaan berjalan 
+        secara optimal dan profesional.
+        </p>
     </div>
 </section>
 
@@ -199,7 +216,7 @@ button:hover{
 <section id="contact">
     <h1>Contact Us</h1>
     <div class="card">
-        <textarea id="pesan" placeholder="Tulis pesan anda..."></textarea><br>
+        <textarea id="pesan" placeholder="Tulis pesan anda..."></textarea>
         <button onclick="kirimWA()">Kirim ke WhatsApp</button>
     </div>
 </section>
@@ -208,8 +225,8 @@ button:hover{
 <section id="login">
     <h1>Login</h1>
     <div class="card">
-        <input type="email" id="loginEmail" placeholder="Email"><br>
-        <input type="password" id="loginPassword" placeholder="Password"><br>
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Password">
         <button onclick="login()">Login</button>
 
         <p>Belum punya akun?
@@ -217,11 +234,11 @@ button:hover{
         </p>
 
         <div id="daftarForm" style="display:none;">
-            <input type="text" id="firstName" placeholder="First Name"><br>
-            <input type="text" id="lastName" placeholder="Last Name"><br>
-            <input type="email" id="email" placeholder="Email"><br>
-            <input type="text" id="phone" placeholder="No HP"><br>
-            <input type="password" id="password" placeholder="Password"><br>
+            <input type="text" id="firstName" placeholder="First Name">
+            <input type="text" id="lastName" placeholder="Last Name">
+            <input type="email" id="email" placeholder="Email">
+            <input type="text" id="phone" placeholder="No HP">
+            <input type="password" id="password" placeholder="Password">
             <button onclick="daftar()">Daftar</button>
         </div>
     </div>
