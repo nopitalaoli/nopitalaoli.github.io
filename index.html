@@ -94,65 +94,7 @@ h1{
 <!-- BERANDA -->
 <section id="home" class="active">
     <h1>Selamat Datang di Prime Academic Library</h1>
-    <p>
-    Prime Academic Library adalah perpustakaan akademik yang menyediakan
-    koleksi buku, jurnal, dan layanan informasi untuk mendukung
-    kegiatan pembelajaran dan penelitian.
-    </p>
-</section>
-
-<!-- KOLEKSI -->
-<section id="koleksi">
-    <h2>Koleksi Perpustakaan</h2>
-    <ul>
-        <li>Buku Manajemen Informasi</li>
-        <li>Buku Katalogisasi dan Klasifikasi</li>
-        <li>Jurnal Perpustakaan Digital</li>
-        <li>E-book Literasi Informasi</li>
-    </ul>
-</section>
-
-<!-- LAYANAN -->
-<section id="layanan">
-    <h2>Layanan Perpustakaan</h2>
-    <ul>
-        <li>Layanan Peminjaman Buku</li>
-        <li>Layanan Referensi</li>
-        <li>Layanan Penelusuran Informasi</li>
-        <li>Layanan Perpustakaan Digital</li>
-    </ul>
-</section>
-
-<!-- ABOUT ME -->
-<section id="aboutme">
-    <h2>About Me</h2>
-    <h3>Biodata</h3>
-    <p><b>Nama:</b> Nopita Laoli</p>
-    <p><b>NIM:</b> 230709013</p>
-    <p><b>Jurusan:</b> Perpustakaan dan Sains Informasi</p>
-    <p><b>Universitas:</b> (Isi sesuai kampus kamu)</p>
-
-    <h3>Layanan & Profil Saya</h3>
-    <p>
-        <a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drive_link" target="_blank">
-        📄 Lihat Curriculum Vitae
-        </a>
-    </p>
-    <p>
-        <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=h49jwdt" target="_blank">
-        📷 Instagram
-        </a>
-    </p>
-</section>
-
-<!-- ABOUT ADMIN -->
-<section id="aboutadmin">
-    <h2>About Admin</h2>
-    <p>
-    Admin Prime Academic Library bertugas mengelola koleksi,
-    layanan informasi, serta memastikan pengguna mendapatkan
-    pengalaman terbaik dalam mengakses sumber informasi.
-    </p>
+    <p>Perpustakaan akademik modern untuk mendukung pembelajaran dan penelitian.</p>
 </section>
 
 <!-- CONTACT -->
@@ -161,15 +103,31 @@ h1{
     <input type="text" id="nama" placeholder="Nama">
     <input type="email" id="email" placeholder="Email">
     <textarea id="pesan" rows="5" placeholder="Pesan"></textarea>
-    <button type="button" onclick="kirimWA()">Kirim</button>
+    <button type="button" onclick="kirimWA()">Kirim ke WhatsApp</button>
 </section>
 
 <!-- LOGIN -->
 <section id="login">
     <h2>Login</h2>
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <button type="button" onclick="alert('Login berhasil!')">Login</button>
+    <input type="email" id="loginEmail" placeholder="Email">
+    <input type="password" id="loginPassword" placeholder="Password">
+    <button type="button" onclick="prosesLogin()">Login</button>
+    <p>Belum punya akun?
+        <span style="color:blue;cursor:pointer;" onclick="showSection('register')">
+        Daftar di sini
+        </span>
+    </p>
+</section>
+
+<!-- REGISTER -->
+<section id="register">
+    <h2>Daftar Akun</h2>
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <input type="email" id="regEmail" placeholder="Email">
+    <input type="text" id="nohp" placeholder="No HP">
+    <input type="password" id="regPassword" placeholder="Password">
+    <button type="button" onclick="prosesDaftar()">Daftar</button>
 </section>
 
 <script>
@@ -178,10 +136,11 @@ function showSection(id){
     document.getElementById(id).classList.add("active");
 }
 
+/* WHATSAPP */
 function kirimWA(){
     var nama=document.getElementById("nama").value;
     var email=document.getElementById("email").value;
-    var pesan=document.getElementByById("pesan").value;
+    var pesan=document.getElementById("pesan").value;
 
     if(nama===""||email===""||pesan===""){
         alert("Harap isi semua data terlebih dahulu!");
@@ -190,11 +149,42 @@ function kirimWA(){
 
     var nomorWA="6281375400765";
     var url="https://wa.me/"+nomorWA+
-    "?text=Halo, saya "+nama+
-    "%0AEmail: "+email+
-    "%0APesan: "+pesan;
+    "?text=Halo, saya "+encodeURIComponent(nama)+
+    "%0AEmail: "+encodeURIComponent(email)+
+    "%0APesan: "+encodeURIComponent(pesan);
 
     window.open(url,"_blank");
+}
+
+/* LOGIN */
+function prosesLogin(){
+    var email=document.getElementById("loginEmail").value;
+    var password=document.getElementById("loginPassword").value;
+
+    if(email===""||password===""){
+        alert("Email dan Password wajib diisi!");
+        return;
+    }
+
+    alert("Login berhasil!");
+    showSection("home");
+}
+
+/* REGISTER */
+function prosesDaftar(){
+    var first=document.getElementById("firstName").value;
+    var last=document.getElementById("lastName").value;
+    var email=document.getElementById("regEmail").value;
+    var hp=document.getElementById("nohp").value;
+    var pass=document.getElementById("regPassword").value;
+
+    if(first===""||last===""||email===""||hp===""||pass===""){
+        alert("Semua data wajib diisi!");
+        return;
+    }
+
+    alert("Pendaftaran berhasil! Silakan login.");
+    showSection("login");
 }
 </script>
 
