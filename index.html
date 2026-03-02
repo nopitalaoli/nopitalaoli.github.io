@@ -3,223 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perpustakaan Perguruan Tinggi</title>
+<title>Prime Academic Library</title>
 
 <style>
 body{
+    font-family: Arial, sans-serif;
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f4f4;
 }
 
-/* BACKGROUND */
-.bg{
-    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
-    background-size:cover;
-    background-position:center;
-    height:100vh;
-    color:white;
-}
-
-.container{
-    width:350px;
-    margin:auto;
-    padding-top:80px;
-}
-
-.box{
-    background:rgba(255,255,255,0.1);
-    padding:25px;
-    border-radius:10px;
-}
-
-input{
-    width:100%;
-    padding:10px;
-    margin:5px 0;
-    border:none;
-    border-radius:5px;
-}
-
-button{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    background:#0077b6;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#023e8a;
-}
-
-.link{
-    text-align:center;
-    margin-top:10px;
-    cursor:pointer;
-    color:lightblue;
-}
-
-/* NAVIGASI */
+/* Navbar */
 nav{
-    background:#023e8a;
+    background:#6a5acd;
     padding:15px;
     text-align:center;
-    display:none;
 }
-
 nav a{
     color:white;
-    margin:0 10px;
     text-decoration:none;
+    margin:0 15px;
     font-weight:bold;
+    cursor:pointer;
 }
-
 nav a:hover{
     text-decoration:underline;
 }
 
-/* HALAMAN */
-.page{
+/* Section */
+section{
     display:none;
     padding:40px;
+    max-width:900px;
+    margin:40px auto;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+.active{
+    display:block;
 }
 
-h2{
-    color:#023e8a;
+/* Form */
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:15px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+button{
+    padding:10px 20px;
+    background:#6a5acd;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+button:hover{
+    background:#483d8b;
 }
 </style>
 </head>
+
 <body>
 
-<!-- LOGIN -->
-<div class="bg" id="loginPage">
-<div class="container">
-<div class="box">
-<h2 align="center">Login Perpustakaan</h2>
-<input type="text" placeholder="Email">
-<input type="password" placeholder="Password">
-<button onclick="login()">Login</button>
-<div class="link" onclick="showRegister()">Daftar disini jika belum punya akun</div>
-</div>
-</div>
-</div>
-
-<!-- DAFTAR -->
-<div class="bg" id="registerPage" style="display:none;">
-<div class="container">
-<div class="box">
-<h2 align="center">Daftar Akun</h2>
-<input type="text" placeholder="First Name">
-<input type="text" placeholder="Last Name">
-<input type="text" placeholder="No HP">
-<input type="email" placeholder="Email">
-<input type="password" placeholder="Password">
-<button onclick="showLogin()">Daftar</button>
-<div class="link" onclick="showLogin()">Kembali ke Login</div>
-</div>
-</div>
-</div>
-
-<!-- NAVIGASI -->
-<nav id="navbar">
-<a href="#" onclick="showPage('beranda')">Beranda</a>
-<a href="#" onclick="showPage('koleksi')">Koleksi</a>
-<a href="#" onclick="showPage('layanan')">Layanan</a>
-<a href="#" onclick="showPage('tentang')">Tentang Perpustakaan</a>
-<a href="#" onclick="showPage('admin')">Tentang Admin</a>
-<a href="#" onclick="showPage('aboutme')">About Me</a>
-<a href="#" onclick="showPage('aboutus')">About Us</a>
-<a href="#" onclick="showPage('contact')">Contact Us</a>
-<a href="#" onclick="logout()">Logout</a>
+<!-- NAVBAR -->
+<nav>
+    <a onclick="showSection('home')">Beranda</a>
+    <a onclick="showSection('login')">Login</a>
+    <a onclick="showSection('koleksi')">Koleksi</a>
+    <a onclick="showSection('layanan')">Layanan</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('contact')">Contact Us</a>
 </nav>
 
 <!-- BERANDA -->
-<div class="page" id="beranda">
-<h2>Beranda</h2>
-<p>Selamat datang di Website Perpustakaan Perguruan Tinggi.</p>
-</div>
+<section id="home" class="active">
+    <h1>Selamat Datang di Prime Academic Library</h1>
+    <p>
+    Prime Academic Library adalah perpustakaan akademik yang menyediakan
+    koleksi buku, jurnal, dan layanan informasi untuk mendukung kegiatan
+    pembelajaran dan penelitian.
+    </p>
+</section>
+
+<!-- LOGIN -->
+<section id="login">
+    <h2>Login</h2>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button type="button" onclick="alert('Login berhasil!')">Login</button>
+    <p>Belum punya akun?
+        <a onclick="showSection('register')" style="color:blue;cursor:pointer;">
+        Daftar di sini
+        </a>
+    </p>
+</section>
+
+<!-- REGISTER -->
+<section id="register">
+    <h2>Daftar Akun</h2>
+    <input type="text" placeholder="First Name">
+    <input type="text" placeholder="Last Name">
+    <input type="email" placeholder="Email">
+    <input type="text" placeholder="No HP">
+    <input type="password" placeholder="Password">
+    <button type="button" onclick="showSection('login')">Daftar</button>
+</section>
 
 <!-- KOLEKSI -->
-<div class="page" id="koleksi">
-<h2>Koleksi</h2>
-<p>Koleksi buku, jurnal, skripsi, dan referensi ilmiah tersedia lengkap.</p>
-</div>
+<section id="koleksi">
+    <h2>Koleksi Perpustakaan</h2>
+    <ul>
+        <li>Buku Manajemen Informasi</li>
+        <li>Buku Katalogisasi dan Klasifikasi</li>
+        <li>Jurnal Perpustakaan Digital</li>
+        <li>E-book Literasi Informasi</li>
+    </ul>
+</section>
 
 <!-- LAYANAN -->
-<div class="page" id="layanan">
-<h2>Layanan</h2>
-<p>Layanan peminjaman, pengembalian, referensi, dan akses jurnal online.</p>
-</div>
+<section id="layanan">
+    <h2>Layanan Perpustakaan</h2>
+    <ul>
+        <li>Layanan Peminjaman Buku</li>
+        <li>Layanan Referensi</li>
+        <li>Layanan Penelusuran Informasi</li>
+        <li>Layanan Perpustakaan Digital</li>
+    </ul>
+</section>
 
-<!-- TENTANG PERPUSTAKAAN -->
-<div class="page" id="tentang">
-<h2>Tentang Perpustakaan</h2>
-<p>Perpustakaan perguruan tinggi ini mendukung kegiatan akademik mahasiswa dan dosen 
-dengan menyediakan sumber informasi yang lengkap dan berbasis digital.</p>
-</div>
-
-<!-- TENTANG ADMIN -->
-<div class="page" id="admin">
-<h2>Tentang Admin</h2>
-<p>Admin bertugas mengelola sistem perpustakaan, memperbarui koleksi, serta 
-memberikan pelayanan informasi kepada pengguna.</p>
-</div>
-
-<!-- ABOUT ME -->
-<div class="page" id="aboutme">
-<h2>About Me</h2>
-<p>Halo, saya adalah pengembang website ini. Website ini dibuat sebagai 
-media informasi dan sistem layanan Perpustakaan Perguruan Tinggi. 
-Saya memiliki minat dalam bidang teknologi informasi dan pengembangan sistem.</p>
-</div>
-
-<!-- ABOUT US -->
-<div class="page" id="aboutus">
-<h2>About Us</h2>
-<p>Kami adalah tim pengelola Perpustakaan Perguruan Tinggi yang berkomitmen 
-memberikan layanan informasi yang cepat, akurat, dan terpercaya untuk 
-mendukung kegiatan akademik mahasiswa dan dosen.</p>
-</div>
+<!-- ABOUT -->
+<section id="about">
+    <h2>About</h2>
+    <p>
+    Website ini dibuat sebagai media informasi Prime Academic Library
+    untuk memberikan layanan dan koleksi terbaik bagi pengunjung.
+    </p>
+</section>
 
 <!-- CONTACT -->
-<div class="page" id="contact">
-<h2>Contact Us</h2>
-<p>Hubungi kami melalui WhatsApp:</p>
-<a href="https://wa.me/6281375400765" target="_blank">
-<button>Kirim Pesan WhatsApp</button>
-</a>
-</div>
+<section id="contact">
+    <h2>Contact Us</h2>
+    <input type="text" id="nama" placeholder="Nama">
+    <input type="email" id="email" placeholder="Email">
+    <textarea id="pesan" rows="5" placeholder="Pesan"></textarea>
+    <button type="button" onclick="kirimWA()">Kirim</button>
+</section>
 
 <script>
-function login(){
-    document.getElementById("loginPage").style.display="none";
-    document.getElementById("navbar").style.display="block";
-    showPage('beranda');
+function showSection(id){
+    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
 }
 
-function logout(){
-    document.getElementById("navbar").style.display="none";
-    document.querySelectorAll(".page").forEach(p=>p.style.display="none");
-    document.getElementById("loginPage").style.display="block";
-}
+function kirimWA(){
+    var nama=document.getElementById("nama").value;
+    var email=document.getElementById("email").value;
+    var pesan=document.getElementById("pesan").value;
 
-function showRegister(){
-    document.getElementById("loginPage").style.display="none";
-    document.getElementById("registerPage").style.display="block";
-}
+    if(nama===""||email===""||pesan===""){
+        alert("Harap isi semua data terlebih dahulu!");
+        return;
+    }
 
-function showLogin(){
-    document.getElementById("registerPage").style.display="none";
-    document.getElementById("loginPage").style.display="block";
-}
+    var nomorWA="6281375400765";
+    var url="https://wa.me/"+nomorWA+
+    "?text=Halo, saya "+nama+
+    "%0AEmail: "+email+
+    "%0APesan: "+pesan;
 
-function showPage(page){
-    document.querySelectorAll(".page").forEach(p=>p.style.display="none");
-    document.getElementById(page).style.display="block";
+    window.open(url,"_blank");
 }
 </script>
 
