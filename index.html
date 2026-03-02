@@ -9,17 +9,17 @@
 body{
     margin:0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(rgba(75,0,130,0.85), rgba(25,0,80,0.85)),
-    url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da');
+    background: linear-gradient(rgba(72,0,130,0.85), rgba(25,0,70,0.85)),
+    url('https://images.unsplash.com/photo-1507842217343-583bb7270b66');
     background-size:cover;
     background-attachment:fixed;
     color:white;
 }
 
-/* NAVIGASI */
 nav{
     display:flex;
     justify-content:space-between;
+    align-items:center;
     padding:15px 40px;
     background:rgba(0,0,0,0.6);
     position:sticky;
@@ -29,47 +29,61 @@ nav{
 nav .left a, nav .right a{
     color:white;
     text-decoration:none;
-    margin:0 15px;
-    font-weight:bold;
+    margin:0 12px;
+    font-weight:600;
 }
 
 nav a:hover{
     color:#ffd700;
 }
 
-/* SECTION */
 section{
-    padding:80px 40px;
+    padding:80px 20px;
     min-height:100vh;
+    text-align:center;
 }
 
 h1{
-    text-align:center;
     font-size:55px;
+    margin-bottom:20px;
 }
 
 h2{
     margin-bottom:20px;
 }
 
-/* FORM */
+p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.6;
+}
+
+ul{
+    list-style:none;
+    padding:0;
+}
+
+ul li{
+    margin:10px 0;
+}
+
 form{
     max-width:400px;
-    margin:auto;
+    margin:20px auto;
 }
 
 input, textarea{
     width:100%;
     padding:10px;
-    margin:10px 0;
+    margin:8px 0;
     border:none;
-    border-radius:5px;
+    border-radius:6px;
 }
 
 button{
     padding:10px 20px;
     border:none;
-    border-radius:5px;
+    border-radius:6px;
     background:#ffd700;
     font-weight:bold;
     cursor:pointer;
@@ -79,7 +93,16 @@ button:hover{
     background:white;
 }
 
-/* daftar disembunyikan */
+.link{
+    color:#ffd700;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.link:hover{
+    text-decoration:underline;
+}
+
 #formDaftar{
     display:none;
 }
@@ -109,10 +132,10 @@ function tampilDaftar(){
 </div>
 </nav>
 
-<!-- BERANDA -->
+<!-- BERANDA (TIDAK DIUBAH) -->
 <section id="beranda">
 <h1>Selamat Datang di Prime Academic Library</h1>
-<p style="text-align:center; font-size:18px; max-width:800px; margin:auto;">
+<p>
 Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. 
 Nama "Prime" melambangkan keunggulan dan kualitas terbaik, sedangkan "Academic" menunjukkan fokus pada dunia pendidikan dan penelitian. 
 Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.
@@ -144,28 +167,37 @@ Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu
 <!-- ABOUT ME -->
 <section id="about">
 <h2>About Me</h2>
-<p>
-Halo, saya Nopita Laoli.  
-Kenali lebih jauh tentang saya melalui CV, Instagram, dan YouTube yang tersedia di bawah ini.
-</p>
 
 <p><strong>Nama :</strong> Nopita Laoli</p>
 <p><strong>NIM :</strong> 123456789</p>
+
+<p>
+Kenali saya lebih jauh melalui media sosial dan dokumen resmi yang tersedia di bawah ini.
+</p>
+
 <p><strong>Jurusan :</strong> Ilmu Perpustakaan</p>
 
 <p>
-<a href="https://instagram.com" target="_blank" style="color:#ffd700;">Instagram Saya</a> |
-<a href="https://youtube.com" target="_blank" style="color:#ffd700;">YouTube Saya</a> |
-<a href="https://drive.google.com" target="_blank" style="color:#ffd700;">Lihat CV</a>
+<a href="https://instagram.com/usernamekamu" target="_blank" class="link">Instagram Saya</a>
 </p>
+
+<p>
+<a href="https://drive.google.com/file/d/fileidkamu/view?usp=sharing" target="_blank" class="link">
+Lihat CV Saya
+</a>
+</p>
+
+<p>
+<a href="https://youtube.com/@channelkamu" target="_blank" class="link">YouTube Saya</a>
+</p>
+
 </section>
 
 <!-- ABOUT ADMIN -->
 <section id="admin">
 <h2>About Admin</h2>
 <p>
-Admin Prime Academic Library bertanggung jawab dalam pengelolaan koleksi, pelayanan informasi, serta pengembangan sistem perpustakaan. 
-Admin memastikan seluruh layanan berjalan dengan baik demi mendukung kebutuhan akademik mahasiswa.
+Admin Prime Academic Library bertanggung jawab dalam pengelolaan koleksi, pelayanan informasi, serta pengembangan sistem perpustakaan guna mendukung kebutuhan akademik mahasiswa dan civitas akademika.
 </p>
 </section>
 
@@ -189,9 +221,9 @@ Admin memastikan seluruh layanan berjalan dengan baik demi mendukung kebutuhan a
 <button type="submit">Login</button>
 </form>
 
-<p style="text-align:center;">
+<p>
 Belum punya akun? 
-<a href="javascript:void(0)" onclick="tampilDaftar()" style="color:#ffd700;">
+<a href="javascript:void(0)" onclick="tampilDaftar()" class="link">
 Daftar di sini
 </a>
 </p>
