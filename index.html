@@ -14,11 +14,11 @@
 
 body{
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(rgba(0,0,40,0.85), rgba(0,0,40,0.85)),
-    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+    url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6');
     background-size: cover;
     background-attachment: fixed;
-    color:white;
+    color:#002147;
 }
 
 /* NAVBAR */
@@ -27,14 +27,15 @@ nav{
     justify-content:space-between;
     align-items:center;
     padding:15px 40px;
-    background:rgba(0,0,0,0.8);
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
     position:sticky;
     top:0;
 }
 
 .nav-left a,
 .nav-right a{
-    color:white;
+    color:#002147;
     text-decoration:none;
     margin:0 10px;
     font-weight:600;
@@ -43,45 +44,42 @@ nav{
 
 .nav-left a:hover,
 .nav-right a:hover{
-    color:gold;
+    color:#d4af37;
 }
 
 /* SECTION */
 section{
     display:none;
     padding:80px 20px;
-    max-width:900px;
+    max-width:1000px;
     margin:auto;
-    animation:fade 0.5s ease-in-out;
 }
 
 .active{
     display:block;
 }
 
-@keyframes fade{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-h1{
+/* HERO TEXT */
+.hero{
     text-align:center;
-    margin-bottom:30px;
-    font-size:32px;
+    margin-bottom:50px;
 }
 
-p{
-    line-height:1.8;
-    font-size:17px;
-    text-align:justify;
+.hero h1{
+    font-size:48px;
+    margin-bottom:20px;
+    font-weight:bold;
 }
 
 /* CARD */
 .card{
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(8px);
-    padding:30px;
+    background:white;
+    padding:35px;
     border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    line-height:1.8;
+    font-size:17px;
+    text-align:justify;
 }
 
 /* FORM */
@@ -89,13 +87,14 @@ input, textarea{
     width:100%;
     padding:12px;
     margin:10px 0;
-    border:none;
+    border:1px solid #ccc;
     border-radius:8px;
 }
 
 button{
     padding:12px 25px;
-    background:gold;
+    background:#002147;
+    color:white;
     border:none;
     border-radius:8px;
     font-weight:bold;
@@ -103,17 +102,17 @@ button{
 }
 
 button:hover{
-    background:orange;
+    background:#d4af37;
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
+    .hero h1{
+        font-size:32px;
+    }
     nav{
         flex-direction:column;
         text-align:center;
-    }
-    .nav-left{
-        margin-bottom:10px;
     }
 }
 </style>
@@ -137,54 +136,69 @@ button:hover{
 
 <!-- BERANDA -->
 <section id="beranda" class="active">
-    <h1>Prime Academic Library</h1>
+    <div class="hero">
+        <h1>Selamat Datang di Prime Academic Library</h1>
+        <p>Pusat Sumber Informasi Akademik Modern dan Profesional</p>
+    </div>
+
     <div class="card">
+        <h2>Tentang Prime Academic Library</h2>
+        <br>
         <p>
-        Nama <b>Prime Academic Library</b> memiliki makna sebagai pusat sumber informasi akademik 
-        yang unggul, terpercaya, dan berkualitas tinggi. Kata <b>"Prime"</b> melambangkan yang terbaik, 
-        utama, dan terdepan dalam menyediakan layanan informasi. Kata <b>"Academic"</b> menunjukkan 
-        bahwa perpustakaan ini berfokus pada dunia pendidikan, penelitian, dan pengembangan ilmu 
-        pengetahuan di lingkungan perguruan tinggi. Sedangkan <b>"Library"</b> berarti tempat yang 
-        menyediakan berbagai sumber informasi seperti buku, jurnal ilmiah, karya tulis, dan media 
-        digital yang mendukung proses pembelajaran.
+        Prime Academic Library merupakan perpustakaan perguruan tinggi yang dirancang 
+        sebagai pusat pengelolaan dan penyebaran informasi ilmiah secara modern dan terintegrasi. 
+        Perpustakaan ini berfungsi sebagai pendukung utama kegiatan pendidikan, penelitian, 
+        dan pengabdian kepada masyarakat.
         </p>
 
         <p>
-        Dengan demikian, Prime Academic Library dirancang sebagai perpustakaan perguruan tinggi 
-        modern yang tidak hanya menyediakan koleksi fisik, tetapi juga layanan digital, 
-        sistem informasi yang terintegrasi, serta lingkungan belajar yang nyaman dan profesional 
-        bagi mahasiswa dan dosen.
+        Nama <b>Prime Academic Library</b> memiliki makna mendalam. 
+        Kata <b>Prime</b> berarti utama, unggul, dan berkualitas tinggi, 
+        yang mencerminkan komitmen untuk memberikan layanan terbaik. 
+        Kata <b>Academic</b> menegaskan fokus pada dunia pendidikan tinggi, 
+        penelitian ilmiah, serta pengembangan pengetahuan berbasis akademik. 
+        Sedangkan <b>Library</b> merupakan pusat sumber informasi yang menyediakan 
+        koleksi buku, jurnal, karya ilmiah, serta layanan digital yang mendukung 
+        kebutuhan mahasiswa dan dosen.
+        </p>
+
+        <p>
+        Dengan konsep modern, Prime Academic Library tidak hanya menyediakan 
+        koleksi fisik, tetapi juga sistem informasi digital, layanan referensi, 
+        serta lingkungan belajar yang nyaman dan profesional.
         </p>
     </div>
 </section>
 
 <!-- KOLEKSI -->
 <section id="koleksi">
-    <h1>Koleksi Buku</h1>
     <div class="card">
+        <h2>Koleksi Buku</h2>
+        <br>
         <p>
-        Prime Academic Library menyediakan berbagai koleksi buku akademik, jurnal ilmiah, 
-        skripsi, tesis, disertasi, serta referensi digital yang dapat diakses oleh mahasiswa 
-        dan dosen. Koleksi diperbarui secara berkala untuk mendukung kebutuhan pembelajaran 
-        dan penelitian.
+        Tersedia koleksi buku akademik, jurnal ilmiah, skripsi, tesis, disertasi, 
+        dan referensi digital yang diperbarui secara berkala untuk mendukung 
+        kebutuhan pembelajaran dan penelitian mahasiswa.
         </p>
     </div>
 </section>
 
 <!-- LAYANAN -->
 <section id="layanan">
-    <h1>Jam Layanan</h1>
     <div class="card">
+        <h2>Jam Layanan</h2>
+        <br>
         <p>Senin : 08:30 - 18:00</p>
         <p>Selasa - Jumat : 08:00 - 18:00</p>
         <p>Sabtu - Minggu : Tutup</p>
     </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT ME -->
 <section id="about">
-    <h1>About Me</h1>
     <div class="card">
+        <h2>About Me</h2>
+        <br>
         <p><b>Nama:</b> Nopita Laoli</p>
         <p><b>Status:</b> Mahasiswa</p>
         <p><b>Minat:</b> Perpustakaan & Teknologi Informasi</p>
@@ -202,20 +216,22 @@ button:hover{
 
 <!-- ADMIN -->
 <section id="admin">
-    <h1>About Admin</h1>
     <div class="card">
+        <h2>About Admin</h2>
+        <br>
         <p>
-        Admin Prime Academic Library bertanggung jawab dalam pengelolaan sistem informasi, 
-        pengembangan layanan digital, serta memastikan seluruh layanan perpustakaan berjalan 
-        secara optimal dan profesional.
+        Admin Prime Academic Library bertanggung jawab dalam pengelolaan sistem, 
+        layanan informasi, serta pengembangan perpustakaan berbasis digital 
+        agar tetap relevan dengan perkembangan teknologi dan kebutuhan akademik.
         </p>
     </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-    <h1>Contact Us</h1>
     <div class="card">
+        <h2>Contact Us</h2>
+        <br>
         <textarea id="pesan" placeholder="Tulis pesan anda..."></textarea>
         <button onclick="kirimWA()">Kirim ke WhatsApp</button>
     </div>
@@ -223,8 +239,9 @@ button:hover{
 
 <!-- LOGIN -->
 <section id="login">
-    <h1>Login</h1>
     <div class="card">
+        <h2>Login</h2>
+        <br>
         <input type="email" id="loginEmail" placeholder="Email">
         <input type="password" id="loginPassword" placeholder="Password">
         <button onclick="login()">Login</button>
