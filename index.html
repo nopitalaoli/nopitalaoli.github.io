@@ -31,7 +31,6 @@ nav{
     box-shadow:0 3px 15px rgba(0,0,0,0.1);
     position:sticky;
     top:0;
-    z-index:1000;
 }
 
 .nav-left a,
@@ -54,16 +53,10 @@ section{
     padding:80px 20px;
     max-width:1000px;
     margin:auto;
-    animation:fade 0.4s ease-in-out;
 }
 
 .active{
     display:block;
-}
-
-@keyframes fade{
-    from{opacity:0; transform:translateY(15px);}
-    to{opacity:1; transform:translateY(0);}
 }
 
 /* HERO */
@@ -117,7 +110,15 @@ button:hover{
     color:black;
 }
 
-/* RESPONSIVE */
+a{
+    color:#002147;
+    font-weight:bold;
+}
+
+a:hover{
+    color:#d4af37;
+}
+
 @media(max-width:768px){
     .hero h1{
         font-size:32px;
@@ -138,7 +139,6 @@ button:hover{
         <a onclick="showSection('koleksi')">Koleksi</a>
         <a onclick="showSection('layanan')">Layanan</a>
         <a onclick="showSection('about')">About Me</a>
-        <a onclick="showSection('admin')">About Admin</a>
         <a onclick="showSection('contact')">Contact Us</a>
     </div>
     <div class="nav-right">
@@ -155,18 +155,14 @@ button:hover{
 
     <div class="card">
         <h2>Tentang Prime Academic Library</h2>
-        <br>
         <p>
         Prime Academic Library adalah perpustakaan perguruan tinggi yang berkomitmen 
-        menjadi pusat sumber informasi ilmiah yang unggul dan terpercaya.
+        menjadi pusat sumber informasi ilmiah yang unggul, terpercaya, dan modern.
         </p>
-
         <p>
-        Kata <b>Prime</b> menunjukkan kualitas utama dan terbaik. 
-        <b>Academic</b> menegaskan fokus pada pendidikan tinggi dan penelitian ilmiah. 
-        Sedangkan <b>Library</b> berarti pusat pengelolaan informasi yang menyediakan 
-        buku, jurnal, karya ilmiah, serta layanan digital untuk mendukung 
-        kegiatan belajar dan penelitian mahasiswa.
+        Prime berarti utama dan berkualitas tinggi. Academic menegaskan fokus pada 
+        pendidikan dan penelitian. Library adalah pusat informasi yang menyediakan 
+        buku, jurnal, dan layanan digital untuk mendukung pembelajaran mahasiswa.
         </p>
     </div>
 </section>
@@ -175,13 +171,12 @@ button:hover{
 <section id="koleksi">
     <div class="card">
         <h2>Koleksi</h2>
-        <br>
         <ul>
-            <li>Buku Akademik Berbagai Program Studi</li>
-            <li>Jurnal Ilmiah Nasional dan Internasional</li>
-            <li>Skripsi, Tesis, dan Disertasi</li>
-            <li>E-Book dan Referensi Digital</li>
-            <li>Majalah Ilmiah dan Prosiding Seminar</li>
+            <li>Buku Akademik</li>
+            <li>Jurnal Ilmiah</li>
+            <li>Skripsi dan Tesis</li>
+            <li>E-Book Digital</li>
+            <li>Referensi Penelitian</li>
         </ul>
     </div>
 </section>
@@ -190,47 +185,19 @@ button:hover{
 <section id="layanan">
     <div class="card">
         <h2>Jam Layanan</h2>
-        <br>
         <p>Senin : 08:30 - 18:00</p>
         <p>Selasa - Jumat : 08:00 - 18:00</p>
         <p>Sabtu - Minggu : Tutup</p>
     </div>
 </section>
 
-<!-- ABOUT ME -->
+<!-- ABOUT -->
 <section id="about">
     <div class="card">
         <h2>About Me</h2>
-        <br>
         <p><b>Nama:</b> Nopita Laoli</p>
         <p><b>Status:</b> Mahasiswa</p>
         <p><b>Minat:</b> Perpustakaan dan Teknologi Informasi</p>
-
-        <p>
-        Untuk mengetahui lebih lanjut tentang profil lengkap, pengalaman, 
-        dan karya yang telah saya buat, silakan kunjungi tautan berikut:
-        </p>
-
-        <p>Instagram: 
-        <a href="https://instagram.com" target="_blank">Klik di sini</a></p>
-
-        <p>CV: 
-        <a href="#" target="_blank">Lihat CV Saya</a></p>
-
-        <p>YouTube: 
-        <a href="https://youtube.com" target="_blank">Channel YouTube</a></p>
-    </div>
-</section>
-
-<!-- ADMIN -->
-<section id="admin">
-    <div class="card">
-        <h2>About Admin</h2>
-        <br>
-        <p>
-        Admin Prime Academic Library bertanggung jawab dalam pengelolaan sistem 
-        informasi, layanan perpustakaan, serta pengembangan perpustakaan digital.
-        </p>
     </div>
 </section>
 
@@ -238,7 +205,25 @@ button:hover{
 <section id="contact">
     <div class="card">
         <h2>Contact Us</h2>
+
+        <p><b>Nama:</b> Nopita Laoli</p>
+        <p><b>NIM:</b> 123456789</p>
+        <p><b>Jurusan:</b> Ilmu Perpustakaan</p>
+
         <br>
+
+        <p>
+        Kenali lebih jauh tentang saya melalui CV dan Instagram 
+        yang tersedia di bawah ini:
+        </p>
+
+        <p>
+        <a href="#" target="_blank">Lihat CV</a> |
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        </p>
+
+        <hr><br>
+
         <input type="text" id="nama" placeholder="Nama Anda">
         <input type="email" id="emailContact" placeholder="Email Anda">
         <textarea id="pesan" placeholder="Tulis pesan anda..."></textarea>
@@ -250,10 +235,22 @@ button:hover{
 <section id="login">
     <div class="card">
         <h2>Login</h2>
-        <br>
         <input type="email" id="loginEmail" placeholder="Email">
         <input type="password" id="loginPassword" placeholder="Password">
         <button onclick="login()">Login</button>
+
+        <p>Belum punya akun?
+            <a onclick="toggleDaftar()" style="cursor:pointer;">Daftar di sini</a>
+        </p>
+
+        <div id="daftarForm" style="display:none;">
+            <input type="text" placeholder="First Name">
+            <input type="text" placeholder="Last Name">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="No HP">
+            <input type="password" placeholder="Password">
+            <button>Daftar</button>
+        </div>
     </div>
 </section>
 
@@ -263,6 +260,11 @@ function showSection(id){
         sec.style.display="none";
     });
     document.getElementById(id).style.display="block";
+}
+
+function toggleDaftar(){
+    var form=document.getElementById("daftarForm");
+    form.style.display=form.style.display==="none"?"block":"block";
 }
 
 function kirimWA(){
@@ -276,7 +278,7 @@ function kirimWA(){
 }
 
 function login(){
-    alert("Fitur login aktif.");
+    alert("Login berhasil (demo).");
 }
 </script>
 
