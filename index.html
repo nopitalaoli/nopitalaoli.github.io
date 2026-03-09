@@ -1,3 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Academic Library</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da') no-repeat center center/cover;
+min-height:100vh;
+transition:0.5s;
+}
+
+.overlay{
+background:rgba(255,255,255,0.75);
+min-height:100vh;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:#1e2a38;
+flex-wrap:nowrap;
+overflow-x:auto;
+}
+
+nav .left, nav .right{
+display:flex;
+flex-wrap:nowrap;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:5px 12px;
+font-weight:600;
+font-size:14px;
+cursor:pointer;
+white-space:nowrap;
+}
+
+nav a:hover{
+color:#ffd700;
+}
+
+/* CONTENT */
+
+.content{
+display:none;
+padding:60px 30px;
+max-width:900px;
+margin:40px auto;
+background:rgba(255,255,255,0.92);
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.25);
+}
+
+.active{
+display:block;
+}
+
+h1,h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+h3{
+margin-top:20px;
+margin-bottom:10px;
+}
+
+p{
+line-height:1.6;
+margin-bottom:10px;
+}
+
+ul{
+padding-left:20px;
+margin-bottom:10px;
+}
+
+ul li{
+margin:8px 0;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+button{
+padding:10px 18px;
+border:none;
+background:#1e2a38;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2f4054;
+}
+
+.link{
+display:block;
+margin:8px 0;
+font-weight:bold;
+text-decoration:none;
+color:#1e2a38;
+}
+
+.slogan{
+text-align:center;
+font-style:italic;
+font-size:18px;
+margin-top:10px;
+color:#2f4054;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+nav{
+padding:12px;
+}
+
+.content{
+margin:20px;
+padding:25px;
+max-width:95%;
+}
+
+h1{
+font-size:24px;
+}
+
+.slogan{
+font-size:16px;
+}
+
+}
+
+</style>
+
+<script>
+
+function showSection(id){
+
+var sections=document.querySelectorAll('.content');
+sections.forEach(section=>section.classList.remove('active'));
+
+document.getElementById(id).classList.add('active');
+
+/* background berbeda */
+
+if(id==="beranda"){
+document.body.style.background="url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da') no-repeat center center/cover";
+}
+
+if(id==="profil"){
+document.body.style.background="url('https://images.unsplash.com/photo-1507842217343-583bb7270b66') no-repeat center center/cover";
+}
+
+if(id==="koleksi"){
+document.body.style.background="url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center center/cover";
+}
+
+if(id==="layanan"){
+document.body.style.background="url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6') no-repeat center center/cover";
+}
+
+if(id==="forum"){
+document.body.style.background="url('https://images.unsplash.com/photo-1519389950473-47ba0277781c') no-repeat center center/cover";
+}
+
+if(id==="about"){
+document.body.style.background="url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570') no-repeat center center/cover";
+}
+
+if(id==="contact"){
+document.body.style.background="url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') no-repeat center center/cover";
+}
+
+if(id==="login"){
+document.body.style.background="url('https://images.unsplash.com/photo-1497215842964-222b430dc094') no-repeat center center/cover";
+}
+
+}
+
+/* kirim diskusi ke WhatsApp */
+
+function kirimWA(){
+
+var nama=document.getElementById("namaForum").value;
+var pesan=document.getElementById("pesanForum").value;
+
+var url="https://wa.me/?text=Halo saya "+nama+"%0A%0ADiskusi:%0A"+pesan;
+
+window.open(url,"_blank");
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+<nav>
+
+<div class="left">
+<a onclick="showSection('beranda')">Beranda</a>
+<a onclick="showSection('profil')">Profil Perpustakaan</a>
+<a onclick="showSection('koleksi')">Koleksi</a>
+<a onclick="showSection('layanan')">Layanan</a>
+<a onclick="showSection('forum')">Forum</a>
+<a onclick="showSection('about')">About Me</a>
+<a onclick="showSection('contact')">Contact Us</a>
+</div>
+
+<div class="right">
+<a onclick="showSection('login')">Login</a>
+</div>
+
+</nav>
+
+<!-- BERANDA -->
+
+<div id="beranda" class="content active">
+
+<h1>Selamat Datang di Prime Academic Library</h1>
+
+<p class="slogan">
+"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."
+</p>
+
+</div>
+
+<!-- PROFIL PERPUSTAKAAN -->
+
 <div id="profil" class="content">
 
 <h2>Profil Perpustakaan</h2>
@@ -38,3 +297,101 @@ Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian,
 </ul>
 
 </div>
+
+<!-- KOLEKSI -->
+
+<div id="koleksi" class="content">
+<h2>Koleksi</h2>
+<ul>
+<li>Buku Referensi Akademik</li>
+<li>Jurnal Nasional & Internasional</li>
+<li>Skripsi dan Tesis</li>
+<li>E-Book Digital</li>
+<li>Majalah Ilmiah</li>
+</ul>
+</div>
+
+<!-- LAYANAN -->
+
+<div id="layanan" class="content">
+<h2>Layanan Perpustakaan</h2>
+
+<h3>Jenis Layanan</h3>
+<ul>
+<li>Layanan Sirkulasi (Peminjaman & Pengembalian Buku)</li>
+<li>Layanan Referensi</li>
+<li>Akses E-Book & E-Journal</li>
+<li>Bimbingan Literasi Informasi</li>
+<li>Ruang Baca dan Diskusi</li>
+</ul>
+
+<h3>Jam Layanan</h3>
+<ul>
+<li>Senin : 08:30 - 18:00 WIB</li>
+<li>Selasa - Jumat : 08:00 - 18:00 WIB</li>
+<li>Sabtu - Minggu : Tutup</li>
+</ul>
+</div>
+
+<!-- FORUM -->
+
+<div id="forum" class="content">
+
+<h2>Forum Diskusi</h2>
+
+<p>
+Forum ini merupakan ruang bagi pengunjung untuk menyampaikan pertanyaan, pendapat, atau diskusi mengenai dunia literasi dan perpustakaan. Silakan tuliskan komentar atau diskusi Anda di bawah ini dan kirimkan melalui media komunikasi yang tersedia.
+</p>
+
+<input type="text" id="namaForum" placeholder="Nama Anda">
+
+<textarea rows="4" id="pesanForum" placeholder="Tulis komentar atau diskusi Anda"></textarea>
+
+<button onclick="kirimWA()">Kirim Komentar ke WhatsApp</button>
+
+<a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=h49jwdt" target="_blank">
+<button>Kirim Diskusi ke Instagram</button>
+</a>
+
+</div>
+
+<!-- ABOUT -->
+
+<div id="about" class="content">
+
+<h2>About Me</h2>
+
+<p><strong>Nama :</strong> Nopita Laoli</p>
+<p><strong>NIM :</strong> 123456789</p>
+<p><strong>Jurusan :</strong> Perpustakaan dan Sains Informasi</p>
+
+<h3>Kenali Saya Lebih Jauh</h3>
+
+<p>
+Kenali lebih jauh tentang saya melalui Instagram dan CV di bawah ini untuk melihat aktivitas, pengalaman, serta perjalanan akademik yang saya miliki.
+</p>
+
+<a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=h49jwdt" target="_blank" class="link">Instagram Saya</a>
+
+<a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drivesdk" target="_blank" class="link">Lihat CV Saya</a>
+
+</div>
+
+<!-- CONTACT -->
+
+<div id="contact" class="content">
+
+<h2>Contact Us</h2>
+
+<input type="text" placeholder="Nama">
+<input type="email" placeholder="Email">
+<textarea rows="4" placeholder="Kirim Pesan Anda"></textarea>
+
+<button>Kirim</button>
+
+</div>
+
+</div>
+
+</body>
+</html>
