@@ -6,6 +6,7 @@
 <title>Prime Academic Library</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -19,25 +20,26 @@ min-height:100vh;
 transition:0.5s;
 }
 
-/* overlay dibuat lebih transparan agar background terlihat jelas */
 .overlay{
 background:rgba(255,255,255,0.75);
 min-height:100vh;
 }
 
 /* NAVBAR */
+
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 40px;
 background:#1e2a38;
-flex-wrap:wrap;
+flex-wrap:nowrap;
+overflow-x:auto;
 }
 
 nav .left, nav .right{
 display:flex;
-flex-wrap:wrap;
+flex-wrap:nowrap;
 }
 
 nav a{
@@ -47,6 +49,7 @@ margin:5px 12px;
 font-weight:600;
 font-size:14px;
 cursor:pointer;
+white-space:nowrap;
 }
 
 nav a:hover{
@@ -54,12 +57,13 @@ color:#ffd700;
 }
 
 /* CONTENT */
+
 .content{
 display:none;
 padding:60px 30px;
 max-width:900px;
 margin:40px auto;
-background:rgba(255,255,255,0.9);
+background:rgba(255,255,255,0.92);
 border-radius:12px;
 box-shadow:0 8px 25px rgba(0,0,0,0.25);
 }
@@ -129,7 +133,8 @@ text-decoration:underline;
 display:none;
 }
 
-/* slogan beranda */
+/* slogan */
+
 .slogan{
 text-align:center;
 font-style:italic;
@@ -138,16 +143,12 @@ margin-top:10px;
 color:#2f4054;
 }
 
-/* RESPONSIVE MOBILE */
+/* MOBILE */
+
 @media(max-width:600px){
 
 nav{
-flex-direction:column;
-align-items:center;
-}
-
-nav .left, nav .right{
-justify-content:center;
+padding:12px;
 }
 
 .content{
@@ -165,13 +166,16 @@ font-size:16px;
 }
 
 }
+
 </style>
 
 <script>
+
 function showSection(id){
 
 var sections=document.querySelectorAll('.content');
 sections.forEach(section=>section.classList.remove('active'));
+
 document.getElementById(id).classList.add('active');
 
 /* background berbeda */
@@ -203,19 +207,23 @@ document.body.style.background="url('https://images.unsplash.com/photo-152220217
 if(id==="login"){
 document.body.style.background="url('https://images.unsplash.com/photo-1497215842964-222b430dc094') no-repeat center center/cover";
 }
+
 }
 
 function tampilDaftar(){
 document.getElementById("formDaftar").style.display="block";
 }
+
 </script>
 
 </head>
 
 <body>
+
 <div class="overlay">
 
 <nav>
+
 <div class="left">
 <a onclick="showSection('beranda')">Beranda</a>
 <a onclick="showSection('profil')">Profil Perpustakaan</a>
@@ -228,34 +236,51 @@ document.getElementById("formDaftar").style.display="block";
 <div class="right">
 <a onclick="showSection('login')">Login</a>
 </div>
+
 </nav>
 
 <!-- BERANDA -->
+
 <div id="beranda" class="content active">
+
 <h1>Selamat Datang di Prime Academic Library</h1>
-<p class="slogan">"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."</p>
+
+<p class="slogan">
+"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."
+</p>
+
 </div>
 
 <!-- PROFIL -->
+
 <div id="profil" class="content">
+
 <h2>Profil Perpustakaan</h2>
 
 <h3>Pengertian Prime Academic Library</h3>
+
 <p>
 Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.
 </p>
 
 <h3>Mengapa dinamakan Prime Academic Library</h3>
+
 <p>
-Nama Prime Academic Library dipilih untuk menggambarkan perpustakaan sebagai sumber utama (prime) dalam penyediaan informasi akademik yang berkualitas. Perpustakaan ini diharapkan menjadi pusat referensi terpercaya bagi mahasiswa, dosen, dan peneliti dalam mendukung kegiatan belajar, penelitian, serta pengembangan ilmu pengetahuan di lingkungan perguruan tinggi.
+Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting. 
+<strong>Prime</strong> berarti utama atau yang terbaik, yang menggambarkan perpustakaan sebagai sumber informasi yang unggul dan berkualitas. 
+<strong>Academic</strong> berarti akademik, yang menunjukkan bahwa perpustakaan ini berfokus pada kebutuhan pendidikan, penelitian, dan pengembangan ilmu pengetahuan. 
+<strong>Library</strong> berarti perpustakaan sebagai tempat pengelolaan serta penyediaan berbagai sumber informasi. 
+Dari makna tersebut, maka dibentuklah nama <strong>Prime Academic Library</strong> sebagai perpustakaan yang menjadi sumber utama informasi akademik bagi mahasiswa dan civitas akademika.
 </p>
 
 <h3>Visi</h3>
+
 <p>
 Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian, dan pengabdian kepada masyarakat berbasis teknologi dan literasi informasi.
 </p>
 
 <h3>Misi</h3>
+
 <ul>
 <li>Menyediakan koleksi akademik yang lengkap dan relevan.</li>
 <li>Mengembangkan layanan berbasis digital.</li>
@@ -264,17 +289,22 @@ Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian,
 </ul>
 
 <h3>Tujuan</h3>
+
 <ul>
 <li>Mendukung proses pembelajaran mahasiswa dan dosen.</li>
 <li>Menyediakan akses informasi yang cepat dan akurat.</li>
 <li>Meningkatkan kualitas layanan perpustakaan.</li>
 <li>Mewujudkan perpustakaan sebagai pusat literasi dan riset.</li>
 </ul>
+
 </div>
 
 <!-- KOLEKSI -->
+
 <div id="koleksi" class="content">
+
 <h2>Koleksi</h2>
+
 <ul>
 <li>Buku Referensi Akademik</li>
 <li>Jurnal Nasional & Internasional</li>
@@ -282,13 +312,17 @@ Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian,
 <li>E-Book Digital</li>
 <li>Majalah Ilmiah</li>
 </ul>
+
 </div>
 
 <!-- LAYANAN -->
+
 <div id="layanan" class="content">
+
 <h2>Layanan Perpustakaan</h2>
 
 <h3>Jenis Layanan</h3>
+
 <ul>
 <li>Layanan Sirkulasi (Peminjaman & Pengembalian Buku)</li>
 <li>Layanan Referensi</li>
@@ -298,19 +332,30 @@ Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian,
 </ul>
 
 <h3>Jam Layanan</h3>
+
 <ul>
 <li>Senin : 08:30 - 18:00 WIB</li>
 <li>Selasa - Jumat : 08:00 - 18:00 WIB</li>
 <li>Sabtu - Minggu : Tutup</li>
 </ul>
+
 </div>
 
 <!-- ABOUT -->
+
 <div id="about" class="content">
+
 <h2>About Me</h2>
+
 <p><strong>Nama :</strong> Nopita Laoli</p>
 <p><strong>NIM :</strong> 123456789</p>
 <p><strong>Jurusan :</strong> Perpustakaan dan Sains Informasi</p>
+
+<h3>Kenali Saya Lebih Jauh</h3>
+
+<p>
+Kenali lebih jauh tentang saya melalui Instagram dan CV di bawah ini untuk melihat aktivitas, pengalaman, serta perjalanan akademik yang saya miliki.
+</p>
 
 <h3>Media & Dokumen</h3>
 
@@ -323,19 +368,31 @@ Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian,
 </div>
 
 <!-- CONTACT -->
+
 <div id="contact" class="content">
+
 <h2>Contact Us</h2>
+
 <input type="text" placeholder="Nama">
+
 <input type="email" placeholder="Email">
+
 <textarea rows="4" placeholder="Kirim Pesan Anda"></textarea>
+
 <button>Kirim</button>
+
 </div>
 
 <!-- LOGIN -->
+
 <div id="login" class="content">
+
 <h2>Login</h2>
+
 <input type="email" placeholder="Email">
+
 <input type="password" placeholder="Password">
+
 <button>Login</button>
 
 <p>Belum punya akun?
@@ -343,16 +400,26 @@ Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian,
 </p>
 
 <div id="formDaftar">
+
 <h2>Daftar Akun</h2>
+
 <input type="text" placeholder="First Name">
+
 <input type="text" placeholder="Last Name">
+
 <input type="email" placeholder="Email">
+
 <input type="text" placeholder="No HP">
+
 <input type="password" placeholder="Password">
+
 <button>Daftar</button>
-</div>
+
 </div>
 
 </div>
+
+</div>
+
 </body>
 </html>
