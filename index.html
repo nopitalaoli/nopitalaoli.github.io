@@ -8,424 +8,209 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-font-family:'Segoe UI',sans-serif;
-background:url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da') no-repeat center center/cover;
-min-height:100vh;
-transition:0.5s;
+    font-family:'Segoe UI',sans-serif;
+    background:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') no-repeat center/cover;
+    color:#333;
 }
 
-.overlay{
-background:rgba(255,255,255,0.75);
-min-height:100vh;
+/* HEADER */
+
+header{
+    background:rgba(0,0,0,0.7);
+    color:white;
+    text-align:center;
+    padding:25px;
 }
 
-/* NAVBAR */
+header h1{
+    font-size:32px;
+}
 
 nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background:#1e2a38;
-flex-wrap:nowrap;
-overflow-x:auto;
-}
-
-nav .left, nav .right{
-display:flex;
-flex-wrap:nowrap;
+    margin-top:10px;
 }
 
 nav a{
-color:white;
-text-decoration:none;
-margin:5px 12px;
-font-weight:600;
-font-size:14px;
-cursor:pointer;
-white-space:nowrap;
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:bold;
 }
 
 nav a:hover{
-color:#ffd700;
+    text-decoration:underline;
 }
 
-/* CONTENT */
+/* SECTION */
 
-.content{
-display:none;
-padding:60px 30px;
-max-width:900px;
-margin:40px auto;
-background:rgba(255,255,255,0.95);
-border-radius:12px;
-box-shadow:0 8px 25px rgba(0,0,0,0.25);
+section{
+    background:rgba(255,255,255,0.95);
+    margin:30px auto;
+    padding:30px;
+    width:85%;
+    border-radius:10px;
 }
 
-.active{
-display:block;
+section h2{
+    margin-bottom:15px;
+    color:#2c3e50;
 }
 
-h1,h2{
-text-align:center;
-margin-bottom:20px;
+/* ABOUT ME */
+
+.about a{
+    display:block;
+    margin:10px 0;
+    color:#0066cc;
+    text-decoration:none;
 }
 
-h3{
-margin-top:20px;
-margin-bottom:10px;
-color:#1e2a38;
+.about a:hover{
+    text-decoration:underline;
 }
 
-p{
-line-height:1.6;
-margin-bottom:10px;
+/* JAM LAYANAN */
+
+.jam{
+    background:#f4f4f4;
+    padding:15px;
+    border-radius:8px;
 }
 
-ul{
-padding-left:20px;
-margin-bottom:10px;
-}
+/* FOOTER */
 
-ul li{
-margin:8px 0;
-}
-
-input,textarea{
-width:100%;
-padding:10px;
-margin:8px 0;
-border:1px solid #ccc;
-border-radius:6px;
-}
-
-button{
-padding:10px 18px;
-border:none;
-background:#1e2a38;
-color:white;
-border-radius:6px;
-cursor:pointer;
-}
-
-button:hover{
-background:#2f4054;
-}
-
-.link{
-display:block;
-margin:8px 0;
-font-weight:bold;
-text-decoration:none;
-color:#1e2a38;
-}
-
-.link:hover{
-color:#0b7dda;
-}
-
-.slogan{
-text-align:center;
-font-style:italic;
-font-size:18px;
-margin-top:10px;
-color:#2f4054;
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-nav{
-padding:12px;
-}
-
-.content{
-margin:20px;
-padding:25px;
-max-width:95%;
-}
-
-h1{
-font-size:24px;
-}
-
-.slogan{
-font-size:16px;
-}
-
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:15px;
 }
 
 </style>
-
-<script>
-
-function showSection(id){
-
-var sections=document.querySelectorAll('.content');
-sections.forEach(section=>section.classList.remove('active'));
-
-document.getElementById(id).classList.add('active');
-
-if(id==="beranda"){
-document.body.style.background="url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da') no-repeat center center/cover";
-}
-
-if(id==="profil"){
-document.body.style.background="url('https://images.unsplash.com/photo-1507842217343-583bb7270b66') no-repeat center center/cover";
-}
-
-if(id==="koleksi"){
-document.body.style.background="url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center center/cover";
-}
-
-if(id==="layanan"){
-document.body.style.background="url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6') no-repeat center center/cover";
-}
-
-if(id==="forum"){
-document.body.style.background="url('https://images.unsplash.com/photo-1519389950473-47ba0277781c') no-repeat center center/cover";
-}
-
-if(id==="about"){
-document.body.style.background="url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570') no-repeat center center/cover";
-}
-
-if(id==="contact"){
-document.body.style.background="url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') no-repeat center center/cover";
-}
-
-if(id==="login"){
-document.body.style.background="url('https://images.unsplash.com/photo-1497215842964-222b430dc094') no-repeat center center/cover";
-}
-
-}
-
-/* kirim diskusi WA */
-
-function kirimWA(){
-
-var nama=document.getElementById("namaForum").value;
-var pesan=document.getElementById("pesanForum").value;
-
-var url="https://wa.me/?text=Halo saya "+nama+"%0A%0ADiskusi:%0A"+pesan;
-
-window.open(url,"_blank");
-
-}
-
-/* buka form daftar */
-
-function toggleRegister(){
-
-var form=document.getElementById("registerForm");
-
-if(form.style.display==="none"){
-form.style.display="block";
-}else{
-form.style.display="none";
-}
-
-}
-
-</script>
-
 </head>
 
 <body>
 
-<div class="overlay">
+<header>
+<h1>Prime Academic Library</h1>
+<p>Perpustakaan Digital untuk Sumber Informasi Akademik</p>
 
 <nav>
-
-<div class="left">
-<a onclick="showSection('beranda')">Beranda</a>
-<a onclick="showSection('profil')">Profil Perpustakaan</a>
-<a onclick="showSection('koleksi')">Koleksi</a>
-<a onclick="showSection('layanan')">Layanan</a>
-<a onclick="showSection('forum')">Forum</a>
-<a onclick="showSection('about')">About Me</a>
-<a onclick="showSection('contact')">Contact Us</a>
-</div>
-
-<div class="right">
-<a onclick="showSection('login')">Login</a>
-</div>
-
+<a href="#profil">Profil</a>
+<a href="#visi">Visi Misi</a>
+<a href="#layanan">Layanan</a>
+<a href="#jam">Jam Layanan</a>
+<a href="#about">About Me</a>
 </nav>
+</header>
 
-<!-- BERANDA -->
 
-<div id="beranda" class="content active">
+<!-- PROFIL PERPUSTAKAAN -->
 
-<h1>Selamat Datang di Prime Academic Library</h1>
-
-<p class="slogan">
-"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."
-</p>
-
-</div>
-
-<!-- PROFIL -->
-
-<div id="profil" class="content">
+<section id="profil">
 
 <h2>Profil Perpustakaan</h2>
 
-<h3>Pengertian Prime Academic Library</h3>
-<p>
-Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika.
-</p>
-
 <h3>Mengapa dinamakan Prime Academic Library</h3>
+
 <p>
-Nama Prime Academic Library berasal dari tiga kata utama yaitu Prime, Academic, dan Library. Prime berarti utama atau terbaik, Academic menunjukkan fokus pada pendidikan dan penelitian, sedangkan Library berarti perpustakaan sebagai tempat pengelolaan informasi.
+Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting. 
+<strong>Prime</strong> berarti utama atau yang terbaik, yang menggambarkan perpustakaan sebagai sumber informasi yang unggul dan berkualitas. 
+<strong>Academic</strong> berarti akademik, yang menunjukkan bahwa perpustakaan ini berfokus pada kebutuhan pendidikan, penelitian, dan pengembangan ilmu pengetahuan. 
+<strong>Library</strong> berarti perpustakaan sebagai tempat pengelolaan serta penyediaan berbagai sumber informasi. 
+Dari makna tersebut, maka dibentuklah nama <strong>Prime Academic Library</strong> sebagai perpustakaan yang menjadi sumber utama informasi akademik bagi mahasiswa dan civitas akademika.
 </p>
 
-</div>
+</section>
 
-<!-- KOLEKSI -->
 
-<div id="koleksi" class="content">
-<h2>Koleksi</h2>
+<!-- VISI MISI -->
+
+<section id="visi">
+
+<h2>Visi</h2>
+
+<p>
+Menjadi perpustakaan akademik yang unggul dalam menyediakan sumber informasi yang berkualitas, 
+mendukung kegiatan pendidikan, penelitian, dan pengembangan ilmu pengetahuan.
+</p>
+
+<h2>Misi</h2>
+
 <ul>
-<li>Buku Referensi Akademik</li>
-<li>Jurnal Nasional & Internasional</li>
-<li>Skripsi dan Tesis</li>
-<li>E-Book Digital</li>
-<li>Majalah Ilmiah</li>
+<li>Menyediakan sumber informasi akademik yang lengkap dan terpercaya.</li>
+<li>Mendukung kegiatan belajar, penelitian, dan literasi informasi.</li>
+<li>Menyediakan layanan perpustakaan berbasis teknologi digital.</li>
+<li>Meningkatkan minat baca serta budaya literasi di kalangan mahasiswa.</li>
 </ul>
-</div>
+
+</section>
+
 
 <!-- LAYANAN -->
 
-<div id="layanan" class="content">
+<section id="layanan">
 
 <h2>Layanan Perpustakaan</h2>
 
-<h3>Jenis Layanan</h3>
 <ul>
-<li>Layanan Sirkulasi</li>
-<li>Layanan Referensi</li>
-<li>Akses E-Book & E-Journal</li>
-<li>Bimbingan Literasi Informasi</li>
-<li>Ruang Baca dan Diskusi</li>
+<li>Akses koleksi buku akademik</li>
+<li>Akses E-book</li>
+<li>Akses E-journal</li>
+<li>Layanan referensi</li>
+<li>Informasi kegiatan literasi</li>
 </ul>
 
-<h3>Jam Layanan</h3>
-<ul>
-<li>Senin : 08:30 - 18:00 WIB</li>
-<li>Selasa - Jumat : 08:00 - 18:00 WIB</li>
-<li>Sabtu - Minggu : Tutup</li>
-</ul>
+</section>
 
+
+<!-- JAM LAYANAN -->
+
+<section id="jam">
+
+<h2>Jam Layanan</h2>
+
+<div class="jam">
+<p>Senin - Jumat : 08.00 - 16.00</p>
+<p>Sabtu : 09.00 - 14.00</p>
+<p>Minggu : Tutup</p>
 </div>
 
-<!-- FORUM -->
+</section>
 
-<div id="forum" class="content">
 
-<h2>Forum Diskusi</h2>
+<!-- ABOUT ME -->
 
-<p>
-Forum ini merupakan ruang bagi pengunjung untuk menyampaikan pertanyaan, pendapat, atau diskusi mengenai dunia literasi dan perpustakaan.
-</p>
-
-<input type="text" id="namaForum" placeholder="Nama Anda">
-
-<textarea rows="4" id="pesanForum" placeholder="Tulis komentar atau diskusi Anda"></textarea>
-
-<button onclick="kirimWA()">Kirim Komentar ke WhatsApp</button>
-
-<a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=h49jwdt" target="_blank">
-<button>Kirim Diskusi ke Instagram</button>
-</a>
-
-</div>
-
-<!-- ABOUT -->
-
-<div id="about" class="content">
+<section id="about" class="about">
 
 <h2>About Me</h2>
 
-<p><strong>Nama :</strong> Nopita Laoli</p>
-<p><strong>NIM :</strong> 123456789</p>
-<p><strong>Jurusan :</strong> Perpustakaan dan Sains Informasi</p>
+<p>Kenali saya lebih dekat melalui media berikut:</p>
 
-<h3>Kenali Saya Lebih Jauh</h3>
+<a href="https://www.instagram.com/reel/DKolCoBxT30/?igsh=dzYzZXF3NmhhaGoy" target="_blank">
+Instagram
+</a>
 
-<p>
-Kenali lebih jauh tentang saya melalui Instagram dan CV di bawah ini.
-</p>
+<a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drivesdk" target="_blank">
+CV
+</a>
 
-<a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=h49jwdt" target="_blank" class="link">Instagram Saya</a>
+<a href="https://youtu.be/Dji6ApR56tk?si=-MVKyz8O2GGxZVqW" target="_blank">
+YouTube
+</a>
 
-<a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drivesdk" target="_blank" class="link">Lihat CV Saya</a>
+</section>
 
-<h3>Teknik Membaca</h3>
 
-<p>
-Temukan teknik membaca yang membuat Anda memahami informasi lebih cepat dan tepat.
-</p>
-
-<a href="https://youtube.com/" target="_blank" class="link">Tonton Video Teknik Membaca di YouTube</a>
-
-</div>
-
-<!-- CONTACT -->
-
-<div id="contact" class="content">
-
-<h2>Contact Us</h2>
-
-<input type="text" placeholder="Nama">
-<input type="email" placeholder="Email">
-<textarea rows="4" placeholder="Kirim Pesan Anda"></textarea>
-
-<button>Kirim</button>
-
-</div>
-
-<!-- LOGIN -->
-
-<div id="login" class="content">
-
-<h2>Login</h2>
-
-<input type="email" placeholder="Email">
-<input type="password" placeholder="Password">
-
-<button>Login</button>
-
-<p>
-Belum punya akun? <a href="#" onclick="toggleRegister()" class="link">Klik di sini</a>
-</p>
-
-<div id="registerForm" style="display:none">
-
-<h3>Daftar Akun</h3>
-
-<input type="text" placeholder="First Name">
-<input type="text" placeholder="Last Name">
-<input type="email" placeholder="Email">
-<input type="text" placeholder="No HP">
-<input type="password" placeholder="Password">
-
-<button>Daftar</button>
-
-</div>
-
-</div>
-
-</div>
+<footer>
+<p>© 2026 Prime Academic Library</p>
+</footer>
 
 </body>
 </html>
-```
