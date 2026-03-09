@@ -14,8 +14,9 @@
 
 body{
     font-family: 'Segoe UI', sans-serif;
-    background:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') no-repeat center center/cover;
+    background:url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da') no-repeat center center/cover;
     min-height:100vh;
+    transition:0.6s;
 }
 
 .overlay{
@@ -140,9 +141,40 @@ button:hover{
 
 <script>
 function showSection(id){
+
     var sections = document.querySelectorAll('.content');
     sections.forEach(section => section.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+
+    /* Background berbeda tiap navigasi */
+
+    if(id==="beranda"){
+        document.body.style.background="url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da') no-repeat center center/cover";
+    }
+
+    if(id==="profil"){
+        document.body.style.background="url('https://images.unsplash.com/photo-1507842217343-583bb7270b66') no-repeat center center/cover";
+    }
+
+    if(id==="koleksi"){
+        document.body.style.background="url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center center/cover";
+    }
+
+    if(id==="layanan"){
+        document.body.style.background="url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6') no-repeat center center/cover";
+    }
+
+    if(id==="about"){
+        document.body.style.background="url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570') no-repeat center center/cover";
+    }
+
+    if(id==="contact"){
+        document.body.style.background="url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') no-repeat center center/cover";
+    }
+
+    if(id==="login"){
+        document.body.style.background="url('https://images.unsplash.com/photo-1497215842964-222b430dc094') no-repeat center center/cover";
+    }
 }
 
 function tampilDaftar(){
@@ -172,15 +204,16 @@ function tampilDaftar(){
 <!-- BERANDA -->
 <div id="beranda" class="content active">
 <h1>Selamat Datang di Prime Academic Library</h1>
-<p>
-Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika.
-Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.
-</p>
 </div>
 
 <!-- PROFIL PERPUSTAKAAN -->
 <div id="profil" class="content">
 <h2>Profil Perpustakaan</h2>
+
+<h3>Pengertian Prime Academic Library</h3>
+<p>
+Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.
+</p>
 
 <h3>Visi</h3>
 <p>
