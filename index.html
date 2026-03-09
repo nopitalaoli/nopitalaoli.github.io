@@ -149,10 +149,19 @@ document.getElementById(id).classList.add('active');
 
 }
 
-/* buka form daftar */
-
 function bukaRegister(){
 document.getElementById("registerForm").style.display="block";
+}
+
+function kirimWA(){
+
+var nama=document.getElementById("namaForum").value;
+var pesan=document.getElementById("pesanForum").value;
+
+var url="https://wa.me/?text=Halo saya "+nama+"%0A%0ADiskusi:%0A"+pesan;
+
+window.open(url,"_blank");
+
 }
 
 </script>
@@ -202,9 +211,9 @@ document.getElementById("registerForm").style.display="block";
 <h3>Mengapa dinamakan Prime Academic Library</h3>
 
 <p>
-Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting. 
-<strong>Prime</strong> berarti utama atau yang terbaik. 
-<strong>Academic</strong> menunjukkan fokus pada kebutuhan pendidikan dan penelitian. 
+Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting.
+<strong>Prime</strong> berarti utama atau yang terbaik.
+<strong>Academic</strong> menunjukkan fokus pada kebutuhan pendidikan dan penelitian.
 <strong>Library</strong> berarti tempat pengelolaan sumber informasi.
 </p>
 
@@ -245,29 +254,49 @@ Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna pen
 
 </div>
 
-<!-- ABOUT ME -->
+<!-- FORUM -->
+
+<div id="forum" class="content">
+
+<h2>Forum Diskusi</h2>
+
+<p>
+Forum ini merupakan ruang bagi pengunjung untuk menyampaikan pertanyaan,
+pendapat, atau diskusi mengenai dunia literasi dan perpustakaan.
+</p>
+
+<input type="text" id="namaForum" placeholder="Nama Anda">
+
+<textarea rows="4" id="pesanForum" placeholder="Tulis komentar atau diskusi Anda"></textarea>
+
+<button onclick="kirimWA()">Kirim Komentar ke WhatsApp</button>
+
+<a href="https://www.instagram.com/" target="_blank">
+<button>Kirim Diskusi ke Instagram</button>
+</a>
+
+</div>
+
+<!-- ABOUT -->
 
 <div id="about" class="content">
 
 <h2>About Me</h2>
 
 <p><strong>Nama :</strong> Nopita Laoli</p>
+<p><strong>NIM :</strong> 123456789</p>
 <p><strong>Jurusan :</strong> Perpustakaan dan Sains Informasi</p>
 
-<h3>Kenali Saya Lebih Dekat</h3>
-
-<p>Anda dapat melihat aktivitas dan karya saya melalui beberapa media berikut:</p>
-
-<a href="https://www.instagram.com/" class="link" target="_blank">
-Kunjungi Instagram Saya
+<a href="https://www.instagram.com/reel/DKolCoBxT30/?igsh=dzYzZXF3NmhhaGoy" target="_blank" class="link">
+Instagram Saya
 </a>
 
-<a href="https://youtube.com/" class="link" target="_blank">
-Tonton Channel YouTube Saya
+<a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drivesdk" target="_blank" class="link">
+CV Saya
 </a>
 
-<a href="https://wa.me/" class="link" target="_blank">
-Hubungi Saya Melalui WhatsApp
+<a href="https://youtu.be/Dji6ApR56tk?si=-MVKyz8O2GGxZVqW" target="_blank" class="link">
+YouTube Saya
 </a>
 
 </div>
@@ -299,7 +328,7 @@ Hubungi Saya Melalui WhatsApp
 <button>Login</button>
 
 <p style="margin-top:15px;">
-Belum punya akun? 
+Belum punya akun?
 <a onclick="bukaRegister()" style="color:blue;cursor:pointer;">Klik di sini</a>
 </p>
 
