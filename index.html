@@ -7,113 +7,135 @@
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
 body{
-    font-family:'Segoe UI',sans-serif;
-    background:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') no-repeat center/cover;
-    color:#333;
+font-family:Segoe UI;
+margin:0;
+background:#f4f4f4;
 }
 
 /* HEADER */
 
 header{
-    background:rgba(0,0,0,0.7);
-    color:white;
-    text-align:center;
-    padding:25px;
-}
-
-header h1{
-    font-size:32px;
+background:#2c3e50;
+color:white;
+text-align:center;
+padding:25px;
 }
 
 nav{
-    margin-top:10px;
+margin-top:10px;
 }
 
-nav a{
-    color:white;
-    margin:0 15px;
-    text-decoration:none;
-    font-weight:bold;
+nav button{
+background:none;
+border:none;
+color:white;
+font-size:16px;
+margin:10px;
+cursor:pointer;
+font-weight:bold;
 }
 
-nav a:hover{
-    text-decoration:underline;
+nav button:hover{
+text-decoration:underline;
 }
 
-/* SECTION */
+/* KONTEN */
 
-section{
-    background:rgba(255,255,255,0.95);
-    margin:30px auto;
-    padding:30px;
-    width:85%;
-    border-radius:10px;
+.container{
+width:85%;
+margin:auto;
+background:white;
+padding:30px;
+margin-top:20px;
+border-radius:8px;
 }
 
-section h2{
-    margin-bottom:15px;
-    color:#2c3e50;
+.page{
+display:none;
 }
 
-/* ABOUT ME */
-
-.about a{
-    display:block;
-    margin:10px 0;
-    color:#0066cc;
-    text-decoration:none;
+.page.active{
+display:block;
 }
 
-.about a:hover{
-    text-decoration:underline;
-}
-
-/* JAM LAYANAN */
+/* JAM */
 
 .jam{
-    background:#f4f4f4;
-    padding:15px;
-    border-radius:8px;
+background:#f4f4f4;
+padding:15px;
+border-radius:6px;
 }
 
-/* FOOTER */
+/* LINK */
 
-footer{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:15px;
+a{
+color:#0066cc;
+text-decoration:none;
+}
+
+a:hover{
+text-decoration:underline;
 }
 
 </style>
+
+<script>
+
+function bukaHalaman(id){
+
+let pages=document.querySelectorAll(".page");
+
+pages.forEach(p=>{
+p.classList.remove("active");
+});
+
+document.getElementById(id).classList.add("active");
+
+}
+
+</script>
+
 </head>
 
 <body>
 
 <header>
+
 <h1>Prime Academic Library</h1>
-<p>Perpustakaan Digital untuk Sumber Informasi Akademik</p>
+<p>Perpustakaan Sumber Informasi Akademik</p>
 
 <nav>
-<a href="#profil">Profil</a>
-<a href="#visi">Visi Misi</a>
-<a href="#layanan">Layanan</a>
-<a href="#jam">Jam Layanan</a>
-<a href="#about">About Me</a>
+
+<button onclick="bukaHalaman('beranda')">Beranda</button>
+<button onclick="bukaHalaman('profil')">Profil</button>
+<button onclick="bukaHalaman('visi')">Visi Misi</button>
+<button onclick="bukaHalaman('layanan')">Layanan</button>
+<button onclick="bukaHalaman('jam')">Jam Layanan</button>
+<button onclick="bukaHalaman('about')">About Me</button>
+
 </nav>
+
 </header>
 
+<div class="container">
 
-<!-- PROFIL PERPUSTAKAAN -->
+<!-- BERANDA -->
 
-<section id="profil">
+<div id="beranda" class="page active">
+
+<h2>Beranda</h2>
+
+<p>
+Selamat datang di <b>Prime Academic Library</b>. 
+Perpustakaan ini menyediakan berbagai sumber informasi akademik yang dapat mendukung kegiatan belajar, penelitian, dan pengembangan ilmu pengetahuan bagi mahasiswa dan civitas akademika.
+</p>
+
+</div>
+
+<!-- PROFIL -->
+
+<div id="profil" class="page">
 
 <h2>Profil Perpustakaan</h2>
 
@@ -127,35 +149,32 @@ Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna pen
 Dari makna tersebut, maka dibentuklah nama <strong>Prime Academic Library</strong> sebagai perpustakaan yang menjadi sumber utama informasi akademik bagi mahasiswa dan civitas akademika.
 </p>
 
-</section>
-
+</div>
 
 <!-- VISI MISI -->
 
-<section id="visi">
+<div id="visi" class="page">
 
 <h2>Visi</h2>
 
 <p>
-Menjadi perpustakaan akademik yang unggul dalam menyediakan sumber informasi yang berkualitas, 
-mendukung kegiatan pendidikan, penelitian, dan pengembangan ilmu pengetahuan.
+Menjadi perpustakaan akademik yang unggul dalam menyediakan sumber informasi berkualitas untuk mendukung pendidikan dan penelitian.
 </p>
 
 <h2>Misi</h2>
 
 <ul>
-<li>Menyediakan sumber informasi akademik yang lengkap dan terpercaya.</li>
-<li>Mendukung kegiatan belajar, penelitian, dan literasi informasi.</li>
-<li>Menyediakan layanan perpustakaan berbasis teknologi digital.</li>
-<li>Meningkatkan minat baca serta budaya literasi di kalangan mahasiswa.</li>
+<li>Menyediakan sumber informasi akademik yang lengkap.</li>
+<li>Mendukung kegiatan pembelajaran dan penelitian.</li>
+<li>Menyediakan layanan perpustakaan berbasis teknologi.</li>
+<li>Meningkatkan literasi informasi mahasiswa.</li>
 </ul>
 
-</section>
-
+</div>
 
 <!-- LAYANAN -->
 
-<section id="layanan">
+<div id="layanan" class="page">
 
 <h2>Layanan Perpustakaan</h2>
 
@@ -167,50 +186,47 @@ mendukung kegiatan pendidikan, penelitian, dan pengembangan ilmu pengetahuan.
 <li>Informasi kegiatan literasi</li>
 </ul>
 
-</section>
-
+</div>
 
 <!-- JAM LAYANAN -->
 
-<section id="jam">
+<div id="jam" class="page">
 
 <h2>Jam Layanan</h2>
 
 <div class="jam">
-<p>Senin - Jumat : 08.00 - 16.00</p>
-<p>Sabtu : 09.00 - 14.00</p>
+
+<p>Senin – Jumat : 08.00 – 16.00</p>
+<p>Sabtu : 09.00 – 14.00</p>
 <p>Minggu : Tutup</p>
+
 </div>
 
-</section>
-
+</div>
 
 <!-- ABOUT ME -->
 
-<section id="about" class="about">
+<div id="about" class="page">
 
 <h2>About Me</h2>
 
 <p>Kenali saya lebih dekat melalui media berikut:</p>
 
-<a href="https://www.instagram.com/reel/DKolCoBxT30/?igsh=dzYzZXF3NmhhaGoy" target="_blank">
-Instagram
-</a>
+<p>
+<a href="https://www.instagram.com/reel/DKolCoBxT30/?igsh=dzYzZXF3NmhhaGoy" target="_blank">Instagram</a>
+</p>
 
-<a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drivesdk" target="_blank">
-CV
-</a>
+<p>
+<a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drivesdk" target="_blank">CV</a>
+</p>
 
-<a href="https://youtu.be/Dji6ApR56tk?si=-MVKyz8O2GGxZVqW" target="_blank">
-YouTube
-</a>
+<p>
+<a href="https://youtu.be/Dji6ApR56tk?si=-MVKyz8O2GGxZVqW" target="_blank">YouTube</a>
+</p>
 
-</section>
+</div>
 
-
-<footer>
-<p>© 2026 Prime Academic Library</p>
-</footer>
+</div>
 
 </body>
 </html>
