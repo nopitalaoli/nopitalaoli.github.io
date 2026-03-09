@@ -87,15 +87,6 @@ line-height:1.6;
 margin-bottom:10px;
 }
 
-ul{
-padding-left:20px;
-margin-bottom:10px;
-}
-
-ul li{
-margin:8px 0;
-}
-
 input,textarea{
 width:100%;
 padding:10px;
@@ -111,6 +102,7 @@ background:#1e2a38;
 color:white;
 border-radius:6px;
 cursor:pointer;
+margin-top:5px;
 }
 
 button:hover{
@@ -124,16 +116,6 @@ font-weight:bold;
 text-decoration:none;
 color:#1e2a38;
 }
-
-.link:hover{
-text-decoration:underline;
-}
-
-#formDaftar{
-display:none;
-}
-
-/* slogan */
 
 .slogan{
 text-align:center;
@@ -214,8 +196,17 @@ document.body.style.background="url('https://images.unsplash.com/photo-149721584
 
 }
 
-function tampilDaftar(){
-document.getElementById("formDaftar").style.display="block";
+/* kirim ke whatsapp */
+
+function kirimWA(){
+
+var nama=document.getElementById("namaForum").value;
+var pesan=document.getElementById("pesanForum").value;
+
+var url="https://wa.me/?text=Halo%20saya%20"+nama+"%0A%0ADiskusi:%0A"+pesan;
+
+window.open(url,"_blank");
+
 }
 
 </script>
@@ -274,8 +265,7 @@ Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pad
 Nama Prime Academic Library berasal dari tiga kata utama. 
 <strong>Prime</strong> berarti utama atau yang terbaik. 
 <strong>Academic</strong> berarti berkaitan dengan pendidikan dan penelitian. 
-<strong>Library</strong> berarti perpustakaan sebagai pusat informasi. 
-Dari makna tersebut maka dibentuklah nama <strong>Prime Academic Library</strong>.
+<strong>Library</strong> berarti perpustakaan sebagai pusat informasi.
 </p>
 
 </div>
@@ -318,18 +308,20 @@ Dari makna tersebut maka dibentuklah nama <strong>Prime Academic Library</strong
 <h2>Forum Diskusi</h2>
 
 <p>
-Forum ini merupakan ruang diskusi bagi mahasiswa dan pengunjung untuk berbagi pengetahuan, bertanya, serta berdiskusi mengenai berbagai topik akademik dan literasi informasi.
+Forum ini merupakan ruang diskusi bagi pengunjung untuk menyampaikan pertanyaan, pendapat, atau berbagi informasi terkait dunia literasi dan perpustakaan. Melalui forum ini pengunjung dapat mengirimkan komentar atau diskusi secara langsung kepada pengelola melalui media komunikasi yang tersedia.
 </p>
 
-<h3>Topik Diskusi</h3>
+<h3>Tulis Diskusi</h3>
 
-<ul>
-<li>Diskusi Literasi Informasi</li>
-<li>Tips Mencari Referensi Ilmiah</li>
-<li>Diskusi Penelitian Mahasiswa</li>
-<li>Berbagi Pengalaman Menulis Skripsi</li>
-<li>Rekomendasi Buku Akademik</li>
-</ul>
+<input type="text" id="namaForum" placeholder="Nama Anda">
+
+<textarea rows="4" id="pesanForum" placeholder="Tulis komentar atau diskusi Anda"></textarea>
+
+<button onclick="kirimWA()">Kirim Komentar ke WhatsApp</button>
+
+<a href="https://www.instagram.com/" target="_blank">
+<button>Kirim Diskusi ke Instagram</button>
+</a>
 
 </div>
 
@@ -349,8 +341,6 @@ Forum ini merupakan ruang diskusi bagi mahasiswa dan pengunjung untuk berbagi pe
 Kenali lebih jauh tentang saya melalui Instagram dan CV di bawah ini.
 </p>
 
-<h3>Media & Dokumen</h3>
-
 <a href="https://www.instagram.com/" target="_blank" class="link">Instagram Saya</a>
 
 <a href="https://drive.google.com/" target="_blank" class="link">Lihat CV Saya</a>
@@ -368,37 +358,6 @@ Kenali lebih jauh tentang saya melalui Instagram dan CV di bawah ini.
 <textarea rows="4" placeholder="Kirim Pesan Anda"></textarea>
 
 <button>Kirim</button>
-
-</div>
-
-<!-- LOGIN -->
-
-<div id="login" class="content">
-
-<h2>Login</h2>
-
-<input type="email" placeholder="Email">
-<input type="password" placeholder="Password">
-
-<button>Login</button>
-
-<p>Belum punya akun?
-<a href="javascript:void(0)" onclick="tampilDaftar()" class="link">Daftar di sini</a>
-</p>
-
-<div id="formDaftar">
-
-<h2>Daftar Akun</h2>
-
-<input type="text" placeholder="First Name">
-<input type="text" placeholder="Last Name">
-<input type="email" placeholder="Email">
-<input type="text" placeholder="No HP">
-<input type="password" placeholder="Password">
-
-<button>Daftar</button>
-
-</div>
 
 </div>
 
