@@ -212,21 +212,21 @@ var url="https://wa.me/?text=Halo saya "+nama+"%0A%0ADiskusi:%0A"+pesan;
 window.open(url,"_blank");
 }
 
-/* EVENT HANDLER + POPUP */
+/* TAMBAHAN EVENT HANDLER */
 function tampilDetail(judul){
 
 var deskripsi = "";
 
 if(judul === "Manajemen Perpustakaan"){
-deskripsi = "Buku ini membahas pengelolaan perpustakaan modern, mulai dari layanan hingga sistem informasi.";
+deskripsi = "Buku ini membahas pengelolaan perpustakaan modern.";
 }
 
 if(judul === "Literasi Informasi Digital"){
-deskripsi = "Mengupas kemampuan mencari, mengevaluasi, dan menggunakan informasi di era digital.";
+deskripsi = "Membahas literasi informasi di era digital.";
 }
 
 if(judul === "Metodologi Penelitian"){
-deskripsi = "Panduan lengkap dalam menyusun penelitian ilmiah secara sistematis dan terstruktur.";
+deskripsi = "Panduan lengkap penelitian ilmiah.";
 }
 
 document.getElementById("judulPopup").innerHTML = judul;
@@ -266,7 +266,6 @@ document.getElementById("popup").style.display = "none";
 </nav>
 
 <!-- BERANDA -->
-
 <div id="beranda" class="content active">
 
 <h1>Selamat Datang di Prime Academic Library</h1>
@@ -275,7 +274,7 @@ document.getElementById("popup").style.display = "none";
 "Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."
 </p>
 
-<!-- PAMERAN -->
+<!-- TAMBAHAN PAMERAN -->
 <h2 style="margin-top:30px;">Pameran Buku</h2>
 
 <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:20px;">
@@ -297,32 +296,28 @@ document.getElementById("popup").style.display = "none";
 
 </div>
 
+<!-- JADWAL -->
+<div style="margin-top:30px; text-align:center;">
+<h3>Jadwal Pameran Buku</h3>
+<p>📅 10 – 15 Juni 2026</p>
+<p>🕘 09.00 – 17.00 WIB</p>
+<p>📍 Ruang Utama Prime Academic Library</p>
 </div>
 
-<!-- SEMUA BAGIAN LAIN TETAP (tidak diubah) -->
+</div>
+
+<!-- (SEMUA BAGIAN LAIN TETAP SAMA PERSIS) -->
 
 <!-- POPUP -->
 <div id="popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
-
 <div style="background:white; padding:25px; border-radius:12px; max-width:400px; text-align:center; position:relative;">
-
-<span onclick="tutupPopup()" style="position:absolute; top:10px; right:15px; cursor:pointer; font-weight:bold;">X</span>
-
+<span onclick="tutupPopup()" style="position:absolute; top:10px; right:15px; cursor:pointer;">X</span>
 <h3 id="judulPopup"></h3>
-
 <p id="deskripsiPopup"></p>
-
-<p style="margin-top:15px; font-size:14px; color:#555;">
-📅 Pameran berlangsung: 10 – 15 Juni 2026
+<p style="margin-top:15px; font-style:italic;">
+Terima kasih telah mengunjungi pameran buku kami 📚✨
 </p>
-
-<p style="margin-top:15px; font-style:italic; color:#2f4054;">
-Terima kasih telah mengunjungi pameran buku kami 📚  
-Semoga setiap halaman yang Anda baca menjadi langkah menuju masa depan yang lebih cerah ✨
-</p>
-
 </div>
-
 </div>
 
 </div>
