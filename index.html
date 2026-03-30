@@ -6,11 +6,7 @@
 <title>Prime Academic Library</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Segoe UI',sans-serif;
@@ -24,20 +20,13 @@ background:rgba(255,255,255,0.75);
 min-height:100vh;
 }
 
-/* NAVBAR */
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 40px;
 background:#1e2a38;
-flex-wrap:nowrap;
 overflow-x:auto;
-}
-
-nav .left, nav .right{
-display:flex;
-flex-wrap:nowrap;
 }
 
 nav a{
@@ -45,16 +34,12 @@ color:white;
 text-decoration:none;
 margin:5px 12px;
 font-weight:600;
-font-size:14px;
 cursor:pointer;
 white-space:nowrap;
 }
 
-nav a:hover{
-color:#ffd700;
-}
+nav a:hover{color:#ffd700;}
 
-/* CONTENT */
 .content{
 display:none;
 padding:60px 30px;
@@ -65,33 +50,12 @@ border-radius:12px;
 box-shadow:0 8px 25px rgba(0,0,0,0.25);
 }
 
-.active{
-display:block;
-}
+.active{display:block;}
 
-h1,h2{
-text-align:center;
-margin-bottom:20px;
-}
-
-h3{
-margin-top:20px;
-margin-bottom:10px;
-}
-
-p{
-line-height:1.6;
-margin-bottom:10px;
-}
-
-ul{
-padding-left:20px;
-margin-bottom:10px;
-}
-
-ul li{
-margin:8px 0;
-}
+h1,h2{text-align:center;margin-bottom:20px;}
+h3{margin-top:20px;margin-bottom:10px;}
+p{margin-bottom:10px;}
+ul{padding-left:20px;}
 
 input,textarea{
 width:100%;
@@ -102,124 +66,44 @@ border-radius:6px;
 }
 
 button{
-padding:10px 18px;
-border:none;
+padding:10px;
 background:#1e2a38;
 color:white;
+border:none;
 border-radius:6px;
 cursor:pointer;
 }
 
-button:hover{
-background:#2f4054;
-}
+.buku{text-align:center;cursor:pointer;}
+.buku img{border-radius:8px;transition:0.3s;}
+.buku img:hover{transform:scale(1.1);}
 
-.link{
-display:block;
-margin:8px 0;
-font-weight:bold;
-text-decoration:none;
-color:#1e2a38;
-}
-
-.slogan{
-text-align:center;
-font-style:italic;
-font-size:18px;
-margin-top:10px;
-color:#2f4054;
-}
-
-#registerForm{
-display:none;
-margin-top:20px;
-padding-top:10px;
-border-top:1px solid #ccc;
-}
-
-/* Buku */
-.buku{
-text-align:center;
-cursor:pointer;
-}
-
-.buku img{
-border-radius:8px;
-transition:0.3s;
-}
-
-.buku img:hover{
-transform:scale(1.1);
-}
+#registerForm{display:none;}
 </style>
 
 <script>
 function showSection(id){
-var sections=document.querySelectorAll('.content');
-sections.forEach(section=>section.classList.remove('active'));
-
+document.querySelectorAll('.content').forEach(x=>x.classList.remove('active'));
 document.getElementById(id).classList.add('active');
-
-/* BACKGROUND */
-if(id==="beranda"){
-document.body.style.background="url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da') no-repeat center center/cover";
-}
-if(id==="profil"){
-document.body.style.background="url('https://images.unsplash.com/photo-1507842217343-583bb7270b66') no-repeat center center/cover";
-}
-if(id==="koleksi"){
-document.body.style.background="url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center center/cover";
-}
-if(id==="layanan"){
-document.body.style.background="url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6') no-repeat center center/cover";
-}
-if(id==="forum"){
-document.body.style.background="url('https://images.unsplash.com/photo-1519389950473-47ba0277781c') no-repeat center center/cover";
-}
-if(id==="about"){
-document.body.style.background="url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570') no-repeat center center/cover";
-}
-if(id==="contact"){
-document.body.style.background="url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') no-repeat center center/cover";
-}
-if(id==="login"){
-document.body.style.background="url('https://images.unsplash.com/photo-1497215842964-222b430dc094') no-repeat center center/cover";
-}
 }
 
 function bukaRegister(){
 document.getElementById("registerForm").style.display="block";
 }
 
-function kirimWA(){
-var nama=document.getElementById("namaForum").value;
-var pesan=document.getElementById("pesanForum").value;
-
-var url="https://wa.me/?text=Halo saya "+nama+"%0A%0ADiskusi:%0A"+pesan;
-window.open(url,"_blank");
-}
-
-/* POPUP PAMERAN */
 function tampilDetail(judul){
-var deskripsi = "";
-
-if(judul === "Manajemen Perpustakaan"){
-deskripsi = "Buku ini membahas pengelolaan perpustakaan modern.";
-}
-if(judul === "Literasi Informasi Digital"){
-deskripsi = "Membahas kemampuan literasi di era digital.";
-}
-if(judul === "Metodologi Penelitian"){
-deskripsi = "Panduan menyusun penelitian ilmiah.";
-}
-
-document.getElementById("judulPopup").innerHTML = judul;
-document.getElementById("deskripsiPopup").innerHTML = deskripsi;
-document.getElementById("popup").style.display = "flex";
+let isi={
+"Manajemen Perpustakaan":"Buku pengelolaan perpustakaan modern.",
+"Literasi Informasi Digital":"Literasi di era digital.",
+"Metodologi Penelitian":"Panduan penelitian ilmiah."
+};
+document.getElementById("judulPopup").innerHTML=judul;
+document.getElementById("deskripsiPopup").innerHTML=isi[judul];
+document.getElementById("popup").style.display="flex";
 }
 
 function tutupPopup(){
-document.getElementById("popup").style.display = "none";
+document.getElementById("popup").style.display="none";
 }
 </script>
 
@@ -229,6 +113,7 @@ document.getElementById("popup").style.display = "none";
 <div class="overlay">
 
 <nav>
+<div>
 <a onclick="showSection('beranda')">Beranda</a>
 <a onclick="showSection('profil')">Profil</a>
 <a onclick="showSection('koleksi')">Koleksi</a>
@@ -237,121 +122,75 @@ document.getElementById("popup").style.display = "none";
 <a onclick="showSection('about')">About</a>
 <a onclick="showSection('contact')">Contact</a>
 </div>
-<div class="right">
+<div>
 <a onclick="showSection('login')">Login</a>
 </div>
 </nav>
-</div>
+
 <!-- BERANDA -->
 <div id="beranda" class="content active">
-<h1>Selamat Datang di Prime Academic Library</h1>
+<h1>Prime Academic Library</h1>
+<p style="text-align:center;"><i>Membuka akses pengetahuan</i></p>
 
-<p class="slogan">
-"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."
-</p>
-
-<h2 style="margin-top:30px;">Pameran Buku</h2>
-
-<div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:20px;">
-
+<h2>Pameran Buku</h2>
+<div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
 <div class="buku" onclick="tampilDetail('Manajemen Perpustakaan')">
 <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794" width="120">
-<p>Manajemen Perpustakaan</p>
+<p>Manajemen</p>
 </div>
-
 <div class="buku" onclick="tampilDetail('Literasi Informasi Digital')">
 <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" width="120">
-<p>Literasi Digital</p>
+<p>Literasi</p>
 </div>
-
 <div class="buku" onclick="tampilDetail('Metodologi Penelitian')">
 <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d" width="120">
-<p>Metodologi Penelitian</p>
+<p>Metodologi</p>
+</div>
+</div>
 </div>
 
-</div>
-
-<div style="margin-top:30px; text-align:center;">
-<h3>Jadwal Pameran Buku</h3>
-<p>📅 10 – 15 Juni 2026</p>
-<p>🕘 09.00 – 17.00 WIB</p>
-<p>📍 Ruang Utama Prime Academic Library</p>
-</div>
-
-
-<!-- PROFIL PERPUSTAKAAN -->
-
+<!-- PROFIL -->
 <div id="profil" class="content">
-
-<h2>Profil Perpustakaan</h2>
-
-<h3>Pengertian Prime Academic Library</h3>
-<p>
-Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.
-</p>
-
-<h3>Mengapa dinamakan Prime Academic Library</h3>
-<p>
-Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting. 
-<strong>Prime</strong> berarti utama atau yang terbaik, yang menggambarkan perpustakaan sebagai sumber informasi yang unggul dan berkualitas. 
-<strong>Academic</strong> berarti akademik, yang menunjukkan bahwa perpustakaan ini berfokus pada kebutuhan pendidikan, penelitian, dan pengembangan ilmu pengetahuan. 
-<strong>Library</strong> berarti perpustakaan sebagai tempat pengelolaan serta penyediaan berbagai sumber informasi. 
-Dari makna tersebut, maka dibentuklah nama <strong>Prime Academic Library</strong> sebagai perpustakaan yang menjadi sumber utama informasi akademik bagi mahasiswa dan civitas akademika.
-</p>
-
+<h1>Profil</h1>
+<p>Prime Academic Library adalah perpustakaan akademik modern.</p>
 <h3>Visi</h3>
-<p>
-Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian, dan pengabdian kepada masyarakat berbasis teknologi dan literasi informasi.
-</p>
-
+<p>Menjadi pusat informasi terbaik.</p>
 <h3>Misi</h3>
 <ul>
-<li>Menyediakan koleksi akademik yang lengkap dan relevan.</li>
-<li>Mengembangkan layanan berbasis digital.</li>
-<li>Meningkatkan budaya literasi informasi.</li>
-<li>Mendukung penelitian dan publikasi ilmiah.</li>
+<li>Menyediakan koleksi lengkap</li>
+<li>Mendukung penelitian</li>
+<li>Meningkatkan literasi</li>
 </ul>
-
-<h3>Tujuan</h3>
-<ul>
-<li>Mendukung proses pembelajaran mahasiswa dan dosen.</li>
-<li>Menyediakan akses informasi yang cepat dan akurat.</li>
-<li>Meningkatkan kualitas layanan perpustakaan.</li>
-<li>Mewujudkan perpustakaan sebagai pusat literasi dan riset.</li>
-</ul>
-
 </div>
 
 <!-- KOLEKSI -->
 <div id="koleksi" class="content">
-<h2>Koleksi</h2>
+<h1>Koleksi</h1>
 <ul>
-<li>Buku Referensi</li>
-<li>Jurnal</li>
+<li>Buku Akademik</li>
+<li>Jurnal Ilmiah</li>
+<li>E-book</li>
 <li>Skripsi & Tesis</li>
-<li>E-Book</li>
 </ul>
 </div>
 
 <!-- LAYANAN -->
 <div id="layanan" class="content">
-<h2>Layanan</h2>
+<h1>Layanan</h1>
 <ul>
 <li>Peminjaman Buku</li>
-<li>E-Book</li>
-<li>Ruang Diskusi</li>
-</ul>
-  <h3> Jam layanan</h3>
-  <ul>
-<li>Senin : 08:30 - 18:00 WIB</li>
-<li>Selasa - Jumat : 08:00 - 18:00 WIB</li>
-<li>Sabtu - Minggu : Tutup</li>
+<li>Pengembalian Buku</li>
+<li>WiFi</li>
+<li>Ruang Baca</li>
 </ul>
 </div>
 
 <!-- FORUM -->
+
 <div id="forum" class="content">
+
 <h2>Forum Diskusi</h2>
+
 <p>
 Forum ini merupakan ruang bagi pengunjung untuk menyampaikan pertanyaan,
 pendapat, atau diskusi mengenai dunia literasi dan perpustakaan.
@@ -366,8 +205,10 @@ pendapat, atau diskusi mengenai dunia literasi dan perpustakaan.
 <a href="https://www.instagram.com/" target="_blank">
 <button>Kirim Diskusi ke Instagram</button>
 </a>
+
 </div>
-  <!-- ABOUT -->
+
+<!-- ABOUT -->
 
 <div id="about" class="content">
 
@@ -385,7 +226,7 @@ pendapat, atau diskusi mengenai dunia literasi dan perpustakaan.
 
 </div>
 
-  <!-- CONTACT -->
+<!-- CONTACT -->
 
 <div id="contact" class="content">
 
@@ -396,20 +237,27 @@ pendapat, atau diskusi mengenai dunia literasi dan perpustakaan.
 <textarea rows="4" placeholder="Kirim Pesan Anda"></textarea>
 
 <button>Kirim</button>
+
 </div>
 
 <!-- LOGIN -->
+
 <div id="login" class="content">
+
 <h2>Login</h2>
+
 <input type="email" placeholder="Email">
 <input type="password" placeholder="Password">
+
 <button>Login</button>
 
-<p>Belum punya akun?
-<a onclick="bukaRegister()" style="color:blue;cursor:pointer;">Daftar</a>
+<p style="margin-top:15px;">
+Belum punya akun?
+<a onclick="bukaRegister()" style="color:blue;cursor:pointer;">Klik di sini</a>
 </p>
 
 <div id="registerForm">
+
 <h3>Daftar Akun</h3>
 
 <input type="text" placeholder="First Name">
@@ -421,15 +269,17 @@ pendapat, atau diskusi mengenai dunia literasi dan perpustakaan.
 <button>Daftar</button>
 
 </div>
+</div>
 
 <!-- POPUP -->
-<div id="popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
-<div style="background:white; padding:25px; border-radius:12px; max-width:400px; text-align:center; position:relative;">
-<span onclick="tutupPopup()" style="position:absolute; top:10px; right:15px; cursor:pointer;">X</span>
+<div id="popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;">
+<div style="background:white;padding:20px;border-radius:10px;">
 <h3 id="judulPopup"></h3>
 <p id="deskripsiPopup"></p>
+<button onclick="tutupPopup()">Tutup</button>
 </div>
 </div>
 
+</div>
 </body>
 </html>
