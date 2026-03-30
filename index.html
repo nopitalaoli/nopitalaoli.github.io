@@ -6,7 +6,6 @@
 <title>Prime Academic Library</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -24,8 +23,6 @@ transition:0.5s;
 background:rgba(255,255,255,0.75);
 min-height:100vh;
 }
-
-/* NAVBAR */
 
 nav{
 display:flex;
@@ -55,8 +52,6 @@ white-space:nowrap;
 nav a:hover{
 color:#ffd700;
 }
-
-/* CONTENT */
 
 .content{
 display:none;
@@ -140,51 +135,30 @@ padding-top:10px;
 border-top:1px solid #ccc;
 }
 
+/* PAMERAN */
+.buku{
+text-align:center;
+cursor:pointer;
+padding:10px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.buku:hover{
+background:#f0f0f0;
+transform:scale(1.05);
+}
 </style>
 
 <script>
-
 function showSection(id){
-
 var sections=document.querySelectorAll('.content');
 sections.forEach(section=>section.classList.remove('active'));
-
 document.getElementById(id).classList.add('active');
-
-/* BACKGROUND BERBEDA */
 
 if(id==="beranda"){
 document.body.style.background="url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da') no-repeat center center/cover";
 }
-
-if(id==="profil"){
-document.body.style.background="url('https://images.unsplash.com/photo-1507842217343-583bb7270b66') no-repeat center center/cover";
-}
-
-if(id==="koleksi"){
-document.body.style.background="url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center center/cover";
-}
-
-if(id==="layanan"){
-document.body.style.background="url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6') no-repeat center center/cover";
-}
-
-if(id==="forum"){
-document.body.style.background="url('https://images.unsplash.com/photo-1519389950473-47ba0277781c') no-repeat center center/cover";
-}
-
-if(id==="about"){
-document.body.style.background="url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570') no-repeat center center/cover";
-}
-
-if(id==="contact"){
-document.body.style.background="url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') no-repeat center center/cover";
-}
-
-if(id==="login"){
-document.body.style.background="url('https://images.unsplash.com/photo-1497215842964-222b430dc094') no-repeat center center/cover";
-}
-
 }
 
 function bukaRegister(){
@@ -192,16 +166,16 @@ document.getElementById("registerForm").style.display="block";
 }
 
 function kirimWA(){
-
 var nama=document.getElementById("namaForum").value;
 var pesan=document.getElementById("pesanForum").value;
-
 var url="https://wa.me/?text=Halo saya "+nama+"%0A%0ADiskusi:%0A"+pesan;
-
 window.open(url,"_blank");
-
 }
 
+function tampilDetail(judul){
+document.getElementById("detailBuku").innerHTML =
+"Anda memilih: " + judul;
+}
 </script>
 
 </head>
@@ -211,7 +185,6 @@ window.open(url,"_blank");
 <div class="overlay">
 
 <nav>
-
 <div class="left">
 <a onclick="showSection('beranda')">Beranda</a>
 <a onclick="showSection('profil')">Profil Perpustakaan</a>
@@ -225,11 +198,9 @@ window.open(url,"_blank");
 <div class="right">
 <a onclick="showSection('login')">Login</a>
 </div>
-
 </nav>
 
 <!-- BERANDA -->
-
 <div id="beranda" class="content active">
 
 <h1>Selamat Datang di Prime Academic Library</h1>
@@ -238,174 +209,32 @@ window.open(url,"_blank");
 "Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."
 </p>
 
+<h2 style="margin-top:30px;">Pameran Buku</h2>
+
+<div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:20px;">
+
+<div class="buku" onclick="tampilDetail('Manajemen Perpustakaan')">
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794" width="120">
+<p>Manajemen Perpustakaan</p>
 </div>
 
-<!-- PROFIL PERPUSTAKAAN -->
-
-<div id="profil" class="content">
-
-<h2>Profil Perpustakaan</h2>
-
-<h3>Pengertian Prime Academic Library</h3>
-<p>
-Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.
-</p>
-
-<h3>Mengapa dinamakan Prime Academic Library</h3>
-<p>
-Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting. 
-<strong>Prime</strong> berarti utama atau yang terbaik, yang menggambarkan perpustakaan sebagai sumber informasi yang unggul dan berkualitas. 
-<strong>Academic</strong> berarti akademik, yang menunjukkan bahwa perpustakaan ini berfokus pada kebutuhan pendidikan, penelitian, dan pengembangan ilmu pengetahuan. 
-<strong>Library</strong> berarti perpustakaan sebagai tempat pengelolaan serta penyediaan berbagai sumber informasi. 
-Dari makna tersebut, maka dibentuklah nama <strong>Prime Academic Library</strong> sebagai perpustakaan yang menjadi sumber utama informasi akademik bagi mahasiswa dan civitas akademika.
-</p>
-
-<h3>Visi</h3>
-<p>
-Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian, dan pengabdian kepada masyarakat berbasis teknologi dan literasi informasi.
-</p>
-
-<h3>Misi</h3>
-<ul>
-<li>Menyediakan koleksi akademik yang lengkap dan relevan.</li>
-<li>Mengembangkan layanan berbasis digital.</li>
-<li>Meningkatkan budaya literasi informasi.</li>
-<li>Mendukung penelitian dan publikasi ilmiah.</li>
-</ul>
-
-<h3>Tujuan</h3>
-<ul>
-<li>Mendukung proses pembelajaran mahasiswa dan dosen.</li>
-<li>Menyediakan akses informasi yang cepat dan akurat.</li>
-<li>Meningkatkan kualitas layanan perpustakaan.</li>
-<li>Mewujudkan perpustakaan sebagai pusat literasi dan riset.</li>
-</ul>
-
+<div class="buku" onclick="tampilDetail('Literasi Informasi Digital')">
+<img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" width="120">
+<p>Literasi Digital</p>
 </div>
 
-<!-- KOLEKSI -->
-
-<div id="koleksi" class="content">
-<h2>Koleksi</h2>
-<ul>
-<li>Buku Referensi Akademik</li>
-<li>Jurnal Nasional & Internasional</li>
-<li>Skripsi dan Tesis</li>
-<li>E-Book Digital</li>
-</ul>
-</div>
-
-<!-- LAYANAN -->
-
-<div id="layanan" class="content">
-
-<h2>Layanan Perpustakaan</h2>
-
-<ul>
-<li>Peminjaman Buku</li>
-<li>Akses E-Book</li>
-<li>Akses E-Journal</li>
-<li>Ruang Diskusi</li>
-</ul>
-
-<h3>Jam Layanan</h3>
-
-<ul>
-<li>Senin : 08:30 - 18:00 WIB</li>
-<li>Selasa - Jumat : 08:00 - 18:00 WIB</li>
-<li>Sabtu - Minggu : Tutup</li>
-</ul>
-
-</div>
-
-<!-- FORUM -->
-
-<div id="forum" class="content">
-
-<h2>Forum Diskusi</h2>
-
-<p>
-Forum ini merupakan ruang bagi pengunjung untuk menyampaikan pertanyaan,
-pendapat, atau diskusi mengenai dunia literasi dan perpustakaan.
-</p>
-
-<input type="text" id="namaForum" placeholder="Nama Anda">
-
-<textarea rows="4" id="pesanForum" placeholder="Tulis komentar atau diskusi Anda"></textarea>
-
-<button onclick="kirimWA()">Kirim Komentar ke WhatsApp</button>
-
-<a href="https://www.instagram.com/" target="_blank">
-<button>Kirim Diskusi ke Instagram</button>
-</a>
-
-</div>
-
-<!-- ABOUT -->
-
-<div id="about" class="content">
-
-<h2>About Me</h2>
-
-<p><strong>Nama :</strong> Nopita Laoli</p>
-<p><strong>NIM :</strong> 123456789</p>
-<p><strong>Jurusan :</strong> Perpustakaan dan Sains Informasi</p>
-
-<a href="https://www.instagram.com/reel/DKolCoBxT30/?igsh=dzYzZXF3NmhhaGoy" target="_blank" class="link">Instagram Saya</a>
-
-<a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drivesdk" target="_blank" class="link">CV Saya</a>
-
-<a href="https://youtu.be/Dji6ApR56tk?si=-MVKyz8O2GGxZVqW" target="_blank" class="link">YouTube Saya</a>
-
-</div>
-
-<!-- CONTACT -->
-
-<div id="contact" class="content">
-
-<h2>Contact Us</h2>
-
-<input type="text" placeholder="Nama">
-<input type="email" placeholder="Email">
-<textarea rows="4" placeholder="Kirim Pesan Anda"></textarea>
-
-<button>Kirim</button>
-
-</div>
-
-<!-- LOGIN -->
-
-<div id="login" class="content">
-
-<h2>Login</h2>
-
-<input type="email" placeholder="Email">
-<input type="password" placeholder="Password">
-
-<button>Login</button>
-
-<p style="margin-top:15px;">
-Belum punya akun?
-<a onclick="bukaRegister()" style="color:blue;cursor:pointer;">Klik di sini</a>
-</p>
-
-<div id="registerForm">
-
-<h3>Daftar Akun</h3>
-
-<input type="text" placeholder="First Name">
-<input type="text" placeholder="Last Name">
-<input type="email" placeholder="Email">
-<input type="text" placeholder="No HP">
-<input type="password" placeholder="Password">
-
-<button>Daftar</button>
-
+<div class="buku" onclick="tampilDetail('Metodologi Penelitian')">
+<img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d" width="120">
+<p>Metodologi Penelitian</p>
 </div>
 
 </div>
 
+<p id="detailBuku" style="text-align:center; margin-top:20px; font-weight:bold;"></p>
+
 </div>
+
+</div> <!-- penutup overlay -->
 
 </body>
 </html>
