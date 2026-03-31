@@ -153,6 +153,28 @@ box-shadow:0 4px 10px rgba(0,0,0,0.1);
 text-align:center;
 }
 
+
+
+/* SLIDER PAMERAN */
+.slider{
+margin-top:25px;
+position:relative;
+overflow:hidden;
+border-radius:12px;
+}
+
+.slide{
+display:none;
+padding:40px 20px;
+text-align:center;
+background:#1e2a38;
+color:white;
+}
+
+.slide.active{
+display:block;
+}
+
 </style>
 
 <script>
@@ -215,6 +237,18 @@ window.open(url,"_blank");
 
 }
 
+
+
+/* SLIDER OTOMATIS */
+var indexSlide = 0;
+setInterval(function(){
+var slides = document.querySelectorAll('.slide');
+slides.forEach(s => s.classList.remove('active'));
+indexSlide++;
+if(indexSlide >= slides.length){ indexSlide = 0; }
+slides[indexSlide].classList.add('active');
+},3000);
+
 </script>
 
 </head>
@@ -250,6 +284,29 @@ window.open(url,"_blank");
 <p class="slogan">
 "Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."
 </p>
+
+<!-- SLIDER PAMERAN -->
+<div class="slider">
+
+<div class="slide active">
+<h3>Pameran Literasi Digital</h3>
+<p>15 April 2026 | 09.00 WIB</p>
+<p>Aula Prime Academic Library</p>
+</div>
+
+<div class="slide">
+<h3>Pameran Buku Terbaru</h3>
+<p>20 April 2026 | 10.00 WIB</p>
+<p>Ruang Koleksi Utama</p>
+</div>
+
+<div class="slide">
+<h3>Workshop Penulisan Ilmiah</h3>
+<p>25 April 2026 | 13.00 WIB</p>
+<p>Ruang Diskusi</p>
+</div>
+
+</div>
 
 <!-- PAMERAN -->
 <div class="pameran">
