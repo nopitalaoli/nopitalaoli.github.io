@@ -28,10 +28,9 @@ body {
 }
 
 .overlay {
-    background: rgba(0, 0, 0, 0.4); /* Overlay lebih gelap agar kesan formal muncul */
+    background: rgba(0, 0, 0, 0.4);
     min-height: 100vh;
     width: 100%;
-    position: relative;
 }
 
 /* NAVBAR */
@@ -40,7 +39,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
-    background: #1a252f; /* Warna biru navy gelap formal */
+    background: #1a252f;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -104,12 +103,12 @@ nav a:hover { color: #f1c40f; }
     animation: slideUp 0.6s ease;
 }
 
+.active { display: block; }
+
 @keyframes slideUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
-.active { display: block; }
 
 h1, h2 { color: #2c3e50; border-bottom: 2px solid #f1c40f; padding-bottom: 10px; margin-bottom: 25px; }
 h3 { color: #2980b9; margin: 20px 0 10px 0; }
@@ -118,8 +117,8 @@ p { line-height: 1.8; color: #34495e; margin-bottom: 15px; text-align: justify; 
 /* DETAIL BUKU KOLEKSI */
 .grid-koleksi {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
     margin-top: 30px;
 }
 .book-card {
@@ -131,16 +130,24 @@ p { line-height: 1.8; color: #34495e; margin-bottom: 15px; text-align: justify; 
     gap: 15px;
     transition: 0.3s;
 }
-.book-card:hover { border-color: #f1c40f; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-.book-card img { width: 100px; height: 140px; object-fit: cover; border-radius: 3px; }
+.book-card:hover { border-color: #f1c40f; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.book-card img { width: 90px; height: 130px; object-fit: cover; border-radius: 3px; }
 .book-info { font-size: 13px; color: #555; }
-.book-info h4 { font-size: 15px; color: #2c3e50; margin-bottom: 5px; }
+.book-info h4 { font-size: 14px; color: #2c3e50; margin-bottom: 5px; }
 .book-info span { font-weight: bold; color: #333; }
 
-/* LAYANAN JAM */
-.jam-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-.jam-table td { padding: 12px; border-bottom: 1px solid #eee; }
-.jam-table td:first-child { font-weight: bold; width: 150px; }
+/* ABOUT ME LINKS */
+.social-links { margin-top: 20px; display: flex; gap: 15px; flex-wrap: wrap; }
+.social-links a {
+    text-decoration: none;
+    background: #2c3e50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.social-links a:hover { background: #f1c40f; color: #2c3e50; }
 
 input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
 button { padding: 12px 25px; background: #2c3e50; color: white; border: none; cursor: pointer; font-weight: 600; }
@@ -151,15 +158,15 @@ button:hover { background: #f1c40f; color: #2c3e50; }
 
 <script>
 const bgs = {
-    'beranda': 'https://images.unsplash.com/photo-1541339907198-e08759dfc3f0?q=80&w=2070', // Lobby Kampus
-    'sejarah': 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2070', // Buku Tua Formal
-    'visi': 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2073', // Rak Buku Tinggi
-    'tujuan': 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070', // Perpustakaan Klasik
-    'kol-buku': 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=2070', // Koleksi Buku
-    'kol-jurnal': 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2070', // Area Belajar
-    'lay-fasilitas': 'https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=2070', // Meja Belajar
-    'lay-jam': 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2070', // Ruang Auditorium
-    'event': 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070'  // Diskusi Kelompok
+    'beranda': 'https://images.unsplash.com/photo-1541339907198-e08759dfc3f0',
+    'sejarah': 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f',
+    'visi': 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6',
+    'tujuan': 'https://images.unsplash.com/photo-1507842217343-583bb7270b66',
+    'kol-buku': 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da',
+    'kol-jurnal': 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173',
+    'lay-fasilitas': 'https://images.unsplash.com/photo-1495446815901-a7297e633e8d',
+    'lay-jam': 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678',
+    'event': 'https://images.unsplash.com/photo-1519389950473-47ba0277781c'
 };
 
 function showSection(id){
@@ -172,9 +179,9 @@ function showSection(id){
 
 function cariKoleksi() {
     let q = document.getElementById('searchKey').value.toLowerCase();
-    if(q.includes("buku") || q.includes("referensi")) { showSection('kol-buku'); }
-    else if(q.includes("jurnal") || q.includes("e-book")) { showSection('kol-jurnal'); }
-    else { alert("Koleksi tidak ditemukan. Gunakan kata kunci: Buku / Jurnal"); }
+    if(q.includes("buku") || q.includes("referensi") || q.includes("pengantar")) { showSection('kol-buku'); }
+    else if(q.includes("jurnal") || q.includes("digital")) { showSection('kol-jurnal'); }
+    else { alert("Koleksi tidak ditemukan."); }
 }
 
 function bukaRegister(){ document.getElementById("registerForm").style.display="block"; }
@@ -191,7 +198,6 @@ window.onload = function() {
     <nav>
         <div class="left">
             <a onclick="showSection('beranda')">Beranda</a>
-            
             <div class="dropdown">
                 <a>Profil Perpustakaan ▾</a>
                 <div class="dropdown-content">
@@ -200,7 +206,6 @@ window.onload = function() {
                     <a onclick="showSection('tujuan')">Tujuan</a>
                 </div>
             </div>
-
             <div class="dropdown">
                 <a>Koleksi ▾</a>
                 <div class="dropdown-content">
@@ -208,7 +213,6 @@ window.onload = function() {
                     <a onclick="showSection('kol-jurnal')">Jurnal & E-Book</a>
                 </div>
             </div>
-
             <div class="dropdown">
                 <a>Layanan ▾</a>
                 <div class="dropdown-content">
@@ -216,15 +220,13 @@ window.onload = function() {
                     <a onclick="showSection('lay-jam')">Jam Layanan</a>
                 </div>
             </div>
-
             <a onclick="showSection('event')">Event</a>
             <a onclick="showSection('forum')">Forum</a>
             <a onclick="showSection('about')">About Me</a>
         </div>
-
         <div class="right">
             <div class="search-container">
-                <input type="text" id="searchKey" placeholder="Cari Koleksi Buku...">
+                <input type="text" id="searchKey" placeholder="Cari Koleksi...">
                 <button onclick="cariKoleksi()" style="background:none; border:none; cursor:pointer;">🔍</button>
             </div>
             <a onclick="showSection('login')">Login</a>
@@ -233,7 +235,7 @@ window.onload = function() {
 
     <div id="beranda" class="content active">
         <h1>Selamat Datang di Prime Academic Library</h1>
-        <p style="text-align:center; font-size: 1.2em; color: #2c3e50;">"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."</p>
+        <p style="text-align:center; font-size: 1.2em;">"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."</p>
     </div>
 
     <div id="sejarah" class="content">
@@ -271,16 +273,16 @@ window.onload = function() {
         <h2>Koleksi Buku Referensi</h2>
         <div class="grid-koleksi">
             <div class="book-card">
-                <img src="https://covers.openlibrary.org/b/id/12547191-L.jpg" alt="Buku">
+                <img src="https://covers.openlibrary.org/b/id/12547191-L.jpg">
                 <div class="book-info">
                     <h4>Manajemen Perpustakaan Modern</h4>
-                    <p><span>Pengarang:</span> Dr. Ahmad Salim, M.Hum</p>
+                    <p><span>Pengarang:</span> Ahmad Salim, M.Hum</p>
                     <p><span>Penerbit:</span> Pustaka Akademika</p>
                     <p><span>ISBN:</span> 978-602-1234-56-7</p>
                 </div>
             </div>
             <div class="book-card">
-                <img src="https://covers.openlibrary.org/b/id/8231856-L.jpg" alt="Buku">
+                <img src="https://covers.openlibrary.org/b/id/8231856-L.jpg">
                 <div class="book-info">
                     <h4>Metodologi Penelitian Ilmiah</h4>
                     <p><span>Pengarang:</span> Prof. Siti Aminah</p>
@@ -288,19 +290,46 @@ window.onload = function() {
                     <p><span>ISBN:</span> 978-623-9876-54-3</p>
                 </div>
             </div>
+            <div class="book-card">
+                <img src="https://covers.openlibrary.org/b/id/13145622-L.jpg">
+                <div class="book-info">
+                    <h4>Pengantar Ilmu Perpustakaan</h4>
+                    <p><span>Pengarang:</span> Drs. Wahyu Hidayat</p>
+                    <p><span>Penerbit:</span> Media Sains</p>
+                    <p><span>ISBN:</span> 978-602-4455-11-2</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="https://covers.openlibrary.org/b/id/10524456-L.jpg">
+                <div class="book-info">
+                    <h4>Literasi Digital Era 5.0</h4>
+                    <p><span>Pengarang:</span> Diana Putri, Ph.D</p>
+                    <p><span>Penerbit:</span> Tekno Press</p>
+                    <p><span>ISBN:</span> 978-623-1122-33-4</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <div id="kol-jurnal" class="content">
-        <h2>Jurnal & E-Book</h2>
+        <h2>Jurnal & E-Book Digital</h2>
         <div class="grid-koleksi">
             <div class="book-card">
-                <img src="https://covers.openlibrary.org/b/id/10524456-L.jpg" alt="Buku">
+                <img src="https://covers.openlibrary.org/b/id/240727-L.jpg">
                 <div class="book-info">
-                    <h4>Journal of Information Science</h4>
-                    <p><span>Editor:</span> International Board</p>
-                    <p><span>Volume:</span> Vol. 12 No. 4 (2024)</p>
-                    <p><span>ISSN:</span> 2088-1234</p>
+                    <h4>Journal of Academic Research</h4>
+                    <p><span>Volume:</span> Vol. 10 No. 2 (2025)</p>
+                    <p><span>Penerbit:</span> Global Science</p>
+                    <p><span>ISSN:</span> 2088-9988</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="https://covers.openlibrary.org/b/id/7222246-L.jpg">
+                <div class="book-info">
+                    <h4>E-Book: Database Management</h4>
+                    <p><span>Pengarang:</span> Kevin Smith</p>
+                    <p><span>Format:</span> PDF Digital</p>
+                    <p><span>ISBN:</span> 978-1-2345-6789</p>
                 </div>
             </div>
         </div>
@@ -309,71 +338,60 @@ window.onload = function() {
     <div id="lay-fasilitas" class="content">
         <h2>Layanan & Fasilitas</h2>
         <ul>
-            <li>Peminjaman dan Pengembalian Buku (Sirkulasi)</li>
-            <li>Layanan Referensi dan Penelusuran Informasi</li>
+            <li>Peminjaman dan Pengembalian Buku</li>
             <li>Akses E-Resources (E-Journal & E-Book)</li>
-            <li>Ruang Baca Mandiri & Area Diskusi</li>
-            <li>Fasilitas Komputer & Wi-Fi Area</li>
+            <li>Ruang Diskusi & Meja Baca Mandiri</li>
+            <li>Layanan Penelusuran Koleksi (OPAC)</li>
         </ul>
     </div>
 
     <div id="lay-jam" class="content">
-        <h2>Jam Layanan Perpustakaan</h2>
-        <table class="jam-table">
-            <tr><td>Senin - Kamis</td><td>08:30 - 18:00 WIB</td></tr>
-            <tr><td>Jumat</td><td>08:30 - 11:30 | 13:30 - 18:00 WIB</td></tr>
-            <tr><td>Sabtu - Minggu</td><td>Tutup (Layanan Digital Tetap Aktif)</td></tr>
-        </table>
-    </div>
-
-    <div id="event" class="content">
-        <h2>Event & Pameran Buku</h2>
-        <div class="pameran">
-            <div onclick="alert('Pameran Literasi Digital: 25 Juli 2026')">
-                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=200">
-                <p>Pameran Literasi</p>
-            </div>
-            <div onclick="alert('Workshop Penulisan Jurnal: 30 Juli 2026')">
-                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200">
-                <p>Workshop Jurnal</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="login" class="content">
-        <h2>Login Member</h2>
-        <input type="email" placeholder="Email / ID Anggota">
-        <input type="password" placeholder="Password">
-        <button>Login</button>
-        <p style="margin-top:15px; text-align:center;">
-            Belum punya akun? <a onclick="bukaRegister()" style="color:#2980b9; cursor:pointer; font-weight:bold;">Daftar di sini</a>
-        </p>
-
-        <div id="registerForm">
-            <h3>Pendaftaran Anggota</h3>
-            <div style="display:flex; gap:10px;">
-                <input type="text" placeholder="First Name">
-                <input type="text" placeholder="Last Name">
-            </div>
-            <input type="email" placeholder="Alamat Email">
-            <input type="text" placeholder="Nomor Telepon">
-            <input type="password" placeholder="Password Baru">
-            <button>Daftar Sekarang</button>
-        </div>
+        <h2>Jam Layanan</h2>
+        <p><strong>Senin - Kamis:</strong> 08:30 - 18:00 WIB</p>
+        <p><strong>Jumat:</strong> 08:30 - 11:30 | 13:30 - 18:00 WIB</p>
+        <p><strong>Sabtu - Minggu:</strong> Tutup</p>
     </div>
 
     <div id="about" class="content">
         <h2>About Me</h2>
         <p><strong>Nama :</strong> Nopita Laoli</p>
         <p><strong>Jurusan :</strong> Perpustakaan dan Sains Informasi</p>
-        <p>Aspirasi saya adalah mengembangkan sistem informasi perpustakaan yang modern dan mudah diakses oleh semua lapisan masyarakat akademik.</p>
+        <p>Selamat datang di profil saya. Saya adalah mahasiswi yang berfokus pada pengembangan sistem informasi perpustakaan.</p>
+        
+        <div class="social-links">
+            <a href="https://www.instagram.com/reel/DKolCoBxT30/?igsh=dzYzZXF3NmhhaGoy" target="_blank">Instagram</a>
+            <a href="https://youtube.com" target="_blank">YouTube</a>
+            <a href="#" onclick="alert('File CV Sedang Disiapkan')">Download CV</a>
+        </div>
+    </div>
+
+    <div id="login" class="content">
+        <h2>Login Member</h2>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button>Login</button>
+        <p style="margin-top:15px;">Belum punya akun? <a onclick="bukaRegister()" style="color:#2980b9; cursor:pointer;">Klik di sini</a></p>
+        <div id="registerForm">
+            <h3>Daftar Baru</h3>
+            <input type="text" placeholder="First Name">
+            <input type="text" placeholder="Last Name">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="No HP">
+            <input type="password" placeholder="Password">
+            <button>Daftar</button>
+        </div>
+    </div>
+
+    <div id="event" class="content">
+        <h2>Event & Forum</h2>
+        <p>Cek jadwal pameran dan diskusi di menu Forum.</p>
     </div>
 
     <div id="forum" class="content">
         <h2>Forum Diskusi</h2>
         <input type="text" placeholder="Nama">
-        <textarea rows="4" placeholder="Tuliskan pertanyaan atau diskusi akademik Anda..."></textarea>
-        <button>Kirim ke Forum</button>
+        <textarea rows="4" placeholder="Tuliskan diskusi..."></textarea>
+        <button>Kirim</button>
     </div>
 
 </div>
