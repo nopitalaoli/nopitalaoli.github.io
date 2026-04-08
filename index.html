@@ -27,7 +27,7 @@ body {
     width: 100%;
 }
 
-/* NAVBAR */
+/* NAVBAR ASLI ANDA */
 nav {
     display: flex;
     justify-content: space-between;
@@ -40,7 +40,7 @@ nav {
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-nav .left { display: flex; align-items: center; }
+nav .left, nav .right { display: flex; align-items: center; }
 
 nav a {
     color: #ecf0f1;
@@ -54,9 +54,9 @@ nav a {
 
 nav a:hover { color: #f1c40f; }
 
-/* HERO SEARCH (BARU - Hanya di Beranda) */
+/* HERO SEARCH BESAR (HANYA UNTUK BERANDA) */
 #hero-search-section {
-    height: 60vh;
+    height: 65vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,7 +72,7 @@ nav a:hover { color: #f1c40f; }
     max-width: 700px;
     display: flex;
     padding: 5px;
-    border-radius: 50px;
+    border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     margin-top: 25px;
@@ -81,22 +81,22 @@ nav a:hover { color: #f1c40f; }
 .main-search-bar input {
     flex: 1;
     border: none;
-    padding: 15px 25px;
+    padding: 15px 20px;
     outline: none;
     font-size: 16px;
+    color: #333;
 }
 
 .main-search-bar button {
-    background: #f1c40f;
-    color: #2c3e50;
+    background: #2c3e50;
+    color: white;
     border: none;
     padding: 0 30px;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 50px;
 }
 
-/* DROPDOWN */
+/* DROPDOWN ASLI ANDA */
 .dropdown { position: relative; display: inline-block; }
 .dropdown-content {
     display: none;
@@ -112,12 +112,12 @@ nav a:hover { color: #f1c40f; }
 }
 .dropdown:hover .dropdown-content { display: block; }
 
-/* CONTENT */
+/* CONTENT ASLI ANDA */
 .content {
     display: none;
     padding: 50px 40px;
     max-width: 1000px;
-    margin: 20px auto 50px auto;
+    margin: 50px auto;
     background: rgba(255, 255, 255, 0.96);
     border-radius: 8px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.5);
@@ -129,7 +129,7 @@ h1, h2 { color: #2c3e50; border-bottom: 2px solid #f1c40f; padding-bottom: 10px;
 h3 { color: #2980b9; margin: 20px 0 10px 0; }
 p { line-height: 1.8; color: #34495e; margin-bottom: 15px; text-align: justify; }
 
-/* GRID KOLEKSI */
+/* GRID KOLEKSI ASLI ANDA */
 .grid-koleksi {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -145,21 +145,13 @@ p { line-height: 1.8; color: #34495e; margin-bottom: 15px; text-align: justify; 
     gap: 15px;
 }
 .book-card img { width: 90px; height: 130px; object-fit: cover; border-radius: 3px; }
+.book-info { font-size: 13px; color: #555; }
 .book-info h4 { font-size: 14px; color: #2c3e50; margin-bottom: 5px; }
-
-/* POPUP */
-#popup {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.7);
-    justify-content: center; align-items: center;
-    z-index: 2000;
-}
-.popup-box { background: white; padding: 25px; border-radius: 10px; width: 350px; text-align: center; }
+.book-info span { font-weight: bold; color: #333; }
 
 input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
-button.btn-std { padding: 12px 25px; background: #2c3e50; color: white; border: none; cursor: pointer; font-weight: 600; }
+button { padding: 12px 25px; background: #2c3e50; color: white; border: none; cursor: pointer; font-weight: 600; }
+button:hover { background: #f1c40f; color: #2c3e50; }
 </style>
 
 <script>
@@ -176,29 +168,26 @@ const bgs = {
 };
 
 function showSection(id){
+    // Sembunyikan semua section
     document.querySelectorAll('.content').forEach(s => s.classList.remove('active'));
     
-    // Sembunyikan search bar jika bukan beranda
+    // Logika Search Bar: Hanya muncul di Beranda
     if(id === 'beranda') {
         document.getElementById('hero-search-section').style.display = 'flex';
-        document.getElementById('koleksi-unggulan').style.display = 'block';
+        document.getElementById('koleksi-unggulan-beranda').style.display = 'block';
     } else {
         document.getElementById('hero-search-section').style.display = 'none';
-        document.getElementById('koleksi-unggulan').style.display = 'none';
+        document.getElementById('koleksi-unggulan-beranda').style.display = 'none';
     }
 
+    // Tampilkan section yang dipilih
     document.getElementById(id).classList.add('active');
+    
+    // Ganti background
     if(bgs[id]){
         document.body.style.backgroundImage = `url('${bgs[id]}')`;
     }
 }
-
-function openPopup(j, d){
-    document.getElementById("popup").style.display="flex";
-    document.getElementById("popupTitle").innerText=j;
-    document.getElementById("popupDesc").innerText=d;
-}
-function closePopup(){ document.getElementById("popup").style.display="none"; }
 
 window.onload = function() {
     document.body.style.backgroundImage = `url('${bgs['beranda']}')`;
@@ -244,9 +233,8 @@ window.onload = function() {
     </nav>
 
     <div id="hero-search-section">
-        <h1 style="color: white; border: none; font-size: 2.5em; margin-bottom: 0;">Selamat Datang di Prime Academic Library</h1>
-        <p style="color: white; text-align: center; font-size: 1.2em;">"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."</p>
-        
+        <h1 style="color:white; border:none; font-size: 2.8em; margin-bottom:10px;">PRIME ACADEMIC LIBRARY</h1>
+        <p style="color:white; font-size: 1.2em;">"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."</p>
         <div class="main-search-bar">
             <input type="text" placeholder="Cari Koleksi Buku, Jurnal, atau Referensi...">
             <button>CARI</button>
@@ -254,11 +242,11 @@ window.onload = function() {
     </div>
 
     <div id="beranda" class="content active">
-        <h2>Informasi Utama</h2>
+        <h1>Selamat Datang di Prime Academic Library</h1>
         <p>Prime Academic Library berkomitmen untuk menjadi mitra strategis dalam perjalanan akademik Anda. Kami menyediakan berbagai sumber daya fisik maupun digital untuk mendukung perkuliahan dan riset.</p>
     </div>
 
-    <div id="koleksi-unggulan" class="content active">
+    <div id="koleksi-unggulan-beranda" class="content active">
         <h2>Koleksi Unggulan</h2>
         <div class="grid-koleksi">
             <div class="book-card">
@@ -281,9 +269,9 @@ window.onload = function() {
     <div id="sejarah" class="content">
         <h2>Profil Perpustakaan</h2>
         <h3>Pengertian Prime Academic Library</h3>
-        <p>Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas...</p>
+        <p>Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan...</p>
         <h3>Mengapa dinamakan Prime Academic Library</h3>
-        <p>Nama Prime Academic Library berasal dari tiga kata utama: <strong>Prime</strong>, <strong>Academic</strong>, dan <strong>Library</strong>...</p>
+        <p>Nama Prime Academic Library berasal dari tiga kata utama: Prime, Academic, dan Library...</p>
     </div>
 
     <div id="visi" class="content">
@@ -337,11 +325,18 @@ window.onload = function() {
     <div id="lay-jam" class="content">
         <h2>Jam Layanan</h2>
         <p><strong>Senin - Kamis:</strong> 08:30 - 18:00 WIB</p>
+        <p><strong>Jumat:</strong> 08:30 - 11:30 | 13:30 - 18:00 WIB</p>
     </div>
 
     <div id="event" class="content">
-        <h2>Pameran Buku Tahunan</h2>
-        <p>Jadwal Terdekat: 25 Juli 2026</p>
+        <h2>Event & Pameran</h2>
+        <p>📅 25 Juli 2026 | 📍 Lobby Utama</p>
+    </div>
+
+    <div id="forum" class="content">
+        <h2>Forum Diskusi</h2>
+        <textarea rows="4" placeholder="Tuliskan pesan..."></textarea>
+        <button>Kirim Pesan</button>
     </div>
 
     <div id="about" class="content">
@@ -354,23 +349,9 @@ window.onload = function() {
         <h2>Login Member</h2>
         <input type="email" placeholder="Email">
         <input type="password" placeholder="Password">
-        <button class="btn-std">Login</button>
+        <button>Login</button>
     </div>
 
-    <div id="forum" class="content">
-        <h2>Forum Diskusi</h2>
-        <textarea rows="4" placeholder="Tuliskan pesan..."></textarea>
-        <button class="btn-std">Kirim Pesan</button>
-    </div>
-
-</div>
-
-<div id="popup">
-    <div class="popup-box">
-        <h3 id="popupTitle"></h3>
-        <p id="popupDesc" style="margin:15px 0;"></p>
-        <button class="btn-std" onclick="closePopup()">Tutup</button>
-    </div>
 </div>
 
 </body>
