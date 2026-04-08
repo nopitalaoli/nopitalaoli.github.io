@@ -6,7 +6,6 @@
 <title>Prime Academic Library</title>
 
 <style>
-/* CSS DASAR */
 *{
     margin:0; padding:0; box-sizing:border-box;
 }
@@ -28,16 +27,12 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .logo-area {
     color: white;
     font-weight: bold;
     font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .nav-links {
@@ -53,7 +48,6 @@ nav {
     font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 .nav-links a:hover { color: white; }
@@ -79,14 +73,11 @@ nav {
     display: block;
     padding: 12px;
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    text-transform: none;
 }
 .dropdown:hover .dropdown-content { display: block; }
 
-/* BERANDA HERO SECTION (SEARCH BAR DI SINI) */
-#beranda-container {
-    display: block; /* Default tampil */
-}
+/* BERANDA HERO (SEARCH BAR DI SINI) */
+#beranda-container { display: block; }
 
 #hero-beranda {
     height: 70vh;
@@ -103,11 +94,7 @@ nav {
     padding: 20px;
 }
 
-#hero-beranda h1 {
-    font-size: 3rem;
-    color: #f1c40f;
-    margin-bottom: 15px;
-}
+#hero-beranda h1 { font-size: 3rem; color: #f1c40f; margin-bottom: 15px; }
 
 .search-box-large {
     width: 100%;
@@ -136,7 +123,7 @@ nav {
     font-weight: bold;
 }
 
-/* KOLEKSI UNGGULAN DI BAWAH BERANDA */
+/* KOLEKSI UNGGULAN */
 .section-title {
     text-align: center;
     padding: 50px 0 20px;
@@ -155,21 +142,16 @@ nav {
     padding: 0 20px;
 }
 
-/* STYLE KARTU KOLEKSI */
 .book-card {
     border: 1px solid #eee;
     padding: 15px;
     display: flex;
     gap: 15px;
     background: #fff;
-    transition: 0.3s;
 }
-.book-card:hover { border-color: #c59d08; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-.book-card img { width: 90px; height: 120px; object-fit: cover; border-radius: 2px; }
-.book-detail h4 { color: #4a332d; margin-bottom: 5px; font-size: 15px; }
-.book-detail p { font-size: 13px; color: #666; margin: 0; }
+.book-card img { width: 90px; height: 120px; object-fit: cover; }
 
-/* CONTENT WRAPPER UNTUK HALAMAN LAIN */
+/* CONTENT LAIN */
 .content-wrapper {
     display: none;
     max-width: 1100px;
@@ -177,7 +159,6 @@ nav {
     background: white;
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
 .active { display: block !important; }
@@ -185,16 +166,11 @@ nav {
 /* WA FLOAT */
 .wa-float {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 25px; right: 25px;
     background: #25d366;
-    width: 60px;
-    height: 60px;
+    width: 60px; height: 60px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex; justify-content: center; align-items: center;
     cursor: pointer;
     z-index: 1000;
 }
@@ -202,11 +178,9 @@ nav {
 
 <script>
 function showSection(id) {
-    // Sembunyikan semua elemen
     document.getElementById('beranda-container').style.display = 'none';
     document.querySelectorAll('.content-wrapper').forEach(s => s.classList.remove('active'));
 
-    // Logika tampilan
     if(id === 'beranda') {
         document.getElementById('beranda-container').style.display = 'block';
     } else {
@@ -220,9 +194,7 @@ function showSection(id) {
 <body>
 
 <nav>
-    <div class="logo-area">
-        <span>🏛️ BHUMI HISTORIA</span>
-    </div>
+    <div class="logo-area">🏛️ PRIME ACADEMIC LIBRARY</div>
     <div class="nav-links">
         <a onclick="showSection('beranda')">Beranda</a>
         <div class="dropdown">
@@ -249,11 +221,10 @@ function showSection(id) {
 
 <div id="beranda-container">
     <div id="hero-beranda">
-        <h1>BHUMI HISTORIA</h1>
-        <p>"Menghidupkan Kembali Jejak Langkah Leluhur Melalui Literasi Digital dan Fisik."</p>
-        
+        <h1>PRIME ACADEMIC LIBRARY</h1>
+        <p>"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."</p>
         <div class="search-box-large">
-            <input type="text" placeholder="Cari naskah, peta, atau biografi tokoh...">
+            <input type="text" placeholder="Cari naskah, jurnal, atau referensi buku...">
             <button>🔍 CARI</button>
         </div>
     </div>
@@ -262,24 +233,11 @@ function showSection(id) {
     <div class="grid-koleksi">
         <div class="book-card">
             <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f67?w=300">
-            <div class="book-detail">
-                <h4>Manajemen Perpustakaan Modern</h4>
-                <p>Ahmad Salim, M.Hum</p>
-            </div>
+            <div><h4>Manajemen Perpustakaan Modern</h4><p>Ahmad Salim, M.Hum</p></div>
         </div>
         <div class="book-card">
             <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?w=300">
-            <div class="book-detail">
-                <h4>Metodologi Penelitian Ilmiah</h4>
-                <p>Prof. Siti Aminah</p>
-            </div>
-        </div>
-        <div class="book-card">
-            <img src="https://images.unsplash.com/photo-1532012197367-60134763a26a?w=300">
-            <div class="book-detail">
-                <h4>Literasi Informasi Era Digital</h4>
-                <p>Dr. Wahyu Hidayat</p>
-            </div>
+            <div><h4>Metodologi Penelitian Ilmiah</h4><p>Prof. Siti Aminah</p></div>
         </div>
     </div>
 </div>
@@ -287,15 +245,15 @@ function showSection(id) {
 <div id="sejarah" class="content-wrapper">
     <h2>Sejarah Perpustakaan</h2>
     <h3>Pengertian Prime Academic Library</h3>
-    <p>Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.</p>
+    <p>Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika.</p>
     <h3>Mengapa dinamakan Prime Academic Library</h3>
-    <p>Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting. <strong>Prime</strong> berarti utama atau yang terbaik, yang menggambarkan perpustakaan sebagai sumber informasi yang unggul dan berkualitas. <strong>Academic</strong> berarti akademik, yang menunjukkan bahwa perpustakaan ini berfokus pada kebutuhan pendidikan, penelitian, dan pengembangan ilmu pengetahuan. <strong>Library</strong> berarti perpustakaan sebagai tempat pengelolaan serta penyediaan berbagai sumber informasi.</p>
+    <p>Nama Prime Academic Library berasal dari tiga kata utama: Prime (Utama), Academic (Akademik), dan Library (Perpustakaan).</p>
 </div>
 
 <div id="visi" class="content-wrapper">
     <h2>Visi & Misi</h2>
     <h3>Visi</h3>
-    <p>Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian, dan pengabdian kepada masyarakat berbasis teknologi dan literasi informasi.</p>
+    <p>Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian, dan pengabdian kepada masyarakat.</p>
 </div>
 
 <div id="tujuan" class="content-wrapper">
@@ -311,17 +269,7 @@ function showSection(id) {
     <div class="grid-koleksi" style="padding:0;">
         <div class="book-card">
             <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300">
-            <div class="book-detail">
-                <h4>Ensiklopedia Sejarah Dunia</h4>
-                <p>Penerbit: Pustaka Utama</p>
-            </div>
-        </div>
-        <div class="book-card">
-            <img src="https://images.unsplash.com/photo-1513001900722-370f803f498d?w=300">
-            <div class="book-detail">
-                <h4>Teori Komunikasi Massa</h4>
-                <p>Penerbit: Media Sains</p>
-            </div>
+            <div><h4>Ensiklopedia Sejarah Dunia</h4><p>Penerbit: Pustaka Utama</p></div>
         </div>
     </div>
 </div>
@@ -331,41 +279,27 @@ function showSection(id) {
     <div class="grid-koleksi" style="padding:0;">
         <div class="book-card">
             <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=300">
-            <div class="book-detail">
-                <h4>Journal of Information Science</h4>
-                <p>Volume 10, 2024</p>
-            </div>
+            <div><h4>Journal of Information Science</h4><p>Volume 10, 2024</p></div>
         </div>
     </div>
 </div>
 
 <div id="event" class="content-wrapper">
     <h2>Event & Pameran</h2>
-    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600" style="width:100%; border-radius:8px; margin-bottom:20px;">
     <p>Ikuti rangkaian acara literasi kami tahun ini di lobby utama.</p>
-</div>
-
-<div id="forum" class="content-wrapper">
-    <h2>Forum Diskusi</h2>
-    <p>Silakan tinggalkan pertanyaan atau topik diskusi Anda di sini.</p>
-    <textarea style="width:100%; padding:15px; margin-top:10px; border:1px solid #ccc;" rows="5"></textarea>
-    <button style="padding:10px 20px; background:#4a332d; color:white; border:none; margin-top:10px;">Kirim</button>
 </div>
 
 <div id="about" class="content-wrapper">
     <h2>About Me</h2>
     <p><strong>Nama :</strong> Nopita Laoli</p>
     <p><strong>Jurusan :</strong> Perpustakaan dan Sains Informasi</p>
-    <div style="margin-top:20px;">
-        <a href="https://www.instagram.com/reel/DKolCoBxT30/?igsh=dzYzZXF3NmhhaGoy" target="_blank" style="color:#c59d08; font-weight:bold; text-decoration:none;">INSTAGRAM</a>
-    </div>
+    <a href="https://www.instagram.com/reel/DKolCoBxT30/?igsh=dzYzZXF3NmhhaGoy" target="_blank">Instagram</a>
 </div>
 
 <div id="login" class="content-wrapper">
     <h2>Masuk Anggota</h2>
     <input type="text" placeholder="ID Anggota" style="width:100%; padding:10px; margin:10px 0;">
-    <input type="password" placeholder="Password" style="width:100%; padding:10px; margin:10px 0;">
-    <button style="width:100%; padding:12px; background:#c59d08; color:white; border:none;">LOGIN</button>
+    <button style="width:100%; padding:10px; background:#c59d08; color:white; border:none;">LOGIN</button>
 </div>
 
 <div class="wa-float" onclick="window.open('https://wa.me/nomoranda')">
