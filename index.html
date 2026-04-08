@@ -6,48 +6,54 @@
 <title>Prime Academic Library</title>
 
 <style>
+/* CSS RESET & BASE */
 *{
     margin:0; padding:0; box-sizing:border-box;
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    min-height: 100vh;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* NAVBAR (Sesuai Gambar) */
+/* NAVBAR (Sesuai Skema Warna Gambar) */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 60px;
-    background: #4a332d; /* Warna cokelat tua sesuai gambar */
+    padding: 15px 50px;
+    background: #4a332d; /* Cokelat Tua Formal */
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .logo-area {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     gap: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    text-transform: uppercase;
 }
 
-.nav-links { display: flex; align-items: center; }
+.nav-links {
+    display: flex;
+    align-items: center;
+}
 
 .nav-links a {
     color: #d2b48c;
     text-decoration: none;
-    margin: 0 15px;
-    font-weight: 500;
+    margin: 0 12px;
     font-size: 13px;
-    cursor: pointer;
+    font-weight: 600;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .nav-links a:hover { color: white; }
@@ -55,14 +61,31 @@ nav {
 .btn-masuk {
     background: #c59d08;
     color: white !important;
-    padding: 8px 20px;
+    padding: 7px 18px;
     border-radius: 4px;
-    font-weight: bold !important;
 }
 
-/* HERO SECTION (BERANDA - Sesuai Gambar) */
+/* DROPDOWN MENU */
+.dropdown { position: relative; display: inline-block; }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #4a332d;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    top: 100%;
+}
+.dropdown-content a {
+    display: block;
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    text-transform: none;
+}
+.dropdown:hover .dropdown-content { display: block; }
+
+/* BERANDA STYLE (HANYA UNTUK BERANDA) */
 #hero-beranda {
-    height: 70vh;
+    height: 75vh;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
                 url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070');
     background-size: cover;
@@ -73,33 +96,33 @@ nav {
     align-items: center;
     text-align: center;
     color: white;
-    padding: 0 20px;
+    padding: 20px;
 }
 
 #hero-beranda h1 {
-    font-size: 50px;
-    color: #c59d08;
-    margin-bottom: 10px;
+    font-size: 3rem;
+    color: #f1c40f; /* Kuning Emas */
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 #hero-beranda p {
-    font-size: 18px;
+    font-size: 1.2rem;
     font-style: italic;
     margin-bottom: 30px;
+    max-width: 700px;
 }
 
-/* SEARCH BAR TENGAH (Sesuai Gambar) */
-.main-search-container {
-    display: flex;
+.search-box-large {
     width: 100%;
-    max-width: 800px;
+    max-width: 750px;
+    display: flex;
     background: white;
     border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.main-search-container input {
+.search-box-large input {
     flex: 1;
     padding: 15px 20px;
     border: none;
@@ -107,91 +130,59 @@ nav {
     font-size: 16px;
 }
 
-.main-search-container button {
+.search-box-large button {
     background: #4a332d;
     color: white;
     border: none;
-    padding: 0 25px;
+    padding: 0 30px;
     cursor: pointer;
     font-weight: bold;
 }
 
-/* KOLEKSI UNGGULAN SECTION */
-.koleksi-unggulan-title {
-    text-align: center;
-    padding: 50px 0 20px;
-    font-size: 28px;
-    color: #4a332d;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-.koleksi-unggulan-title hr {
-    width: 100px;
-    margin: 10px auto;
-    border: 2px solid #c59d08;
-}
-
-/* CONTENT CONTAINER (Untuk Halaman Selain Beranda) */
-.content-section {
+/* CONTENT CONTAINER (Untuk Navigasi Lain) */
+.content-wrapper {
     display: none;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 40px auto;
     background: white;
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-.active { display: block; }
+.active { display: block !important; }
 
-/* DROPDOWN */
-.dropdown { position: relative; display: inline-block; }
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #4a332d;
-    min-width: 200px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+h2 { 
+    color: #4a332d; 
+    border-bottom: 3px solid #c59d08; 
+    padding-bottom: 10px; 
+    margin-bottom: 25px; 
 }
-.dropdown-content a {
-    display: block;
-    padding: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.dropdown:hover .dropdown-content { display: block; }
 
-/* GRID KOLEKSI */
+/* KOLEKSI CARDS */
 .grid-koleksi {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    padding: 20px;
 }
 .book-card {
-    background: white;
-    border: 1px solid #ddd;
+    border: 1px solid #eee;
     padding: 15px;
     display: flex;
     gap: 15px;
+    background: #fff;
+    transition: 0.3s;
 }
-.book-card img { width: 80px; height: 110px; object-fit: cover; }
+.book-card:hover { border-color: #c59d08; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.book-card img { width: 90px; height: 120px; object-fit: cover; }
+.book-detail h4 { color: #4a332d; margin-bottom: 5px; }
+.book-detail p { font-size: 13px; color: #666; }
 
-/* POPUP */
-#popup {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
-    justify-content: center; align-items: center;
-    z-index: 2000;
-}
-.popup-box { background: white; padding: 30px; border-radius: 8px; max-width: 400px; text-align: center; }
-
-/* WHATSAPP FLOAT (Sesuai Gambar) */
+/* FLOATING WHATSAPP */
 .wa-float {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 25px;
+    right: 25px;
     background: #25d366;
     width: 60px;
     height: 60px;
@@ -199,36 +190,31 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     cursor: pointer;
-    z-index: 999;
+    z-index: 1000;
 }
 </style>
 
 <script>
-function showSection(id){
-    // Sembunyikan semua section
-    document.querySelectorAll('.page-content').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-    
-    // Tampilkan section yang dipilih
-    document.getElementById(id).classList.add('active');
+function showSection(id) {
+    // Sembunyikan SEMUA elemen konten
+    document.getElementById('beranda-hero').style.display = 'none';
+    document.querySelectorAll('.content-wrapper').forEach(s => s.classList.remove('active'));
 
-    // Jika yang diklik adalah beranda, tampilkan hero-beranda & koleksi-unggulan
-    if(id === 'beranda') {
-        document.getElementById('beranda-container').style.display = 'block';
+    // Jika yang diklik beranda
+    if(id === 'beranda-hero') {
+        document.getElementById('beranda-hero').style.display = 'flex';
     } else {
-        // Jika selain beranda, sembunyikan tampilan pencarian besar
-        document.getElementById('beranda-container').style.display = 'none';
+        // Tampilkan section yang diinginkan
+        document.getElementById(id).classList.add('active');
+        window.scrollTo(0,0);
     }
 }
 
-function openPopup(j, d){
-    document.getElementById("popup").style.display="flex";
-    document.getElementById("popupTitle").innerText=j;
-    document.getElementById("popupDesc").innerText=d;
+function openPopup(title, msg) {
+    alert(title + "\n\n" + msg);
 }
-function closePopup(){ document.getElementById("popup").style.display="none"; }
 </script>
 </head>
 
@@ -236,10 +222,10 @@ function closePopup(){ document.getElementById("popup").style.display="none"; }
 
 <nav>
     <div class="logo-area">
-        <span>🏛️ Prime Academic Library</span>
+        <span>🏛️ BHUMI HISTORIA</span>
     </div>
     <div class="nav-links">
-        <a onclick="showSection('beranda')">Beranda</a>
+        <a onclick="showSection('beranda-hero')">Beranda</a>
         
         <div class="dropdown">
             <a>Profil Perpustakaan ▾</a>
@@ -265,103 +251,122 @@ function closePopup(){ document.getElementById("popup").style.display="none"; }
     </div>
 </nav>
 
-<div id="beranda-container" class="page-content active">
-    <div id="hero-beranda">
-        <h1>Prime Academic Library</h1>
-        <p>"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."</p>
-        
-        <div class="main-search-container">
-            <input type="text" placeholder="Cari naskah, jurnal, atau referensi buku...">
-            <button>🔍 Cari</button>
-        </div>
-    </div>
-
-    <div class="koleksi-unggulan-title">
-        Koleksi Unggulan
-        <hr>
-    </div>
-
-    <div class="grid-koleksi" style="max-width: 1200px; margin: auto;">
-        <div class="book-card">
-            <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f67?w=200">
-            <div><h4>Manajemen Perpustakaan</h4><p>Ahmad Salim</p></div>
-        </div>
-        <div class="book-card">
-            <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?w=200">
-            <div><h4>Metodologi Penelitian</h4><p>Prof. Siti Aminah</p></div>
-        </div>
-        <div class="book-card">
-            <img src="https://images.unsplash.com/photo-1532012197367-60134763a26a?w=200">
-            <div><h4>Literasi Digital 5.0</h4><p>Diana Putri</p></div>
-        </div>
+<div id="beranda-hero">
+    <h1>BHUMI HISTORIA</h1>
+    <p>"Menghidupkan Kembali Jejak Langkah Leluhur Melalui Literasi Digital dan Fisik."</p>
+    
+    <div class="search-box-large">
+        <input type="text" placeholder="Cari naskah, peta, atau biografi tokoh...">
+        <button>🔍 CARI</button>
     </div>
 </div>
 
-<div id="sejarah" class="content-section">
-    <h2>Profil Perpustakaan</h2>
+<div id="sejarah" class="content-wrapper">
+    <h2>Sejarah Perpustakaan</h2>
     <h3>Pengertian Prime Academic Library</h3>
     <p>Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.</p>
     <h3>Mengapa dinamakan Prime Academic Library</h3>
-    <p>Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting. <strong>Prime</strong> berarti utama atau yang terbaik... (teks asli Anda berlanjut)</p>
+    <p>Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting. <strong>Prime</strong> berarti utama atau yang terbaik, yang menggambarkan perpustakaan sebagai sumber informasi yang unggul dan berkualitas. <strong>Academic</strong> berarti akademik, yang menunjukkan bahwa perpustakaan ini berfokus pada kebutuhan pendidikan, penelitian, dan pengembangan ilmu pengetahuan. <strong>Library</strong> berarti perpustakaan sebagai tempat pengelolaan serta penyediaan berbagai sumber informasi.</p>
 </div>
 
-<div id="visi" class="content-section">
+<div id="visi" class="content-wrapper">
     <h2>Visi & Misi</h2>
     <h3>Visi</h3>
     <p>Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian, dan pengabdian kepada masyarakat berbasis teknologi dan literasi informasi.</p>
-</div>
-
-<div id="tujuan" class="content-section">
-    <h2>Tujuan</h2>
+    <h3>Misi</h3>
     <ul>
-        <li>Mendukung proses pembelajaran mahasiswa dan dosen.</li>
-        <li>Menyediakan akses informasi yang cepat dan akurat.</li>
+        <li>Menyediakan koleksi akademik yang lengkap dan relevan.</li>
+        <li>Mengembangkan layanan berbasis digital.</li>
+        <li>Meningkatkan budaya literasi informasi.</li>
     </ul>
 </div>
 
-<div id="kol-buku" class="content-section">
+<div id="tujuan" class="content-wrapper">
+    <h2>Tujuan Perpustakaan</h2>
+    <ul>
+        <li>Mendukung proses pembelajaran mahasiswa dan dosen.</li>
+        <li>Menyediakan akses informasi yang cepat dan akurat.</li>
+        <li>Meningkatkan kualitas layanan perpustakaan secara berkelanjutan.</li>
+        <li>Mewujudkan perpustakaan sebagai pusat literasi dan riset.</li>
+    </ul>
+</div>
+
+<div id="kol-buku" class="content-wrapper">
     <h2>Koleksi Buku Referensi</h2>
     <div class="grid-koleksi">
         <div class="book-card">
             <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f67?w=200">
-            <div>
+            <div class="book-detail">
                 <h4>Manajemen Perpustakaan Modern</h4>
-                <p>ISBN: 978-602-1234</p>
+                <p><strong>Pengarang:</strong> Ahmad Salim, M.Hum</p>
+                <p><strong>Penerbit:</strong> Pustaka Akademika</p>
+                <p><strong>ISBN:</strong> 978-602-1234-56-7</p>
+            </div>
+        </div>
+        <div class="book-card">
+            <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?w=200">
+            <div class="book-detail">
+                <h4>Metodologi Penelitian Ilmiah</h4>
+                <p><strong>Pengarang:</strong> Prof. Siti Aminah</p>
+                <p><strong>Penerbit:</strong> Univ Press</p>
+                <p><strong>ISBN:</strong> 978-623-9876-54-3</p>
             </div>
         </div>
     </div>
 </div>
 
-<div id="event" class="content-section">
-    <h2>Event & Pameran</h2>
-    <div style="display:flex; gap:20px;">
-        <div onclick="openPopup('Pameran Literasi','Mempromosikan budaya membaca di kampus.')" style="cursor:pointer">
-            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=200" width="150">
-            <p>Pameran Literasi</p>
+<div id="kol-jurnal" class="content-wrapper">
+    <h2>Jurnal & E-Book</h2>
+    <div class="grid-koleksi">
+        <div class="book-card">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=200">
+            <div class="book-detail">
+                <h4>Journal of Information Science</h4>
+                <p><strong>Volume:</strong> Vol. 12 No. 4 (2024)</p>
+                <p><strong>ISSN:</strong> 2088-1234</p>
+            </div>
         </div>
     </div>
 </div>
 
-<div id="about" class="content-section">
+<div id="event" class="content-wrapper">
+    <h2>Event & Pameran</h2>
+    <div style="display:flex; gap:30px; flex-wrap:wrap;">
+        <div onclick="openPopup('Pameran Literasi Digital','Pameran buku dan teknologi perpustakaan 2026.')" style="cursor:pointer; text-align:center;">
+            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=200" width="200" style="border-radius:8px;">
+            <p style="margin-top:10px; font-weight:bold;">Pameran Literasi</p>
+        </div>
+    </div>
+</div>
+
+<div id="forum" class="content-wrapper">
+    <h2>Forum Diskusi</h2>
+    <p>Gunakan formulir di bawah untuk memulai diskusi akademik.</p>
+    <input type="text" placeholder="Nama Anda" style="width:100%; padding:10px; margin:10px 0; border:1px solid #ccc;">
+    <textarea placeholder="Pesan atau pertanyaan..." style="width:100%; padding:10px; margin:10px 0; border:1px solid #ccc; height:100px;"></textarea>
+    <button style="padding:10px 25px; background:#4a332d; color:white; border:none; cursor:pointer;">Kirim</button>
+</div>
+
+<div id="about" class="content-wrapper">
     <h2>About Me</h2>
     <p><strong>Nama :</strong> Nopita Laoli</p>
     <p><strong>Jurusan :</strong> Perpustakaan dan Sains Informasi</p>
     <div style="margin-top:20px;">
-        <a href="https://www.instagram.com/reel/DKolCoBxT30/?igsh=dzYzZXF3NmhhaGoy" target="_blank">Instagram</a> | 
-        <a href="#">YouTube</a>
+        <a href="https://www.instagram.com/reel/DKolCoBxT30/?igsh=dzYzZXF3NmhhaGoy" target="_blank" style="text-decoration:none; color:#c59d08; font-weight:bold;">INSTAGRAM</a> | 
+        <a href="#" style="text-decoration:none; color:#c59d08; font-weight:bold;">YOUTUBE</a> | 
+        <a href="#" style="text-decoration:none; color:#c59d08; font-weight:bold;">DOWNLOAD CV</a>
     </div>
 </div>
 
-<div class="wa-float" onclick="window.open('https://wa.me/yournumber')">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="35" style="filter: invert(1);">
+<div id="login" class="content-wrapper">
+    <h2>Masuk Ke Anggota</h2>
+    <input type="text" placeholder="ID Anggota" style="width:100%; padding:10px; margin:10px 0; border:1px solid #ccc;">
+    <input type="password" placeholder="Password" style="width:100%; padding:10px; margin:10px 0; border:1px solid #ccc;">
+    <button style="padding:10px 25px; background:#c59d08; color:white; border:none; cursor:pointer;">LOG IN</button>
 </div>
 
-<div id="popup">
-    <div class="popup-box">
-        <h3 id="popupTitle"></h3>
-        <p id="popupDesc" style="margin:15px 0;"></p>
-        <button onclick="closePopup()" style="padding: 10px 20px; background:#4a332d; color:white; border:none; cursor:pointer;">Tutup</button>
-    </div>
+<div class="wa-float" onclick="window.open('https://wa.me/nomoranda')">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="30" style="filter: invert(1);">
 </div>
 
 </body>
