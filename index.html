@@ -296,4 +296,267 @@ document.getElementById("popup").style.display="none";
 
 <div class="pameran">
 
-<div
+<div onclick="openPopup('Manajemen Perpustakaan','Buku tentang pengelolaan perpustakaan modern.')">
+<img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+<p>Manajemen Perpustakaan</p>
+</div>
+
+<div onclick="openPopup('Literasi Digital','Membahas teknologi dan literasi digital.')">
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
+<p>Literasi Digital</p>
+</div>
+
+<div onclick="openPopup('Metodologi Penelitian','Panduan penelitian ilmiah.')">
+<img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d">
+<p>Metodologi Penelitian</p>
+</div>
+
+</div>
+
+</div>
+
+<div id="event" class="content">
+<h2 style="text-align:center;">Jadwal Event</h2>
+<p style="text-align:center;">📅 25 Juli 2026</p>
+<p style="text-align:center;">⏰ 09.00 – 17.00 WIB</p>
+<p style="text-align:center;">📍Perpustakaan</p>
+</div>
+
+<div id="popup">
+<div class="popup-box">
+<h3 id="popupTitle"></h3>
+<p id="popupDesc"></p>
+<button onclick="closePopup()">Tutup</button>
+</div>
+</div>
+
+<div id="profil" class="content">
+
+<h2>Profil Perpustakaan</h2>
+
+<h3>Pengertian Prime Academic Library</h3>
+<p>
+Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.
+</p>
+
+<h3>Mengapa dinamakan Prime Academic Library</h3>
+<p>
+Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting. 
+<strong>Prime</strong> berarti utama atau yang terbaik, yang menggambarkan perpustakaan sebagai sumber informasi yang unggul dan berkualitas. 
+<strong>Academic</strong> berarti akademik, yang menunjukkan bahwa perpustakaan ini berfokus pada kebutuhan pendidikan, penelitian, dan pengembangan ilmu pengetahuan. 
+<strong>Library</strong> berarti perpustakaan sebagai tempat pengelolaan serta penyediaan berbagai sumber informasi. 
+Dari makna tersebut, maka dibentuklah nama <strong>Prime Academic Library</strong> sebagai perpustakaan yang menjadi sumber utama informasi akademik bagi mahasiswa dan civitas akademika.
+</p>
+
+<h3>Visi</h3>
+<p>
+Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian, dan pengabdian kepada masyarakat berbasis teknologi dan literasi informasi.
+</p>
+
+<h3>Misi</h3>
+<ul>
+<li>Menyediakan koleksi akademik yang lengkap dan relevan.</li>
+<li>Mengembangkan layanan berbasis digital.</li>
+<li>Meningkatkan budaya literasi informasi.</li>
+<li>Mendukung penelitian dan publikasi ilmiah.</li>
+</ul>
+
+<h3>Tujuan</h3>
+<ul>
+<li>Mendukung proses pembelajaran mahasiswa dan dosen.</li>
+<li>Menyediakan akses informasi yang cepat dan akurat.</li>
+<li>Meningkatkan kualitas layanan perpustakaan.</li>
+<li>Mewujudkan perpustakaan sebagai pusat literasi dan riset.</li>
+</ul>
+
+</div>
+
+<div id="koleksi" class="content">
+<h2>Koleksi</h2>
+<ul>
+<li>Buku Referensi Akademik</li>
+<li>Jurnal Nasional & Internasional</li>
+<li>Skripsi dan Tesis</li>
+<li>E-Book Digital</li>
+</ul>
+</div>
+
+<div id="layanan" class="content">
+
+<h2>Layanan Perpustakaan</h2>
+
+<ul>
+<li>Peminjaman Buku</li>
+<li>Akses E-Book</li>
+<li>Akses E-Journal</li>
+<li>Ruang Diskusi</li>
+</ul>
+
+<h3>Jam Layanan</h3>
+
+<ul>
+<li>Senin : 08:30 - 18:00 WIB</li>
+<li>Selasa - Jumat : 08:00 - 18:00 WIB</li>
+<li>Sabtu - Minggu : Tutup</li>
+</ul>
+
+</div>
+
+<div id="forum" class="content">
+
+<h2>Forum Diskusi</h2>
+
+<p>
+Forum ini merupakan ruang bagi pengunjung untuk menyampaikan pertanyaan,
+pendapat, atau diskusi mengenai perpustakaan.
+</p>
+
+<input type="text" id="namaForum" placeholder="Nama Anda">
+
+<textarea rows="4" id="pesanForum" placeholder="Tulis komentar atau diskusi Anda"></textarea>
+
+<button onclick="kirimWA()">Kirim  ke WhatsApp</button>
+
+</div>
+
+<div id="about" class="content">
+
+<h2>About Me</h2>
+
+<p><strong>Nama :</strong> Nopita Laoli</p>
+<p><strong>NIM :</strong> 123456789</p>
+<p><strong>Jurusan :</strong> Perpustakaan dan Sains Informasi</p>
+
+<a href="https://www.instagram.com/reel/DKolCoBxT30/?igsh=dzYzZXF3NmhhaGoy" target="_blank" class="link">Instagram Saya</a>
+
+<a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drivesdk" target="_blank" class="link">CV Saya</a>
+
+<a href="https://youtu.be/Dji6ApR56tk?si=-MVKyz8O2GGxZVqW" target="_blank" class="link">YouTube Saya</a>
+
+</div>
+
+<div id="contact" class="content">
+
+<h2>Contact Us</h2>
+
+<input type="text" placeholder="Nama">
+<input type="email" placeholder="Email">
+<textarea rows="4" placeholder="Kirim Pesan Anda"></textarea>
+
+<button>Kirim</button>
+
+</div>
+
+<div id="login" class="content">
+
+<h2>Login</h2>
+
+<input type="email" placeholder="Email">
+<input type="password" placeholder="Password">
+
+<button>Login</button>
+
+<p style="margin-top:15px;">
+Belum punya akun?
+<a onclick="bukaRegister()" style="color:blue;cursor:pointer;">Klik di sini</a>
+</p>
+
+<div id="registerForm">
+
+<h3>Daftar Akun</h3>
+
+<input type="text" placeholder="First Name">
+<input type="text" placeholder="Last Name">
+<input type="email" placeholder="Email">
+<input type="text" placeholder="No HP">
+<input type="password" placeholder="Password">
+
+<button>Daftar</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div id="popupPameran" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999;">
+
+<div style="background:white; padding:25px; border-radius:12px; width:320px; text-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.3);">
+
+<h3>Pameran Akan Segera Dimulai</h3>
+<p id="countdown"></p>
+
+<button onclick="tutupPopup()">Tutup</button>
+
+</div>
+</div>
+
+<script>
+
+/* COUNTDOWN PAMERAN */
+var tanggalPameran = new Date("Juli 25, 2026 09:00:00").getTime();
+
+var x = setInterval(function(){
+
+var sekarang = new Date().getTime();
+var jarak = tanggalPameran - sekarang;
+
+var hari = Math.floor(jarak / (1000 * 60 * 60 * 24));
+var jam = Math.floor((jarak % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var menit = Math.floor((jarak % (1000 * 60 * 60)) / (1000 * 60));
+var detik = Math.floor((jarak % (1000 * 60)) / 1000);
+
+if(document.getElementById("countdown")){
+document.getElementById("countdown").innerHTML = hari + " Hari " + jam + " Jam " + menit + " Menit " + detik + " Detik";
+}
+
+if (jarak < 0) {
+clearInterval(x);
+if(document.getElementById("countdown")){
+document.getElementById("countdown").innerHTML = "Pameran telah dimulai!";
+}
+}
+
+}, 1000);
+
+/* AUTO POPUP */
+window.onload = function(){
+setTimeout(function(){
+document.getElementById("popupPameran").style.display = "flex";
+}, 1500);
+}
+
+function tutupPopup(){
+document.getElementById("popupPameran").style.display = "none";
+}
+
+</script>
+
+
+
+<div id="popupDetail" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999;">
+<div style="background:white; padding:25px; border-radius:12px; width:320px; text-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.3);">
+<h3 id="judulDetail"></h3>
+<p id="isiDetail"></p>
+<p id="jadwalDetail" style="margin-top:10px; font-weight:bold;"></p>
+<button onclick="tutupDetail()">Tutup</button>
+</div>
+</div>
+
+<script>
+function bukaDetail(judul, isi, jadwal){
+document.getElementById('judulDetail').innerText = judul;
+document.getElementById('isiDetail').innerText = isi;
+document.getElementById('jadwalDetail').innerText = jadwal;
+document.getElementById('popupDetail').style.display = 'flex';
+}
+
+function tutupDetail(){
+document.getElementById('popupDetail').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
