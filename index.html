@@ -35,11 +35,15 @@ padding:15px 40px;
 background:#1e2a38;
 flex-wrap:nowrap;
 overflow-x:auto;
+position: sticky;
+top: 0;
+z-index: 1000;
 }
 
 nav .left, nav .right{
 display:flex;
 flex-wrap:nowrap;
+align-items: center;
 }
 
 nav a{
@@ -54,6 +58,68 @@ white-space:nowrap;
 
 nav a:hover{
 color:#ffd700;
+}
+
+/* --- FITUR BARU: SEARCH BAR --- */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 15px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 5px;
+    width: 150px;
+    outline: none;
+    margin: 0;
+    font-size: 13px;
+}
+
+.search-box input::placeholder {
+    color: #ccc;
+}
+
+/* --- FITUR BARU: DROPDOWN SUB-MENU --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1e2a38;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+    z-index: 1;
+    border-radius: 0 0 8px 8px;
+    top: 100%;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    margin: 0;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown-content a:hover {
+    background-color: #2f4054;
+    color: #ffd700;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /* CONTENT */
@@ -80,6 +146,8 @@ margin-bottom:20px;
 h3{
 margin-top:20px;
 margin-bottom:10px;
+border-left: 5px solid #1e2a38;
+padding-left: 10px;
 }
 
 p{
@@ -191,49 +259,36 @@ text-align:center;
 
 <script>
 
-function showSection(id){
+function showSection(id, subId = null){
 
 var sections=document.querySelectorAll('.content');
 sections.forEach(section=>section.classList.remove('active'));
 
 document.getElementById(id).classList.add('active');
 
-if(id==="beranda"){
-document.body.style.background="url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da') no-repeat center center/cover";
+// Logika Scroll ke Sub-Menu jika ada
+if(subId){
+    setTimeout(() => {
+        document.getElementById(subId).scrollIntoView({ behavior: 'smooth' });
+    }, 100);
 }
 
-if(id==="profil"){
-document.body.style.background="url('https://images.unsplash.com/photo-1507842217343-583bb7270b66') no-repeat center center/cover";
-}
+// Background Transition
+const bgs = {
+    'beranda': 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da',
+    'profil': 'https://images.unsplash.com/photo-1507842217343-583bb7270b66',
+    'koleksi': 'https://images.unsplash.com/photo-1512820790803-83ca734da794',
+    'layanan': 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6',
+    'event': 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678',
+    'forum': 'https://images.unsplash.com/photo-1519389950473-47ba0277781c',
+    'about': 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570',
+    'contact': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f',
+    'login': 'https://images.unsplash.com/photo-1497215842964-222b430dc094'
+};
 
-if(id==="koleksi"){
-document.body.style.background="url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center center/cover";
+if(bgs[id]){
+    document.body.style.background=`url('${bgs[id]}') no-repeat center center/cover`;
 }
-
-if(id==="layanan"){
-document.body.style.background="url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6') no-repeat center center/cover";
-}
-
-if(id==="event"){
-document.body.style.background="url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678') no-repeat center center/cover";
-}
-
-if(id==="forum"){
-document.body.style.background="url('https://images.unsplash.com/photo-1519389950473-47ba0277781c') no-repeat center center/cover";
-}
-
-if(id==="about"){
-document.body.style.background="url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570') no-repeat center center/cover";
-}
-
-if(id==="contact"){
-document.body.style.background="url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') no-repeat center center/cover";
-}
-
-if(id==="login"){
-document.body.style.background="url('https://images.unsplash.com/photo-1497215842964-222b430dc094') no-repeat center center/cover";
-}
-
 }
 
 function bukaRegister(){
@@ -270,7 +325,16 @@ document.getElementById("popup").style.display="none";
 <nav>
 <div class="left">
 <a onclick="showSection('beranda')">Beranda</a>
-<a onclick="showSection('profil')">Profil Perpustakaan</a>
+
+<div class="dropdown">
+    <a onclick="showSection('profil')">Profil Perpustakaan ▾</a>
+    <div class="dropdown-content">
+        <a onclick="showSection('profil', 'sejarah')">Sejarah</a>
+        <a onclick="showSection('profil', 'visi-misi')">Visi & Misi</a>
+        <a onclick="showSection('profil', 'tujuan')">Tujuan</a>
+    </div>
+</div>
+
 <a onclick="showSection('koleksi')">Koleksi</a>
 <a onclick="showSection('layanan')">Layanan</a>
 <a onclick="showSection('event')">Event</a>
@@ -280,6 +344,10 @@ document.getElementById("popup").style.display="none";
 </div>
 
 <div class="right">
+<div class="search-box">
+    <input type="text" placeholder="Cari Katalog/Jurnal...">
+    <span style="color:white; cursor:pointer;">🔍</span>
+</div>
 <a onclick="showSection('login')">Login</a>
 </div>
 </nav>
@@ -336,40 +404,44 @@ document.getElementById("popup").style.display="none";
 
 <h2>Profil Perpustakaan</h2>
 
-<h3>Pengertian Prime Academic Library</h3>
-<p>
-Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.
-</p>
+<div id="sejarah">
+    <h3>Sejarah & Pengertian</h3>
+    <p>
+    Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.
+    </p>
 
-<h3>Mengapa dinamakan Prime Academic Library</h3>
-<p>
-Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting. 
-<strong>Prime</strong> berarti utama atau yang terbaik, yang menggambarkan perpustakaan sebagai sumber informasi yang unggul dan berkualitas. 
-<strong>Academic</strong> berarti akademik, yang menunjukkan bahwa perpustakaan ini berfokus pada kebutuhan pendidikan, penelitian, dan pengembangan ilmu pengetahuan. 
-<strong>Library</strong> berarti perpustakaan sebagai tempat pengelolaan serta penyediaan berbagai sumber informasi. 
-Dari makna tersebut, maka dibentuklah nama <strong>Prime Academic Library</strong> sebagai perpustakaan yang menjadi sumber utama informasi akademik bagi mahasiswa dan civitas akademika.
-</p>
+    <p>
+    Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting. 
+    <strong>Prime</strong> berarti utama atau yang terbaik, yang menggambarkan perpustakaan sebagai sumber informasi yang unggul dan berkualitas. 
+    <strong>Academic</strong> berarti akademik, yang menunjukkan bahwa perpustakaan ini berfokus pada kebutuhan pendidikan, penelitian, dan pengembangan ilmu pengetahuan. 
+    <strong>Library</strong> berarti perpustakaan sebagai tempat pengelolaan serta penyediaan berbagai sumber informasi. 
+    </p>
+</div>
 
-<h3>Visi</h3>
-<p>
-Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian, dan pengabdian kepada masyarakat berbasis teknologi dan literasi informasi.
-</p>
+<div id="visi-misi" style="margin-top: 30px;">
+    <h3>Visi</h3>
+    <p>
+    Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian, dan pengabdian kepada masyarakat berbasis teknologi dan literasi informasi.
+    </p>
 
-<h3>Misi</h3>
-<ul>
-<li>Menyediakan koleksi akademik yang lengkap dan relevan.</li>
-<li>Mengembangkan layanan berbasis digital.</li>
-<li>Meningkatkan budaya literasi informasi.</li>
-<li>Mendukung penelitian dan publikasi ilmiah.</li>
-</ul>
+    <h3>Misi</h3>
+    <ul>
+    <li>Menyediakan koleksi akademik yang lengkap dan relevan.</li>
+    <li>Mengembangkan layanan berbasis digital.</li>
+    <li>Meningkatkan budaya literasi informasi.</li>
+    <li>Mendukung penelitian dan publikasi ilmiah.</li>
+    </ul>
+</div>
 
-<h3>Tujuan</h3>
-<ul>
-<li>Mendukung proses pembelajaran mahasiswa dan dosen.</li>
-<li>Menyediakan akses informasi yang cepat dan akurat.</li>
-<li>Meningkatkan kualitas layanan perpustakaan.</li>
-<li>Mewujudkan perpustakaan sebagai pusat literasi dan riset.</li>
-</ul>
+<div id="tujuan" style="margin-top: 30px;">
+    <h3>Tujuan</h3>
+    <ul>
+    <li>Mendukung proses pembelajaran mahasiswa dan dosen.</li>
+    <li>Menyediakan akses informasi yang cepat dan akurat.</li>
+    <li>Meningkatkan kualitas layanan perpustakaan.</li>
+    <li>Mewujudkan perpustakaan sebagai pusat literasi dan riset.</li>
+    </ul>
+</div>
 
 </div>
 
@@ -481,49 +553,35 @@ Belum punya akun?
 
 </div>
 
-
-
 <div id="popupPameran" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999;">
-
 <div style="background:white; padding:25px; border-radius:12px; width:320px; text-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.3);">
-
 <h3>Pameran Akan Segera Dimulai</h3>
 <p id="countdown"></p>
-
 <button onclick="tutupPopup()">Tutup</button>
-
 </div>
 </div>
 
 <script>
-
 /* COUNTDOWN PAMERAN */
 var tanggalPameran = new Date("Juli 25, 2026 09:00:00").getTime();
-
 var x = setInterval(function(){
-
 var sekarang = new Date().getTime();
 var jarak = tanggalPameran - sekarang;
-
 var hari = Math.floor(jarak / (1000 * 60 * 60 * 24));
 var jam = Math.floor((jarak % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 var menit = Math.floor((jarak % (1000 * 60 * 60)) / (1000 * 60));
 var detik = Math.floor((jarak % (1000 * 60)) / 1000);
-
 if(document.getElementById("countdown")){
 document.getElementById("countdown").innerHTML = hari + " Hari " + jam + " Jam " + menit + " Menit " + detik + " Detik";
 }
-
 if (jarak < 0) {
 clearInterval(x);
 if(document.getElementById("countdown")){
 document.getElementById("countdown").innerHTML = "Pameran telah dimulai!";
 }
 }
-
 }, 1000);
 
-/* AUTO POPUP */
 window.onload = function(){
 setTimeout(function(){
 document.getElementById("popupPameran").style.display = "flex";
@@ -533,10 +591,7 @@ document.getElementById("popupPameran").style.display = "flex";
 function tutupPopup(){
 document.getElementById("popupPameran").style.display = "none";
 }
-
 </script>
-
-
 
 <div id="popupDetail" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999;">
 <div style="background:white; padding:25px; border-radius:12px; width:320px; text-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.3);">
@@ -554,7 +609,6 @@ document.getElementById('isiDetail').innerText = isi;
 document.getElementById('jadwalDetail').innerText = jadwal;
 document.getElementById('popupDetail').style.display = 'flex';
 }
-
 function tutupDetail(){
 document.getElementById('popupDetail').style.display = 'none';
 }
