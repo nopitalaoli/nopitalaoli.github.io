@@ -6,7 +6,7 @@
 <title>Prime Academic Library</title>
 
 <style>
-/* ... (Style tetap sama seperti sebelumnya) ... */
+
 *{
 margin:0;
 padding:0;
@@ -24,6 +24,8 @@ transition:0.5s;
 background:rgba(255,255,255,0.75);
 min-height:100vh;
 }
+
+/* NAVBAR */
 
 nav{
 display:flex;
@@ -53,6 +55,8 @@ white-space:nowrap;
 nav a:hover{
 color:#ffd700;
 }
+
+/* CONTENT */
 
 .content{
 display:none;
@@ -129,6 +133,15 @@ margin-top:10px;
 color:#2f4054;
 }
 
+#registerForm{
+display:none;
+margin-top:20px;
+padding-top:10px;
+border-top:1px solid #ccc;
+}
+
+/* TAMBAHAN PAMERAN */
+
 .pameran{
 display:flex;
 justify-content:center;
@@ -152,7 +165,9 @@ transition:0.3s;
 transform:scale(1.1);
 }
 
-#popup, #popupPameran, #popupDetail{
+/* POPUP */
+
+#popup{
 display:none;
 position:fixed;
 top:0;
@@ -162,224 +177,123 @@ height:100%;
 background:rgba(0,0,0,0.6);
 justify-content:center;
 align-items:center;
-z-index:999;
 }
 
 .popup-box{
 background:white;
-padding:25px;
-border-radius:12px;
-width:320px;
+padding:20px;
+border-radius:10px;
+width:300px;
 text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* Style Khusus Kartu Event */
-.event-card {
-    border-left: 5px solid #1e2a38;
-    background: #f9f9f9;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 0 8px 8px 0;
-}
-.event-date {
-    font-weight: bold;
-    color: #c0392b;
-}
 </style>
 
 <script>
+
 function showSection(id){
-    var sections=document.querySelectorAll('.content');
-    sections.forEach(section=>section.classList.remove('active'));
 
-    document.getElementById(id).classList.add('active');
+var sections=document.querySelectorAll('.content');
+sections.forEach(section=>section.classList.remove('active'));
 
-    // Pengaturan Background Berdasarkan Menu
-    var bgImages = {
-        'beranda': 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da',
-        'profil': 'https://images.unsplash.com/photo-1507842217343-583bb7270b66',
-        'koleksi': 'https://images.unsplash.com/photo-1512820790803-83ca734da794',
-        'layanan': 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6',
-        'event': 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678', // Gambar bertema event/acara
-        'forum': 'https://images.unsplash.com/photo-1519389950473-47ba0277781c',
-        'about': 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570',
-        'contact': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f',
-        'login': 'https://images.unsplash.com/photo-1497215842964-222b430dc094'
-    };
+document.getElementById(id).classList.add('active');
 
-    if(bgImages[id]){
-        document.body.style.background="url('"+bgImages[id]+"') no-repeat center center/cover";
-    }
+if(id==="beranda"){
+document.body.style.background="url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da') no-repeat center center/cover";
 }
 
-function bukaRegister(){ document.getElementById("registerForm").style.display="block"; }
+if(id==="profil"){
+document.body.style.background="url('https://images.unsplash.com/photo-1507842217343-583bb7270b66') no-repeat center center/cover";
+}
+
+if(id==="koleksi"){
+document.body.style.background="url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center center/cover";
+}
+
+if(id==="layanan"){
+document.body.style.background="url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6') no-repeat center center/cover";
+}
+
+if(id==="event"){
+document.body.style.background="url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678') no-repeat center center/cover";
+}
+
+if(id==="forum"){
+document.body.style.background="url('https://images.unsplash.com/photo-1519389950473-47ba0277781c') no-repeat center center/cover";
+}
+
+if(id==="about"){
+document.body.style.background="url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570') no-repeat center center/cover";
+}
+
+if(id==="contact"){
+document.body.style.background="url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') no-repeat center center/cover";
+}
+
+if(id==="login"){
+document.body.style.background="url('https://images.unsplash.com/photo-1497215842964-222b430dc094') no-repeat center center/cover";
+}
+
+}
+
+function bukaRegister(){
+document.getElementById("registerForm").style.display="block";
+}
+
 function kirimWA(){
-    var nama=document.getElementById("namaForum").value;
-    var pesan=document.getElementById("pesanForum").value;
-    var url="https://wa.me/?text=Halo saya "+nama+"%0A%0ADiskusi:%0A"+pesan;
-    window.open(url,"_blank");
+var nama=document.getElementById("namaForum").value;
+var pesan=document.getElementById("pesanForum").value;
+var url="https://wa.me/?text=Halo saya "+nama+"%0A%0ADiskusi:%0A"+pesan;
+window.open(url,"_blank");
 }
+
+/* POPUP */
+
 function openPopup(judul, deskripsi){
-    document.getElementById("popup").style.display="flex";
-    document.getElementById("popupTitle").innerText=judul;
-    document.getElementById("popupDesc").innerText=deskripsi;
+document.getElementById("popup").style.display="flex";
+document.getElementById("popupTitle").innerText=judul;
+document.getElementById("popupDesc").innerText=deskripsi;
 }
-function closePopup(){ document.getElementById("popup").style.display="none"; }
-function tutupPopup(){ document.getElementById("popupPameran").style.display = "none"; }
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
 </script>
 
 </head>
+
 <body>
 
 <div class="overlay">
 
 <nav>
 <div class="left">
-    <a onclick="showSection('beranda')">Beranda</a>
-    <a onclick="showSection('profil')">Profil Perpustakaan</a>
-    <a onclick="showSection('koleksi')">Koleksi</a>
-    <a onclick="showSection('layanan')">Layanan</a>
-    <a onclick="showSection('event')">Event</a> <a onclick="showSection('forum')">Forum</a>
-    <a onclick="showSection('about')">About Me</a>
-    <a onclick="showSection('contact')">Contact Us</a>
+<a onclick="showSection('beranda')">Beranda</a>
+<a onclick="showSection('profil')">Profil Perpustakaan</a>
+<a onclick="showSection('koleksi')">Koleksi</a>
+<a onclick="showSection('layanan')">Layanan</a>
+<a onclick="showSection('event')">Event</a>
+<a onclick="showSection('forum')">Forum</a>
+<a onclick="showSection('about')">About Me</a>
+<a onclick="showSection('contact')">Contact Us</a>
 </div>
+
 <div class="right">
-    <a onclick="showSection('login')">Login</a>
+<a onclick="showSection('login')">Login</a>
 </div>
 </nav>
 
 <div id="beranda" class="content active">
-    <h1>Selamat Datang di Prime Academic Library</h1>
-    <p class="slogan">"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."</p>
-    <h2>Pameran Buku Unggulan</h2>
-    <div class="pameran">
-        <div onclick="openPopup('Manajemen Perpustakaan','Buku tentang pengelolaan perpustakaan modern.')">
-            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
-            <p>Manajemen</p>
-        </div>
-        <div onclick="openPopup('Literasi Digital','Membahas teknologi dan literasi digital.')">
-            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
-            <p>Literasi Digital</p>
-        </div>
-        <div onclick="openPopup('Metodologi Penelitian','Panduan penelitian ilmiah.')">
-            <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d">
-            <p>Penelitian</p>
-        </div>
-    </div>
-</div>
 
-<div id="event" class="content">
-    <h2>Agenda & Event Mendatang</h2>
-    <p style="text-align:center; margin-bottom:30px;">Ikuti berbagai kegiatan menarik di Prime Academic Library.</p>
+<h1>Selamat Datang di Prime Academic Library</h1>
 
-    <div class="event-card">
-        <p class="event-date">📅 25 Juli 2026 | 09:00 - 17:00 WIB</p>
-        <h3>Pameran Buku Tahunan</h3>
-        <p>Menampilkan ribuan koleksi buku terbaru dari berbagai penerbit nasional dan internasional. Tersedia diskon khusus bagi anggota perpustakaan.</p>
-        <p><strong>Lokasi:</strong> Aula Utama Lantai 1</p>
-    </div>
+<p class="slogan">
+"Membuka akses pengetahuan, mendukung riset, dan menumbuhkan budaya literasi akademik."
+</p>
 
-    <div class="event-card">
-        <p class="event-date">📅 10 Agustus 2026 | 13:00 - 15:00 WIB</p>
-        <h3>Workshop Penulisan Jurnal Ilmiah</h3>
-        <p>Pelatihan teknik menulis artikel ilmiah agar tembus ke jurnal internasional bereputasi (Scopus/Sinta).</p>
-        <p><strong>Narasumber:</strong> Dr. Ahmad Zaki</p>
-    </div>
+<h2>Pameran Buku</h2>
 
-    <div class="event-card">
-        <p class="event-date">📅 05 September 2026 | 10:00 - 12:00 WIB</p>
-        <h3>Bedah Buku: Literasi Masa Depan</h3>
-        <p>Diskusi mendalam mengenai peran kecerdasan buatan (AI) dalam dunia literasi dan pendidikan tinggi.</p>
-        <p><strong>Lokasi:</strong> Ruang Referensi</p>
-    </div>
-</div>
+<div class="pameran">
 
-<div id="popup">
-    <div class="popup-box">
-        <h3 id="popupTitle"></h3>
-        <p id="popupDesc"></p>
-        <button onclick="closePopup()">Tutup</button>
-    </div>
-</div>
-
-<div id="profil" class="content">
-    <h2>Profil Perpustakaan</h2>
-    <h3>Visi</h3>
-    <p>Menjadi pusat informasi akademik unggulan yang mendukung pendidikan.</p>
-</div>
-
-<div id="koleksi" class="content">
-    <h2>Koleksi</h2>
-    <ul>
-        <li>Buku Referensi</li>
-        <li>Jurnal Ilmiah</li>
-        <li>E-Book</li>
-    </ul>
-</div>
-
-<div id="layanan" class="content">
-    <h2>Layanan</h2>
-    <p>Peminjaman, Ruang Diskusi, dan Akses E-Journal.</p>
-</div>
-
-<div id="forum" class="content">
-    <h2>Forum Diskusi</h2>
-    <input type="text" id="namaForum" placeholder="Nama Anda">
-    <textarea rows="4" id="pesanForum" placeholder="Tulis komentar Anda"></textarea>
-    <button onclick="kirimWA()">Kirim ke WhatsApp</button>
-</div>
-
-<div id="about" class="content">
-    <h2>About Me</h2>
-    <p><strong>Nama :</strong> Nopita Laoli</p>
-    <p><strong>Jurusan :</strong> Perpustakaan dan Sains Informasi</p>
-</div>
-
-<div id="contact" class="content">
-    <h2>Contact Us</h2>
-    <input type="text" placeholder="Nama"><input type="email" placeholder="Email">
-    <textarea rows="4" placeholder="Pesan"></textarea>
-    <button>Kirim</button>
-</div>
-
-<div id="login" class="content">
-    <h2>Login</h2>
-    <input type="email" placeholder="Email"><input type="password" placeholder="Password">
-    <button>Login</button>
-    <p>Belum punya akun? <a onclick="bukaRegister()" style="color:blue;cursor:pointer;">Daftar</a></p>
-    <div id="registerForm" style="display:none; border-top:1px solid #ccc; margin-top:10px; padding-top:10px;">
-        <input type="text" placeholder="Nama Lengkap"><button>Daftar Sekarang</button>
-    </div>
-</div>
-
-</div>
-
-<div id="popupPameran">
-    <div class="popup-box">
-        <h3>Informasi Pameran</h3>
-        <p id="countdown">Menghitung waktu...</p>
-        <button onclick="tutupPopup()">Tutup</button>
-    </div>
-</div>
-
-<script>
-// COUNTDOWN PAMERAN
-var tanggalPameran = new Date("Juli 25, 2026 09:00:00").getTime();
-setInterval(function(){
-    var sekarang = new Date().getTime();
-    var jarak = tanggalPameran - sekarang;
-    var hari = Math.floor(jarak / (1000 * 60 * 60 * 24));
-    var jam = Math.floor((jarak % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var menit = Math.floor((jarak % (1000 * 60 * 60)) / (1000 * 60));
-    var detik = Math.floor((jarak % (1000 * 60)) / 1000);
-    document.getElementById("countdown").innerHTML = hari + " Hari " + jam + " Jam " + menit + "m " + detik + "s";
-}, 1000);
-
-window.onload = function(){
-    setTimeout(function(){ document.getElementById("popupPameran").style.display = "flex"; }, 1000);
-}
-</script>
-
-</body>
-</html>
+<div
