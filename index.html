@@ -36,12 +36,12 @@ nav {
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-/* LOGO STYLE */
+/* LOGO */
 .navbar-brand {
     font-weight: bold;
     color: #f1c40f !important;
-    letter-spacing: 1px;
     font-size: 1.2rem;
+    letter-spacing: 1px;
 }
 
 nav a {
@@ -115,7 +115,7 @@ nav a:hover { color: #f1c40f !important; }
 .content {
     display: none;
     padding: 50px 40px;
-    max-width: 1100px; /* Sedikit diperlebar untuk koleksi lebih banyak */
+    max-width: 1100px;
     margin: 30px auto 50px auto;
     background: rgba(255, 255, 255, 0.96);
     border-radius: 8px;
@@ -146,7 +146,7 @@ p { line-height: 1.8; color: #34495e; margin-bottom: 15px; text-align: justify; 
 .book-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 .book-card img { width: 90px; height: 130px; object-fit: cover; border-radius: 3px; background: #eee; }
 .book-info { font-size: 13px; color: #555; }
-.book-info h4 { font-size: 14px; color: #2c3e50; margin-bottom: 5px; height: 35px; overflow: hidden; }
+.book-info h4 { font-size: 14px; color: #2c3e50; margin-bottom: 5px; }
 .book-info span { font-weight: bold; color: #333; }
 
 /* PAMERAN */
@@ -154,6 +154,16 @@ p { line-height: 1.8; color: #34495e; margin-bottom: 15px; text-align: justify; 
 .pameran div { text-align: center; cursor: pointer; max-width: 150px; }
 .pameran img { width: 100%; border-radius: 8px; transition: 0.3s; }
 .pameran img:hover { transform: scale(1.05); }
+
+/* FOOTER */
+footer {
+    background: #1a252f;
+    color: #ecf0f1;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 3px solid #f1c40f;
+}
+footer p { margin-bottom: 8px; color: #bdc3c7; border: none; text-align: center; font-size: 14px; }
 
 /* SOCIAL LINKS */
 .social-links { margin-top: 20px; display: flex; gap: 15px; }
@@ -163,16 +173,6 @@ input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid 
 button { padding: 12px 25px; background: #2c3e50; color: white; border: none; cursor: pointer; font-weight: 600; }
 
 #registerForm { display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; }
-
-/* FOOTER */
-footer {
-    background: #1a252f;
-    color: #ecf0f1;
-    padding: 30px 20px;
-    text-align: center;
-    border-top: 3px solid #f1c40f;
-}
-footer p { color: #bdc3c7; font-size: 14px; margin-bottom: 5px; text-align: center; border: none; }
 
 /* POPUP */
 #popup {
@@ -236,7 +236,7 @@ window.onload = function() {
     <nav class="navbar navbar-expand-lg navbar-dark p-0">
         <div class="container-fluid px-4 py-2">
             <a class="navbar-brand" onclick="showSection('beranda')" style="cursor:pointer;">
-                ⭐ PRIME LIBRARY
+                📖 PRIME LIBRARY
             </a>
 
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -325,19 +325,19 @@ window.onload = function() {
     <div id="sejarah" class="content">
         <h2>Profil Perpustakaan</h2>
         <h3>Pengertian Prime Academic Library</h3>
-        <p>Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika.</p>
+        <p>Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas bagi mahasiswa serta civitas akademika.</p>
         <h3>Mengapa dinamakan Prime Academic Library</h3>
-        <p>Nama Prime Academic Library berasal dari tiga kata utama: <strong>Prime</strong> (Utama/Terbaik), <strong>Academic</strong> (Akademik), dan <strong>Library</strong> (Perpustakaan). Secara filosofis bermakna sumber utama informasi akademik yang unggul.</p>
+        <p>Nama ini berasal dari kata <strong>Prime</strong> (Utama), <strong>Academic</strong> (Akademik), dan <strong>Library</strong> (Perpustakaan). Mencerminkan visi kami sebagai sumber utama informasi pendidikan.</p>
     </div>
 
     <div id="visi" class="content">
         <h2>Visi & Misi</h2>
         <h3>Visi</h3>
-        <p>Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian, dan pengabdian kepada masyarakat berbasis teknologi dan literasi informasi.</p>
+        <p>Menjadi pusat informasi akademik unggulan yang mendukung pendidikan, penelitian, dan pengabdian masyarakat berbasis teknologi.</p>
         <h3>Misi</h3>
         <ul>
-            <li>Menyediakan koleksi akademik yang lengkap dan relevan.</li>
-            <li>Mengembangkan layanan berbasis digital.</li>
+            <li>Menyediakan koleksi akademik yang lengkap.</li>
+            <li>Mengembangkan layanan digital inovatif.</li>
             <li>Meningkatkan budaya literasi informasi.</li>
         </ul>
     </div>
@@ -345,9 +345,9 @@ window.onload = function() {
     <div id="tujuan" class="content">
         <h2>Tujuan</h2>
         <ul>
-            <li>Mendukung proses pembelajaran mahasiswa dan dosen.</li>
-            <li>Menyediakan akses informasi yang cepat dan akurat.</li>
-            <li>Mewujudkan perpustakaan sebagai pusat literasi dan riset.</li>
+            <li>Mendukung proses pembelajaran.</li>
+            <li>Menyediakan akses informasi cepat dan akurat.</li>
+            <li>Mewujudkan pusat literasi dan riset.</li>
         </ul>
     </div>
 
@@ -379,27 +379,27 @@ window.onload = function() {
                 </div>
             </div>
             <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200">
+                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=200">
                 <div class="book-info">
-                    <h4>Etika Komunikasi Digital</h4>
-                    <p><span>Pengarang:</span> Dr. Rina Wijaya</p>
-                    <p><span>Penerbit:</span> Global Press</p>
+                    <h4>Statistik Terapan Riset</h4>
+                    <p><span>Pengarang:</span> Dr. Irwan Syah</p>
+                    <p><span>Penerbit:</span> Pustaka Mandiri</p>
                 </div>
             </div>
             <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=200">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200">
                 <div class="book-info">
-                    <h4>Statistik untuk Penelitian</h4>
-                    <p><span>Pengarang:</span> Ir. Bambang S.</p>
-                    <p><span>Penerbit:</span> Data Ilmu</p>
+                    <h4>Etika Komunikasi Publik</h4>
+                    <p><span>Pengarang:</span> Maya Sartika</p>
+                    <p><span>Penerbit:</span> Global Media</p>
                 </div>
             </div>
             <div class="book-card">
                 <img src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?w=200">
                 <div class="book-info">
-                    <h4>Filsafat Ilmu & Logika</h4>
-                    <p><span>Pengarang:</span> Maulana Aziz</p>
-                    <p><span>Penerbit:</span> Pustaka Obor</p>
+                    <h4>Logika dan Algoritma</h4>
+                    <p><span>Pengarang:</span> Budi Santoso</p>
+                    <p><span>Penerbit:</span> Tech Press</p>
                 </div>
             </div>
         </div>
@@ -421,23 +421,23 @@ window.onload = function() {
                 <div class="book-info">
                     <h4>E-Book: Database Systems</h4>
                     <p><span>Pengarang:</span> Kevin Smith</p>
-                    <p><span>Format:</span> PDF / Digital</p>
+                    <p><span>Tahun:</span> 2024</p>
                 </div>
             </div>
             <div class="book-card">
                 <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=200">
                 <div class="book-info">
-                    <h4>International Journal of AI</h4>
-                    <p><span>Volume:</span> Issue 4 (2024)</p>
-                    <p><span>Penerbit:</span> Tech Science</p>
+                    <h4>International Tech Journal</h4>
+                    <p><span>Volume:</span> Issue 5 (2025)</p>
+                    <p><span>Penerbit:</span> Elsevier Lab</p>
                 </div>
             </div>
             <div class="book-card">
                 <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=200">
                 <div class="book-info">
-                    <h4>E-Book: Cyber Security 101</h4>
-                    <p><span>Pengarang:</span> Mark Spencer</p>
-                    <p><span>Format:</span> EPUB / PDF</p>
+                    <h4>Cyber Security Essentials</h4>
+                    <p><span>Pengarang:</span> Mark J.</p>
+                    <p><span>Format:</span> PDF Digital</p>
                 </div>
             </div>
         </div>
@@ -446,10 +446,9 @@ window.onload = function() {
     <div id="lay-fasilitas" class="content">
         <h2>Layanan & Fasilitas</h2>
         <ul>
-            <li>Peminjaman dan Pengembalian Buku</li>
-            <li>Akses E-Resources (E-Journal & E-Book)</li>
-            <li>Ruang Diskusi & Meja Baca Mandiri</li>
-            <li>Fasilitas Wi-Fi & Komputer Publik</li>
+            <li>Peminjaman Buku Fisik</li>
+            <li>Akses E-Resources</li>
+            <li>Ruang Diskusi & Wi-Fi</li>
         </ul>
     </div>
 
@@ -460,18 +459,17 @@ window.onload = function() {
     </div>
 
     <div id="event" class="content">
-        <h2>Pameran Buku Tahunan</h2>
+        <h2>Event Perpustakaan</h2>
         <div class="pameran">
-            <div onclick="openPopup('Pameran Literasi','Mempromosikan budaya membaca buku di kalangan mahasiswa.')">
+            <div onclick="openPopup('Pameran Literasi','Mempromosikan budaya membaca.')">
                 <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=200">
                 <p>Pameran Literasi</p>
             </div>
-            <div onclick="openPopup('Workshop Jurnal','Pelatihan penulisan jurnal ilmiah internasional.')">
+            <div onclick="openPopup('Workshop Jurnal','Pelatihan penulisan ilmiah.')">
                 <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200">
                 <p>Workshop Jurnal</p>
             </div>
         </div>
-        <p style="text-align:center; margin-top:20px;">📅 25 Juli 2026 | 📍 Perpustakaan</p>
     </div>
 
     <div id="about" class="content">
@@ -489,11 +487,6 @@ window.onload = function() {
         <input type="email" placeholder="Email">
         <input type="password" placeholder="Password">
         <button>Login</button>
-        <div id="registerForm">
-            <h3>Daftar Member</h3>
-            <input type="text" placeholder="Full Name">
-            <button>Daftar</button>
-        </div>
     </div>
 
     <div id="forum" class="content">
@@ -501,16 +494,15 @@ window.onload = function() {
         <textarea rows="4" placeholder="Tuliskan pesan..."></textarea>
         <button>Kirim Pesan</button>
     </div>
-
 </div>
 
 <footer>
     <div class="container">
-        <h4 style="color:#f1c40f; margin-bottom: 15px;">PRIME ACADEMIC LIBRARY</h4>
-        <p>Email: library@primeacademic.ac.id</p>
-        <p>Telepon: 081375400765</p>
-        <hr style="border-color: rgba(255,255,255,0.1); margin: 20px 0;">
-        <p>&copy; 2026 Prime Academic Library. All Rights Reserved.</p>
+        <h4 style="color:#f1c40f; margin-bottom: 10px;">PRIME ACADEMIC LIBRARY</h4>
+        <p>Hubungi Kami:</p>
+        <p>📧 Email: library@primeacademic.ac.id</p>
+        <p>📞 Telepon: 081375400765</p>
+        <p style="font-size: 12px; margin-top: 20px; opacity: 0.6;">&copy; 2026 Prime Academic Library. All Rights Reserved.</p>
     </div>
 </footer>
 
