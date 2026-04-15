@@ -13,6 +13,11 @@
     margin:0; padding:0; box-sizing:border-box;
 }
 
+:root {
+    --biru-primer: #003366; /* Biru Gelap Profesional */
+    --biru-terang: #3498db;
+}
+
 body {
     font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
@@ -24,19 +29,34 @@ body {
 }
 
 .overlay {
-    background: rgba(0, 0, 0, 0.5); /* Overlay lebih gelap agar teks Hero jelas */
+    background: rgba(0, 20, 40, 0.6); /* Overlay Kebiruan */
     min-height: 100vh;
     width: 100%;
 }
 
 /* --- NAVBAR --- */
 nav {
-    background: #1a252f;
+    background: var(--biru-primer); /* Ganti Hitam ke Biru */
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     padding: 10px 0;
+}
+
+/* LOGO WEB MENARIK */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.navbar-brand::before {
+    content: "P";
+    background: white;
+    color: var(--biru-primer);
+    padding: 2px 12px;
+    border-radius: 5px;
+    font-weight: 900;
 }
 
 nav a {
@@ -49,11 +69,11 @@ nav a {
     transition: all 0.3s ease;
 }
 
-nav a:hover { color: #f1c40f !important; }
+nav a:hover { color: var(--biru-terang) !important; } /* Kuning diganti Biru Terang */
 
 /* Dropdown Custom */
 .dropdown-menu {
-    background-color: #1a252f;
+    background-color: var(--biru-primer);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 8px;
     padding: 10px 0;
@@ -65,7 +85,7 @@ nav a:hover { color: #f1c40f !important; }
 }
 .dropdown-item:hover {
     background-color: #2c3e50;
-    color: #f1c40f !important;
+    color: var(--biru-terang) !important;
 }
 
 /* --- HERO SECTION --- */
@@ -86,7 +106,7 @@ nav a:hover { color: #f1c40f !important; }
     max-width: 750px;
     display: flex;
     padding: 6px;
-    border-radius: 50px; /* Modern Rounded */
+    border-radius: 50px; 
     box-shadow: 0 15px 35px rgba(0,0,0,0.4);
     margin-top: 30px;
     overflow: hidden;
@@ -101,8 +121,8 @@ nav a:hover { color: #f1c40f !important; }
 }
 
 .main-search-bar button {
-    background: #f1c40f;
-    color: #1a252f;
+    background: var(--biru-terang); /* Kuning jadi Biru */
+    color: white;
     border: none;
     padding: 0 35px;
     font-weight: bold;
@@ -110,7 +130,7 @@ nav a:hover { color: #f1c40f !important; }
     cursor: pointer;
     transition: 0.3s;
 }
-.main-search-bar button:hover { background: #d4ac0d; }
+.main-search-bar button:hover { background: var(--biru-primer); }
 
 /* --- CONTENT BOX --- */
 .content {
@@ -132,8 +152,8 @@ nav a:hover { color: #f1c40f !important; }
 .active { display: block; }
 
 h1, h2 { 
-    color: #1a252f; 
-    border-bottom: 4px solid #f1c40f; 
+    color: var(--biru-primer); 
+    border-bottom: 4px solid var(--biru-terang); /* Garis Kuning jadi Biru */
     display: inline-block;
     padding-bottom: 8px; 
     margin-bottom: 30px; 
@@ -167,8 +187,23 @@ p { line-height: 1.8; color: #444; margin-bottom: 20px; text-align: justify; }
     object-fit: cover; 
     border-radius: 6px; 
 }
+
+/* TOMBOL PDF AKSES SEMUA ORANG */
+.btn-pdf {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 12px;
+    background: #e74c3c;
+    color: white !important;
+    font-size: 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-pdf:hover { background: #c0392b; }
+
 .book-info { font-size: 13.5px; color: #555; }
-.book-info h4 { font-size: 15px; color: #1a252f; margin-bottom: 8px; line-height: 1.4; }
+.book-info h4 { font-size: 15px; color: var(--biru-primer); margin-bottom: 8px; line-height: 1.4; }
 .book-info span { font-weight: bold; color: #2c3e50; }
 
 /* --- PAMERAN --- */
@@ -184,11 +219,11 @@ p { line-height: 1.8; color: #444; margin-bottom: 20px; text-align: justify; }
 /* --- SOSIAL MEDIA & FORM --- */
 .social-links { margin-top: 25px; display: flex; gap: 12px; }
 .social-links a { 
-    text-decoration: none; background: #1a252f; color: white; 
+    text-decoration: none; background: var(--biru-primer); color: white; 
     padding: 10px 20px; border-radius: 6px; font-size: 14px; 
     transition: 0.3s; 
 }
-.social-links a:hover { background: #f1c40f; color: #1a252f; }
+.social-links a:hover { background: var(--biru-terang); color: white; }
 
 input, textarea { 
     width: 100%; padding: 14px; margin: 12px 0; 
@@ -196,7 +231,7 @@ input, textarea {
     background: #fdfdfd; 
 }
 button.submit-btn { 
-    padding: 14px 30px; background: #1a252f; color: white; 
+    padding: 14px 30px; background: var(--biru-primer); color: white; 
     border: none; border-radius: 8px; cursor: pointer; 
     font-weight: 600; transition: 0.3s; 
 }
@@ -217,8 +252,8 @@ button.submit-btn:hover { background: #2c3e50; transform: scale(1.02); }
 }
 
 /* --- FOOTER --- */
-footer { background:#1a252f; color:#ecf0f1; padding:50px 20px; text-align:center; }
-footer h4 { color: #f1c40f; margin-bottom: 20px; }
+footer { background: var(--biru-primer); color:#ecf0f1; padding:50px 20px; text-align:center; }
+footer h4 { color: var(--biru-terang); margin-bottom: 20px; }
 footer p { text-align: center; font-size: 14px; color: #bdc3c7; }
 </style>
 
@@ -347,6 +382,7 @@ window.onload = function() {
                 <div class="book-info">
                     <h4>Manajemen Perpustakaan Modern</h4>
                     <p><span>Pengarang:</span> Ahmad Salim, M.Hum</p>
+                    <a href="#" class="btn-pdf">Lihat PDF</a>
                 </div>
             </div>
             <div class="book-card">
@@ -354,6 +390,7 @@ window.onload = function() {
                 <div class="book-info">
                     <h4>Metodologi Penelitian Ilmiah</h4>
                     <p><span>Pengarang:</span> Prof. Siti Aminah</p>
+                    <a href="#" class="btn-pdf">Lihat PDF</a>
                 </div>
             </div>
         </div>
@@ -362,9 +399,9 @@ window.onload = function() {
     <div id="sejarah" class="content">
         <h2>Profil Perpustakaan</h2>
         <h3>Pengertian Prime Academic Library</h3>
-        <p>Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika. Perpustakaan ini hadir sebagai pusat literasi, penelitian, dan pengembangan ilmu pengetahuan.</p>
+        <p>Prime Academic Library merupakan perpustakaan perguruan tinggi yang berfokus pada penyediaan sumber informasi akademik berkualitas, terpercaya, dan relevan bagi mahasiswa serta civitas akademika.</p>
         <h3>Mengapa dinamakan Prime Academic Library</h3>
-        <p>Nama Prime Academic Library berasal dari tiga kata utama yang memiliki makna penting. <strong>Prime</strong> berarti utama atau yang terbaik, yang menggambarkan perpustakaan sebagai sumber informasi yang unggul dan berkualitas. <strong>Academic</strong> berarti akademik, yang menunjukkan bahwa perpustakaan ini berfokus pada kebutuhan pendidikan, penelitian, dan pengembangan ilmu pengetahuan. <strong>Library</strong> berarti perpustakaan sebagai tempat pengelolaan serta penyediaan berbagai sumber informasi. Dari makna tersebut, maka dibentuklah nama <strong>Prime Academic Library</strong> sebagai perpustakaan yang menjadi sumber utama informasi akademik bagi mahasiswa dan civitas akademika.</p>
+        <p>Nama Prime Academic Library berasal dari tiga kata utama: <strong>Prime</strong> (Utama), <strong>Academic</strong> (Akademik), dan <strong>Library</strong> (Perpustakaan).</p>
     </div>
 
     <div id="visi" class="content">
@@ -400,6 +437,7 @@ window.onload = function() {
                     <p><span>Pengarang:</span> Ahmad Salim, M.Hum</p>
                     <p><span>Penerbit:</span> Pustaka Akademika</p>
                     <p><span>ISBN:</span> 978-602-1234-56-7</p>
+                    <a href="#" class="btn-pdf">Lihat PDF</a>
                 </div>
             </div>
             <div class="book-card">
@@ -409,6 +447,7 @@ window.onload = function() {
                     <p><span>Pengarang:</span> Prof. Siti Aminah</p>
                     <p><span>Penerbit:</span> Univ Press</p>
                     <p><span>ISBN:</span> 978-623-9876-54-3</p>
+                    <a href="#" class="btn-pdf">Lihat PDF</a>
                 </div>
             </div>
             <div class="book-card">
@@ -418,6 +457,7 @@ window.onload = function() {
                     <p><span>Pengarang:</span> Drs. Wahyu Hidayat</p>
                     <p><span>Penerbit:</span> Media Sains</p>
                     <p><span>ISBN:</span> 978-602-4455-11-2</p>
+                    <a href="#" class="btn-pdf">Lihat PDF</a>
                 </div>
             </div>
         </div>
@@ -430,36 +470,16 @@ window.onload = function() {
                 <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=300">
                 <div class="book-info">
                     <h4>Journal of Global Academic</h4>
-                    <p><span>Volume:</span> Vol. 10 No. 2 (2025)</p>
-                    <p><span>Editor:</span> Board of Science</p>
                     <p><span>ISSN:</span> 2088-9988</p>
+                    <a href="#" class="btn-pdf">Lihat PDF</a>
                 </div>
             </div>
             <div class="book-card">
                 <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300">
                 <div class="book-info">
                     <h4>E-Book: Database Systems</h4>
-                    <p><span>Pengarang:</span> Kevin Smith</p>
-                    <p><span>Format:</span> PDF / Digital</p>
                     <p><span>Tahun:</span> 2024</p>
-                </div>
-            </div>
-            <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300">
-                <div class="book-info">
-                    <h4>Information Retrieval Systems</h4>
-                    <p><span>Pengarang:</span> Dr. Budi Santoso</p>
-                    <p><span>Penerbit:</span> Informatika Press</p>
-                    <p><span>ISBN:</span> 978-602-8899-22-1</p>
-                </div>
-            </div>
-            <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=300">
-                <div class="book-info">
-                    <h4>Digital Library Management</h4>
-                    <p><span>Pengarang:</span> Lisa Andriani, M.Kom</p>
-                    <p><span>Penerbit:</span> Tech Library</p>
-                    <p><span>ISBN:</span> 978-623-1111-88-9</p>
+                    <a href="#" class="btn-pdf">Lihat PDF</a>
                 </div>
             </div>
         </div>
@@ -477,7 +497,7 @@ window.onload = function() {
 
     <div id="lay-jam" class="content">
         <h2>Jam Layanan</h2>
-        <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 6px solid #f1c40f;">
+        <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 6px solid var(--biru-terang);">
             <p><strong>Senin - Kamis:</strong> 08:30 - 17:00 WIB</p>
             <p><strong>Jumat:</strong> 08:30 - 11:30 | 13:30 - 17:00 WIB</p>
             <p><strong>Sabtu - Minggu:</strong> Tutup</p>
@@ -495,13 +515,13 @@ window.onload = function() {
                 <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400">
                 <p style="margin-top:10px; font-weight:bold;">Workshop Jurnal</p>
             </div>
-            <div onclick="openPopup('Seminar Perpustakaan','Membahas peran AI dalam perpustakaan masa depan.')">
+            <div onclick="openPopup('Seminar Perpustakaan','Seminar tren perpustakaan masa depan.')">
                 <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400">
                 <p style="margin-top:10px; font-weight:bold;">Seminar Akademik</p>
             </div>
         </div>
         <h3 style="text-align:center; margin-top:40px;">Jadwal Terdekat</h3>
-        <p style="text-align:center; background: #2c3e50; color: white; padding: 15px; border-radius: 50px; display: inline-block; margin: 0 auto; width: 100%; max-width: 500px;">
+        <p style="text-align:center; background: var(--biru-primer); color: white; padding: 15px; border-radius: 50px; display: inline-block; margin: 0 auto; width: 100%; max-width: 500px;">
             📅 25 Juli 2026 | ⏰ 09.00 WIB | 📍 Perpustakaan
         </p>
     </div>
@@ -516,7 +536,7 @@ window.onload = function() {
         <div class="social-links">
             <a href="https://www.instagram.com/nopitaa21_?igsh=MXJwanA2Y2s1M3Fueg==" target="_blank">Instagram</a>
             <a href="https://youtu.be/Dji6ApR56tk?si=U6hPangv5BJ_NFRv" target="_blank">YouTube</a>
-            <a href="https://drive.google.com/file/d/1nWRf5GGhXtakvI44KvlGuE7v0zw2-ip_/view?usp=drive_link" target="_blank">Download CV</a>
+            <a href="#" target="_blank">Download CV</a>
         </div>
     </div>
 
@@ -528,14 +548,10 @@ window.onload = function() {
             <button class="submit-btn" style="width: 100%;">Login Sekarang</button>
             <p style="margin-top:20px; text-align:center;">Belum punya akun? <a onclick="bukaRegister()" style="color:#2980b9; cursor:pointer; font-weight:bold;">Klik di sini</a></p>
             
-            <div id="registerForm">
+            <div id="registerForm" style="display:none;">
                 <h3 style="border:none; text-align:center;">Daftar Member</h3>
-                <div style="display:flex; gap:10px;">
-                    <input type="text" placeholder="First Name">
-                    <input type="text" placeholder="Last Name">
-                </div>
+                <input type="text" placeholder="Nama Lengkap">
                 <input type="email" placeholder="Email">
-                <input type="text" placeholder="No HP">
                 <input type="password" placeholder="Password">
                 <button class="submit-btn" style="width: 100%;">Daftar Member</button>
             </div>
